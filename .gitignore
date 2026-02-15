@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Apple Specific
-.DS_Store
+.DS_Store 
