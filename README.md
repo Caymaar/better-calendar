@@ -1,6 +1,10 @@
 # Better Calendar
 
-A unified Python library for managing business day calendars and holidays across different sources:
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+[![Downloads](https://pepy.tech/badge/better-calendar)](https://pepy.tech/project/better-calendar)
+
+A unified Python library for managing business day calendars and holidays across different sources, such as exchanges, countries or risk-free rates.
 
 - **Exchanges**: Trading calendars via `exchange-calendars` (XPAR, XNYS, XLON, etc.)
 - **Countries**: National holidays via `workalendar` (FR, US, GB, etc.)
