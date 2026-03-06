@@ -5,7 +5,7 @@ from typing import Union, Literal, Any
 
 PandasTimestamp = Any
 DateLike = Union[dt.date, dt.datetime, str, np.datetime64, PandasTimestamp, Any]
-OutputType = Literal["date", "numpy", "datetime", "str", "pandas"]
+OutputType = Literal["date", "numpy", "datetime", "pandas", "str"]  # str is for custom strftime formats (e.g. "%Y-%m-%d")
 
 def _parse_date_str(s: str, dayfirst: bool = True) -> dt.date:
     """
@@ -72,26 +72,23 @@ def _parse_date_str(s: str, dayfirst: bool = True) -> dt.date:
     except ValueError as e:
         raise ValueError(f"Invalid calendar date parsed from {s!r}: (y={y}, m={m}, d={d}).") from e
 
-
-def _to_internal_date(x: DateLike, *, dayfirst: bool = True) -> np.datetime64:
+def _to_internal_date(x: DateLike, *, input_format: str = "%d-%m-%Y") -> np.datetime64:
     """
     Convert various date-like inputs to internal np.datetime64[D] format.
 
     Supported input types :
         - np.datetime64 (will be converted to D precision)
         - datetime.date and datetime.datetime (time part ignored)
-        - str (parsed robustly, see _parse_date_str)
+        - str (parsed using input_format)
         - pandas.Timestamp (if installed, time part ignored)
 
     Parameters
     ----------
     x: DateLike
         The input date to convert.
-    dayfirst: bool, default True
-        When parsing strings without a clear year-first format, interpret them as day-first.
-        Example: 
-            - If True, "01-02-2020" => 1st Feb 2020
-            - If False, "01-02-2020" => Jan 2nd 2020.
+    input_format: str, default "%d-%m-%Y"
+        The strftime format to use when parsing string inputs.
+        Examples: "%d-%m-%Y" for "31-01-2025", "%Y-%m-%d" for "2025-01-31".
 
     Returns
     -------
@@ -100,26 +97,41 @@ def _to_internal_date(x: DateLike, *, dayfirst: bool = True) -> np.datetime64:
     """
     if isinstance(x, np.datetime64):
         return x.astype("datetime64[D]")
+    
     if isinstance(x, dt.datetime):
-        return np.datetime64(x.date()).astype("datetime64[D]")
+        return np.datetime64(x.date(), "D")
+    
     if isinstance(x, dt.date):
-        return np.datetime64(x).astype("datetime64[D]")
+        return np.datetime64(x, "D")
+    
     if isinstance(x, str):
-        return np.datetime64(_parse_date_str(x, dayfirst=dayfirst)).astype("datetime64[D]")
+        try:
+            parsed_date = dt.datetime.strptime(x.strip(), input_format).date()
+            return np.datetime64(parsed_date, "D")
+        except ValueError as e:
+            raise ValueError(
+                f"Cannot parse date string {x!r} with format {input_format!r}. "
+                f"Original error: {e}"
+            ) from e
+    
+    # Try pandas.Timestamp
     try:
         import pandas as pd
         if isinstance(x, pd.Timestamp):
-            return np.datetime64(x.to_pydatetime().date()).astype("datetime64[D]")
-    except Exception:
+            return np.datetime64(x.date(), "D")
+    except ImportError:
         pass
+    
+    # Fallback: try to_pydatetime method
     if hasattr(x, "to_pydatetime"):
         try:
             py = x.to_pydatetime()
             if isinstance(py, dt.datetime):
-                return np.datetime64(py.date()).astype("datetime64[D]")
+                return np.datetime64(py.date(), "D")
         except Exception:
             pass
-    raise ValueError(f"Unsupported date type: {type(x)}")
+    
+    raise ValueError(f"Unsupported date type: {type(x).__name__}. Expected date-like object.")
 
 def _d64_to_pydate(d64: np.datetime64) -> dt.date:
     """
@@ -138,20 +150,16 @@ def _d64_to_pydate(d64: np.datetime64) -> dt.date:
     s = np.datetime_as_string(d64.astype("datetime64[D]"), unit="D")
     return dt.date.fromisoformat(s)
 
-def _from_internal_date(d64: np.datetime64, output: OutputType, *, str_sep: str = "-", dayfirst: bool = True):
+def _from_internal_date(d64: np.datetime64, output: OutputType):
     """
-    Convert invertal date in np.datetime64[D] format to the desired output format.
+    Convert internal date in np.datetime64[D] format to the desired output format.
 
     Parameters
     ----------
     d64: np.datetime64
         The input date in np.datetime64[D] format.
     output: OutputType
-        The desired output format: "date", "numpy", "datetime", "str", or "pandas".
-    str_sep: str, default "-"
-        If output is "str", the separator to use between year, month, and day (default is "-").
-    dayfirst: bool, default True
-        When output is "str", whether to use day-first format (e.g. "01-02-2020" => 1st Feb 2020).
+        The desired output format: "date", "numpy", "datetime", "pandas", or a strftime format string (e.g. "%Y-%m-%d").
     """
     d64 = d64.astype("datetime64[D]")
     if output == "numpy":
@@ -160,18 +168,16 @@ def _from_internal_date(d64: np.datetime64, output: OutputType, *, str_sep: str 
         return _d64_to_pydate(d64)
     if output == "datetime":
         return dt.datetime.combine(_d64_to_pydate(d64), dt.time())
-    if output == "str":
-        iso = np.datetime_as_string(d64, unit="D")
-        if dayfirst:
-            y, m, d = iso.split("-")
-            iso = f"{d}-{m}-{y}"
-        if str_sep == "-":
-            return iso
-        return iso.replace("-", str_sep)
     if output == "pandas":
         try:
             import pandas as pd
         except Exception as e:
             raise ImportError("pandas is required for output='pandas'") from e
         return pd.Timestamp(_d64_to_pydate(d64))
+    
+    # Si output n'est pas un des types prédéfinis, on le traite comme un format strftime
+    if isinstance(output, str):
+        py_date = _d64_to_pydate(d64)
+        return py_date.strftime(output)
+    
     raise ValueError(f"Unknown output type: {output!r}")

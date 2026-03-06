@@ -91,7 +91,7 @@ class ExchangeMaskBuilder(AbstractMaskBuilder):
         start_s = np.datetime_as_string(universe.start64, unit="D")
         end_s = np.datetime_as_string(universe.end64, unit="D")
 
-        sched = cal.schedule(start_date=start_s, end_date=end_s)
+        sched = cal.schedule(start_date=str(start_s), end_date=str(end_s))
 
         idx = sched.index
         if getattr(idx, "tz", None) is not None:

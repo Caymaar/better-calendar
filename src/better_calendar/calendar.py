@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import datetime as dt
-from typing import Tuple, Tuple, Union, Iterable, Optional, List, Dict
+from typing import Tuple, Union, Iterable, Optional, List, Dict
 
 from .utils import DateLike, OutputType
 from .date_universe import DateUniverse
@@ -26,13 +26,11 @@ class Calendar:
 
     def __init__(self,
                  calendar_code: Union[str, Iterable[str]] = "DEFAULT",
-                 start_date: DateLike = "1970-01-01",
-                 end_date: DateLike = "2100-12-31",
+                 start_date: DateLike = dt.date(1970, 1, 1),
+                 end_date: DateLike = dt.date(2100, 12, 31),
                  *,
                  date_type: OutputType = "date",
-                 multiple_calendars_mode: str = "union",
-                 day_first: bool = True,
-                 str_sep: str = "-"):
+                 multiple_calendars_mode: str = "union"):
         """
         Parameters
         ----------
@@ -54,15 +52,13 @@ class Calendar:
         str_sep: str, default "-"
             When output is "str", the separator to use between year, month, and day (default is "-").
         """
-        self.dayfirst = day_first
-        self.str_sep = str_sep
         self.output = date_type
 
         self.calendar_code = calendar_code
         self.multiple_calendars_mode = multiple_calendars_mode
 
-        self.start_date: np.datetime64 = _to_internal_date(start_date, dayfirst=day_first)
-        self.end_date: np.datetime64 = _to_internal_date(end_date, dayfirst=day_first)
+        self.start_date: np.datetime64 = _to_internal_date(start_date, input_format=date_type)
+        self.end_date: np.datetime64 = _to_internal_date(end_date, input_format=date_type)
         
         self.universe = DateUniverse(start=self.start_date, end=self.end_date)
         self.business_mask: np.ndarray = self._create_mask()
@@ -93,7 +89,7 @@ class Calendar:
         final_mask = None
         for code in codes:
 
-            if not code in CALENDAR_CODES:
+            if code not in CALENDAR_CODES:
                 raise ValueError(f"Unknown calendar code: {code}")
             
             provider_class, provider_code = CALENDAR_CODES[code]
@@ -136,8 +132,8 @@ class Calendar:
         tuple[int, int]
             The start and end indices corresponding to the given start and end dates.
         """
-        s = self.universe.start64 if start is None else _to_internal_date(start, dayfirst=self.dayfirst)
-        e = self.universe.end64 if end is None else _to_internal_date(end, dayfirst=self.dayfirst)
+        s = self.universe.start64 if start is None else _to_internal_date(start, input_format=self.output)
+        e = self.universe.end64 if end is None else _to_internal_date(end, input_format=self.output)
         i0 = self.universe.locate(s)
         i1 = self.universe.locate(e)
         if i1 < i0:
@@ -237,13 +233,13 @@ class Calendar:
         override_mask = np.zeros(len(self.universe), dtype=bool)
 
         if new_business_days is not None:
-            new_business_days = [_to_internal_date(d, dayfirst=self.dayfirst) for d in new_business_days]
+            new_business_days = [_to_internal_date(d, input_format=self.output) for d in new_business_days]
             for d in new_business_days:
                 i = self.universe.locate(d)
                 override_mask[i] = True
 
         if new_non_business_days is not None:
-            new_non_business_days = [_to_internal_date(d, dayfirst=self.dayfirst) for d in new_non_business_days]
+            new_non_business_days = [_to_internal_date(d, input_format=self.output) for d in new_non_business_days]
             for d in new_non_business_days:
                 i = self.universe.locate(d)
                 override_mask[i] = False
@@ -273,7 +269,7 @@ class Calendar:
         int
             The weekday of the given date from 1 to 7.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return self.universe.weekday[i]
     
@@ -291,7 +287,7 @@ class Calendar:
         int
             The week number of the given date from 1 to 53.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return self.universe.week[i]
     
@@ -309,7 +305,7 @@ class Calendar:
         int
             The quarter of the given date from 1 to 4.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return self.universe.quarter[i]
     
@@ -327,7 +323,7 @@ class Calendar:
         int
             The semester of the given date (1 or 2).
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return self.universe.semester[i]
     
@@ -349,7 +345,7 @@ class Calendar:
         bool
             True if the given date is a business day, False otherwise.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return bool(self.business_mask[i])
     
@@ -383,7 +379,7 @@ class Calendar:
         bool
             True if the given date is a weekend, False otherwise.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         i = self.universe.locate(d64)
         return bool(self.universe.weekday[i] >= 6)
     
@@ -435,8 +431,8 @@ class Calendar:
         List[OutputType]
             The list of business days in the given range, in the output format selected at calendar construction.
         """
-        start_date = self.start_date if start_date is None else _to_internal_date(start_date, dayfirst=self.dayfirst)
-        end_date = self.end_date if end_date is None else _to_internal_date(end_date, dayfirst=self.dayfirst)
+        start_date = self.start_date if start_date is None else _to_internal_date(start_date, input_format=self.output)
+        end_date = self.end_date if end_date is None else _to_internal_date(end_date, input_format=self.output)
 
         i0, i1 = self._range_indices(start_date, end_date)
         pos = self.business_position
@@ -444,7 +440,7 @@ class Calendar:
         right = np.searchsorted(pos, i1, side="right")
         out64 = self.universe.days[pos[left:right]]
 
-        return [_from_internal_date(d, self.output, str_sep=self.str_sep, dayfirst=self.dayfirst) for d in out64]
+        return [_from_internal_date(d, self.output) for d in out64]
     
     def non_business_days(self, start_date: Optional[DateLike] = None, end_date: Optional[DateLike] = None) -> List[OutputType]:
         """
@@ -468,7 +464,7 @@ class Calendar:
         mask = np.isin(all_pos, bus_pos, assume_unique=True, invert=True)
         out64 = self.universe.days[all_pos[mask]]
 
-        return [_from_internal_date(d, self.output, str_sep=self.str_sep, dayfirst=self.dayfirst) for d in out64]
+        return [_from_internal_date(d, self.output) for d in out64]
     
     def days_between(self,
                      start_date: Optional[DateLike] = None,
@@ -495,8 +491,8 @@ class Calendar:
         if end_date is None:
             end_date = self.end_date
 
-        d1 = _to_internal_date(start_date, dayfirst=self.dayfirst)
-        d2 = _to_internal_date(end_date, dayfirst=self.dayfirst)
+        d1 = _to_internal_date(start_date, input_format=self.output)
+        d2 = _to_internal_date(end_date, input_format=self.output)
         i1 = self.universe.locate(d1)
         i2 = self.universe.locate(d2)
 
@@ -547,7 +543,7 @@ class Calendar:
         OutputType
             The resulting date in the wanted output format selected at calendar construction.
         """
-        d64 = _to_internal_date(day, dayfirst=self.dayfirst)
+        d64 = _to_internal_date(day, input_format=self.output)
         if d64 < self.start_date or d64 > self.end_date:
             raise ValueError(f"Date {day} is outside the calendar range [{self.start_date}, {self.end_date}].")
         
@@ -567,7 +563,7 @@ class Calendar:
                 raise ValueError(f"Offset of {n} business days from {day} goes beyond the calendar start date {self.start_date}.")
             return_day = self.universe.days[self.business_position[k]]
 
-        return _from_internal_date(return_day, self.output, str_sep=self.str_sep, dayfirst=self.dayfirst)
+        return _from_internal_date(return_day, self.output)
         
     def next_business_day(self, day: DateLike) -> OutputType:
         """
@@ -661,7 +657,7 @@ class Calendar:
         sel = self._select_in_groups(pos, key, which)
         out64 = self.universe.days[sel]
 
-        return [_from_internal_date(d, self.output, str_sep=self.str_sep, dayfirst=self.dayfirst) for d in out64]
+        return [_from_internal_date(d, self.output) for d in out64]
 
     def schedule_calendar(self,
                           *,
@@ -721,7 +717,7 @@ class Calendar:
 
             pos = self._select_in_groups(pos, key, which)
 
-        return [_from_internal_date(d, self.output, str_sep=self.str_sep, dayfirst=self.dayfirst) for d in self.universe.days[pos]]
+        return [_from_internal_date(d, self.output) for d in self.universe.days[pos]]
     
     # -------------------------------------------------
     # 5. Visualization, information and export methods
