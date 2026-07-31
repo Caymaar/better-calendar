@@ -21,6 +21,9 @@ classifiers = [
 ]
 dependencies = ["numpy>=1.24"]
 
+[project.scripts]
+better-calendar = "better_calendar.cli:main"
+
 [project.optional-dependencies]
 pandas = ["pandas>=2.0"]
 exchange = ["exchange-calendars>=4.5"]
@@ -114,6 +117,17 @@ disallow_incomplete_defs = false
 module = ["pandas", "pandas.*"]
 ignore_missing_imports = true
 follow_untyped_imports = true
+
+[[tool.mypy.overrides]]
+# Provider upstreams are build-time only and ship no stubs; they are reached through
+# `require_upstream`, which hands back an untyped module on purpose.
+module = [
+    "exchange_calendars", "exchange_calendars.*",
+    "holidays", "holidays.*",
+    "QuantLib", "QuantLib.*",
+    "workalendar", "workalendar.*",
+]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 minversion = "8.0"

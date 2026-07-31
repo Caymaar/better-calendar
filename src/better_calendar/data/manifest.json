@@ -1,0 +1,6694 @@
+{
+  "format": 1,
+  "generated": "2026-07-31",
+  "requested_bounds": [
+    "1970-01-01",
+    "2100-12-31"
+  ],
+  "providers": {
+    "exchange_calendars": "4.5.6",
+    "python_holidays": "0.83",
+    "quantlib": "1.43",
+    "workalendar": "17.0.0"
+  },
+  "calendars": {
+    "AIXK": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "AIXK",
+      "bounds": [
+        "2017-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Almaty",
+      "session_start": "00:00:00",
+      "holidays": 1188,
+      "sha256": "b939bcebc5dbb62ceb0730f2cbcfbd043b5e004a27e4fe8bed739bd4f361cd6a"
+    },
+    "ASEX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "ASEX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Athens",
+      "session_start": "00:00:00",
+      "holidays": 1281,
+      "sha256": "d094f7f51a186a21771b673c061d4b15f8059328758ad0fe00fe3c480b2a3624"
+    },
+    "BVMF": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "BVMF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Sao_Paulo",
+      "session_start": "00:00:00",
+      "holidays": 1619,
+      "sha256": "1d590fa28b05956ce2f0db71ca3df50bbb6c80cf8185f8f68973da33e1cf1b6f"
+    },
+    "CMES": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "CMES",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Chicago",
+      "session_start": "00:00:00",
+      "holidays": 380,
+      "sha256": "72c67e2b05ec1fa9dc22a86869a00e0f98eb7e157db000d3fca655c877118e57"
+    },
+    "IEPA": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "IEPA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/New_York",
+      "session_start": "00:00:00",
+      "holidays": 381,
+      "sha256": "58f2d8ff61f39cfd71ac7e9b408dd1f6e0c23dc948442502fe9ac60337c608d7"
+    },
+    "XAMS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XAMS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Amsterdam",
+      "session_start": "00:00:00",
+      "holidays": 743,
+      "sha256": "a204ac215726cf616918d8ba7955771ee4908fcb0b2c0ce197ae571fa91aa298"
+    },
+    "XASX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XASX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Australia/Sydney",
+      "session_start": "00:00:00",
+      "holidays": 1013,
+      "sha256": "affe30d06815e6b5ae797874a3ad7cc7cde889940031e0924173252e5863aa94"
+    },
+    "XBKK": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBKK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Bangkok",
+      "session_start": "00:00:00",
+      "holidays": 1883,
+      "sha256": "76ea6878abc1f1e0c99cf89ddcf35f1480112f0d6ebe5665a28d7fcc04a049e5"
+    },
+    "XBOG": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBOG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/New_York",
+      "session_start": "00:00:00",
+      "holidays": 2240,
+      "sha256": "e9e248f9b002d4a5288ad0f8bebad9ef582fac47fbd7deefcdeda577696d92f7"
+    },
+    "XBOM": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBOM",
+      "bounds": [
+        "1997-01-01",
+        "2024-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Kolkata",
+      "session_start": "00:00:00",
+      "holidays": 378,
+      "sha256": "6bf63f44618d7c56a6f23608d0050b2ee1b13b7ebd62b28bc0ddac7face8ad4d"
+    },
+    "XBRU": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBRU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Brussels",
+      "session_start": "00:00:00",
+      "holidays": 743,
+      "sha256": "4aa769f5bccaabbbfb2b679258f4a0f3e22847d7b4ff5ec5f328423f82c726a2"
+    },
+    "XBSE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Bucharest",
+      "session_start": "00:00:00",
+      "holidays": 1080,
+      "sha256": "4adfe3f80976376165827e5ca3e6031148452815f61793c7c31d2408316f83c8"
+    },
+    "XBUD": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBUD",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Budapest",
+      "session_start": "00:00:00",
+      "holidays": 1483,
+      "sha256": "e4fd413e6ad8fb932a8a5b331385169ae1f2dfe4e6e5643a2c2e2718525abeec"
+    },
+    "XBUE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XBUE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Argentina/Buenos_Aires",
+      "session_start": "00:00:00",
+      "holidays": 1755,
+      "sha256": "3f045e7f18cdde1f583d1e657c9656b49fbda854d58744410acdc05f28c1fade"
+    },
+    "XCBF": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XCBF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Chicago",
+      "session_start": "00:00:00",
+      "holidays": 1218,
+      "sha256": "a7d2895b5996c16b6d37321bf776d261e5b4f8a005cf48a8a6111c692896be42"
+    },
+    "XCSE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XCSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Copenhagen",
+      "session_start": "00:00:00",
+      "holidays": 1358,
+      "sha256": "b20560486119e548209f8d10d92894e3bade40bca63e38162707a06577a38a13"
+    },
+    "XDUB": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XDUB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Dublin",
+      "session_start": "00:00:00",
+      "holidays": 940,
+      "sha256": "536c03835b5eb9faaad3b5f20ee3e0d568d9bcdca37203e06d84d8c51c80a4a1"
+    },
+    "XDUS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XDUS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "CET",
+      "session_start": "00:00:00",
+      "holidays": 838,
+      "sha256": "f47bc9ac869a62b39ca1decd37c3bb56730ca1560ed22531a2783b7a5a6ffd26"
+    },
+    "XEEE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XEEE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Berlin",
+      "session_start": "00:00:00",
+      "holidays": 824,
+      "sha256": "9d4989d5eee5fdd1bb3c1cb3db22d4df2cf08936c5fe20e2aee2e73859d599b7"
+    },
+    "XETR": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XETR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Berlin",
+      "session_start": "00:00:00",
+      "holidays": 838,
+      "sha256": "f47bc9ac869a62b39ca1decd37c3bb56730ca1560ed22531a2783b7a5a6ffd26"
+    },
+    "XFRA": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XFRA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Berlin",
+      "session_start": "00:00:00",
+      "holidays": 838,
+      "sha256": "f47bc9ac869a62b39ca1decd37c3bb56730ca1560ed22531a2783b7a5a6ffd26"
+    },
+    "XHAM": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XHAM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "CET",
+      "session_start": "00:00:00",
+      "holidays": 838,
+      "sha256": "f47bc9ac869a62b39ca1decd37c3bb56730ca1560ed22531a2783b7a5a6ffd26"
+    },
+    "XHEL": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XHEL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Helsinki",
+      "session_start": "00:00:00",
+      "holidays": 1272,
+      "sha256": "cc84669febfd775cc15809e6d8479a4d158b0326b238239d6bf7e01f8f622319"
+    },
+    "XHKG": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XHKG",
+      "bounds": [
+        "1970-01-01",
+        "2049-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Hong_Kong",
+      "session_start": "00:00:00",
+      "holidays": 1157,
+      "sha256": "88513d5be082c1f08037a06445f4f37ff96abd7a6bfc3a0fe6b798178a5be5b6"
+    },
+    "XICE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XICE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Atlantic/Reykjavik",
+      "session_start": "00:00:00",
+      "holidays": 1563,
+      "sha256": "69368f47990b182ece923e9faec0c5f8bbf14f895ff4f8168ed063b1c4c5d125"
+    },
+    "XIDX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XIDX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Jakarta",
+      "session_start": "00:00:00",
+      "holidays": 1014,
+      "sha256": "b659b84293040a8f8b4ee817565c9c41257a716b70a3939feaaced0c6f90fac8"
+    },
+    "XIST": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XIST",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Istanbul",
+      "session_start": "00:00:00",
+      "holidays": 962,
+      "sha256": "e116c7f589ea7504edd5de9a0c78d8569aae1999871adcaa147989acb7846739"
+    },
+    "XJSE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XJSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Africa/Johannesburg",
+      "session_start": "00:00:00",
+      "holidays": 1374,
+      "sha256": "abf0507ec9b94dff09f5e197a51fe814d8e6ba3792274ffc1d0a712eb675c033"
+    },
+    "XKAR": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XKAR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Karachi",
+      "session_start": "00:00:00",
+      "holidays": 680,
+      "sha256": "bc7fc1612622c9af73dcbab7aa7af3fcbeee95a369f5cbbcb2f4416ee3bd01da"
+    },
+    "XKLS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XKLS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Kuala_Lumpur",
+      "session_start": "00:00:00",
+      "holidays": 1174,
+      "sha256": "76ce9b57bdb0f6f2e1f9b35ec802b5f1db230a074560135472503dd07c657f85"
+    },
+    "XKRX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XKRX",
+      "bounds": [
+        "1970-01-01",
+        "2050-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": "Asia/Seoul",
+      "session_start": "00:00:00",
+      "holidays": 3992,
+      "sha256": "0c2346744b31a162e450986b14e5a2e357e0928706921b4d58610c60e6ab43fc"
+    },
+    "XLIM": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XLIM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Lima",
+      "session_start": "00:00:00",
+      "holidays": 1236,
+      "sha256": "f96bf00d39b561e84d19d62a1df64d5d47350016e2b04423cad181d334835656"
+    },
+    "XLIS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XLIS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Lisbon",
+      "session_start": "00:00:00",
+      "holidays": 905,
+      "sha256": "23539800c47b609ac838a61d865a0fbc971403d66f382a4be13b9fffd00987a2"
+    },
+    "XLON": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XLON",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/London",
+      "session_start": "00:00:00",
+      "holidays": 1058,
+      "sha256": "c89238557c1c792d642cd1d9097c8deb7e7a623ad1ea0b1c8b5410ca1f62b7e3"
+    },
+    "XMAD": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XMAD",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Madrid",
+      "session_start": "00:00:00",
+      "holidays": 972,
+      "sha256": "cc37333d40d1868a435afbff1d282d4962053b9b4faa12e12d8aeaef19fb370e"
+    },
+    "XMEX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XMEX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Mexico_City",
+      "session_start": "00:00:00",
+      "holidays": 1157,
+      "sha256": "229cd0d1cbac08cf41aed2df6316edbf9490711355aa720782c78fb954b4bd16"
+    },
+    "XMIL": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XMIL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Rome",
+      "session_start": "00:00:00",
+      "holidays": 916,
+      "sha256": "824534edd692ba201500f880e134eb357e4b5c17387c67918e88e0fc50f4e026"
+    },
+    "XMOS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XMOS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat Sun",
+      "tz": "Europe/Moscow",
+      "session_start": "00:00:00",
+      "holidays": 14889,
+      "sha256": "ba44bf34a7312fa3ce33287c84c0102cd4dcad32d563234cc6eb574b20f59901"
+    },
+    "XNYS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XNYS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/New_York",
+      "session_start": "00:00:00",
+      "holidays": 1227,
+      "sha256": "0ecf92382cb246f246308d96394af3f2615d417e33207657b3efd99666fec912"
+    },
+    "XNZE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XNZE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Pacific/Auckland",
+      "session_start": "00:00:00",
+      "holidays": 1321,
+      "sha256": "f4b6cf2ba7eea3c7a153547918ef9df4df99ac0c5ab6ed68c6d8ea9300a60396"
+    },
+    "XOSL": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XOSL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Oslo",
+      "session_start": "00:00:00",
+      "holidays": 1303,
+      "sha256": "8be19bf3bff5bacd718c3440c956c8a77abfbc2fb2f81fcce94d00da3c4ed07d"
+    },
+    "XPAR": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XPAR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Paris",
+      "session_start": "00:00:00",
+      "holidays": 712,
+      "sha256": "e165103dc235b88473aa171010bdb37de93f008e3599dfa9ccb50998acc66276"
+    },
+    "XPHS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XPHS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Manila",
+      "session_start": "00:00:00",
+      "holidays": 1290,
+      "sha256": "dd6abb149985779b11751f1e20ccf651aa2b539a263efcde647e16834a0e8bf3"
+    },
+    "XPRA": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XPRA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Prague",
+      "session_start": "00:00:00",
+      "holidays": 1346,
+      "sha256": "878fb92ae93d6c2f6ce1d17c1f669f3662cbac9d1190c43c3b0edd7e08e0209d"
+    },
+    "XSAU": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSAU",
+      "bounds": [
+        "2021-01-01",
+        "2024-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": "Asia/Riyadh",
+      "session_start": "00:00:00",
+      "holidays": 49,
+      "sha256": "9a51c6a1e81a069060aeb363afe4f45959dc2595c6656e7863608c64e28e7223"
+    },
+    "XSES": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSES",
+      "bounds": [
+        "1986-01-01",
+        "2024-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Singapore",
+      "session_start": "00:00:00",
+      "holidays": 383,
+      "sha256": "8e0b48dcceffbbabcb8e9bd8ab3919831daf7465c2cb8f1dd515cea492cfe287"
+    },
+    "XSGO": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSGO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Santiago",
+      "session_start": "00:00:00",
+      "holidays": 1456,
+      "sha256": "ed0224e2b909c19fdd60762e37a65fc7eaad6ecf6fb0cc3305dc8094d3bf9ef7"
+    },
+    "XSHG": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSHG",
+      "bounds": [
+        "1990-12-03",
+        "2025-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Shanghai",
+      "session_start": "00:00:00",
+      "holidays": 578,
+      "sha256": "eded0db8af18e5baec338071e8f47d8e5378c33fb0745f491f8c547caa7ec9ff"
+    },
+    "XSTO": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSTO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Stockholm",
+      "session_start": "00:00:00",
+      "holidays": 1282,
+      "sha256": "026ea62d6992e2ba8ee87f499781164f6922628324a3d2b4385bf33d24f537b8"
+    },
+    "XSWX": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XSWX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Zurich",
+      "session_start": "00:00:00",
+      "holidays": 1270,
+      "sha256": "76e2393189a05a3d0d494f4d045ef49739a833bcaf1572ef681a3076767489d0"
+    },
+    "XTAE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XTAE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": "Asia/Tel_Aviv",
+      "session_start": "00:00:00",
+      "holidays": 1897,
+      "sha256": "3b80329617e931aa0563f67b726c103b4f8b38e37d4fbc9114e4e1664d6bc306"
+    },
+    "XTAI": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XTAI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Taipei",
+      "session_start": "00:00:00",
+      "holidays": 1327,
+      "sha256": "f9454f73099aa5c39e3854c05e4044ad00ba09d53bef0136718a567189e25c69"
+    },
+    "XTKS": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XTKS",
+      "bounds": [
+        "1997-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Asia/Tokyo",
+      "session_start": "00:00:00",
+      "holidays": 1551,
+      "sha256": "8ef4c20c1c79ad90b27a54d0fa267e32cfa2bfbed9afe31a705b65ea629a5fe8"
+    },
+    "XTSE": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XTSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/Toronto",
+      "session_start": "00:00:00",
+      "holidays": 1274,
+      "sha256": "d73b48420b30a0b4886d0dc32b6676c281851c988722e8d29a1382e1572efb1b"
+    },
+    "XWAR": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XWAR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Warsaw",
+      "session_start": "00:00:00",
+      "holidays": 1368,
+      "sha256": "e3c4043a283476c7597d9b865266b4a90b263d5f373fea330f79dfe32c47e284"
+    },
+    "XWBO": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "XWBO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "Europe/Vienna",
+      "session_start": "00:00:00",
+      "holidays": 1220,
+      "sha256": "1d3ff53a3755bba02020917e4998640646696d5c372a0e535a9b642a210261fd"
+    },
+    "country:AD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AD",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1439,
+      "sha256": "5c40ed797f5dc5a35356fc621b2f9559051d6ff385ee0899c9d47724d665b859"
+    },
+    "country:AE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AE",
+      "bounds": [
+        "1972-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 974,
+      "sha256": "d04cc8bacd9940166d8f1802cbbd33bda41a945019f46b3796c0e33d29bd2ea7"
+    },
+    "country:AF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1190,
+      "sha256": "2bdbc72dd1f0f5b0096e2a67cc16e0fc40954c0a6e1fdfda970812bcd6deebcc"
+    },
+    "country:AG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1379,
+      "sha256": "246e6a777999fdab9a0cdf9c2220386077cbb806c392386148a58fdfab1e3597"
+    },
+    "country:AI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AI",
+      "bounds": [
+        "2001-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1490,
+      "sha256": "14d6b118a4d04c7817ef8eadb79d40b5828ac2e5f1a235e007244e7e9fe8fdbf"
+    },
+    "country:AL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AL",
+      "bounds": [
+        "1993-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1472,
+      "sha256": "dce85d7260df40f1aa0055608a891625be9e76eac1793efa3c2909703583e68f"
+    },
+    "country:AM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AM",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 961,
+      "sha256": "3c991c7c65f43ff4c06a20ffd6bc721d68d09e5760bb9fe53f2135f141deacd9"
+    },
+    "country:AO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AO",
+      "bounds": [
+        "1975-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1411,
+      "sha256": "4bc09b8f010493fe1ca39fa8c7aaebf525c1728fe7b64ded4d88492387f229cd"
+    },
+    "country:AQ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AQ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 345,
+      "sha256": "01e08d6bf7b35bda19bb7205ffb70206388be589a2abfee54f2752ad0a1e8031"
+    },
+    "country:AR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1592,
+      "sha256": "e20f25c4ce1765a609fd0cdc96a1887aca2365298bac64edc96a5bec5057245f"
+    },
+    "country:AS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1622,
+      "sha256": "8f919874369f78dde989df5d67e8debf213125f90036669ebefa48b144eb2657"
+    },
+    "country:AT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1362,
+      "sha256": "72e1ffab6d3bdc2ee96a58f982b14f7b16fe46a491511b53a94cc1fce125ea50"
+    },
+    "country:AU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 726,
+      "sha256": "ae45db3d2b864d8c3de5b55b054295d1803b5374471fcce59932bba17cb29c36"
+    },
+    "country:AW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AW",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1179,
+      "sha256": "aae28a6c7f18ec7fadab8a26af9e962b0f49f860d3bf3121a7b07d41cca78a3b"
+    },
+    "country:AX": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1225,
+      "sha256": "88f4e4a2cd46756093987f9121a87b1837556ac0e55fe600a8cec2412cc99324"
+    },
+    "country:AZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "AZ",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1914,
+      "sha256": "d248be2fa9a43523ae7e9e71b1ef0a3ac5c8a8751f8898549b3d63da16635932"
+    },
+    "country:BA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 973,
+      "sha256": "668dcf91475e76cf72efea65db2186aabb0f83be0a0aeae9a482ffe4d6232a7b"
+    },
+    "country:BB": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1382,
+      "sha256": "cf8a5ff1004ad6e62d3533d3de92b902d44b9d5185df2c9c11ba0047894d2b86"
+    },
+    "country:BD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BD",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 654,
+      "sha256": "65dcab32f91b52c5a8a71c09623a316a211e104e6f2a5a8209e5adab29188bc7"
+    },
+    "country:BE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1045,
+      "sha256": "2007ae04643431223be18a9e4b8a9cb9b6e0aec0859ee8d921e3b3166320f89f"
+    },
+    "country:BF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1553,
+      "sha256": "42e4220c897a761821442d753dca6fdf2b36afb1561171f1cd73a99b8e3c0c4f"
+    },
+    "country:BG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BG",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1244,
+      "sha256": "00c8e8fce21f367cecd087626a1c4cd081f82192339c13ea72cf8b0b25c69fa7"
+    },
+    "country:BH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BH",
+      "bounds": [
+        "1972-01-01",
+        "2076-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1065,
+      "sha256": "03145dedf254b578c3cd3e29c2b80344540e943c7ad9a87de0a757dbe6823ca2"
+    },
+    "country:BI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1434,
+      "sha256": "cd775d40946bdd84be981276fdb1ad0ff848102590d8115ec5117340226b80e4"
+    },
+    "country:BJ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BJ",
+      "bounds": [
+        "1977-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1247,
+      "sha256": "f10786075ae21641b167551b4cc827f1799da6722a1e4a7ff5cbf766e297ab84"
+    },
+    "country:BL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BL",
+      "bounds": [
+        "2008-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 868,
+      "sha256": "e1240599ad54db52be5bbc184f9b26d133536ea08f1a428e86d35a9c43c8f839"
+    },
+    "country:BM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1315,
+      "sha256": "ba887c986f58468d042f2a92020bb7660931f3ff64ebfa85e134f519383e9ca1"
+    },
+    "country:BN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BN",
+      "bounds": [
+        "1984-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1382,
+      "sha256": "fa5bbd17907d89be64c336897f0a5bee0e515eaf573c881496167e4d0d8f3801"
+    },
+    "country:BO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1269,
+      "sha256": "d15ad4284d2e991f93f1615b8764c9a2c12fc19a765512c011a53a4270bc88fd"
+    },
+    "country:BQ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BQ",
+      "bounds": [
+        "2011-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 590,
+      "sha256": "190f0d4e80fc4c3651564581b08e1412386e402234e98976128445a2954c3e1d"
+    },
+    "country:BR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 925,
+      "sha256": "e41fe90c2df84a2db44d352dd65a32d307fe969e11aac7f467497a34741de33e"
+    },
+    "country:BS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BS",
+      "bounds": [
+        "1974-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1360,
+      "sha256": "ee183ddb21b41b4b8e818f88d14676dd0d532642129d82c755de65346b07bb9d"
+    },
+    "country:BT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BT",
+      "bounds": [
+        "2007-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1087,
+      "sha256": "664345283bcb44c3bcfdd38495c7bfba571866724e1208b0f7cb51fcc04746e8"
+    },
+    "country:BV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BV",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "country:BW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BW",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1547,
+      "sha256": "84b5008d4a49549a76abdbb3a914391c7a50d39a2e4bb6965d46b910144a9529"
+    },
+    "country:BY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BY",
+      "bounds": [
+        "1991-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 887,
+      "sha256": "7544e1556ed865ae1ef0349a4e7ee09734617adbceba6c54fb6970add382ece6"
+    },
+    "country:BZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "BZ",
+      "bounds": [
+        "1982-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1309,
+      "sha256": "bbafd3137ee4cc51851144c512c0590f3eb88a7676a2a999cf9d6114bdc70579"
+    },
+    "country:CA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 618,
+      "sha256": "1ed87c0e4a417380f661dc2786d8d6349791d4fca252a951c8d966999ec912b5"
+    },
+    "country:CC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CC",
+      "bounds": [
+        "1985-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1340,
+      "sha256": "27b1c2bf2ffc6be724695ebc57de4d6fca75e72069317ec473ba05c9d061276e"
+    },
+    "country:CD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CD",
+      "bounds": [
+        "1980-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1285,
+      "sha256": "f5490e7192a616d84c195eceed7bb4196741f02adc955c8c02bad75da8546576"
+    },
+    "country:CF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1292,
+      "sha256": "f8e9a4e1516cf0955e1494241c3589927781b76de9411e6a6e7014f7ac033d76"
+    },
+    "country:CG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CG",
+      "bounds": [
+        "1994-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 837,
+      "sha256": "98b588c0217c282a16c43158233918bd3f853d0eab835973ee4fd2cf3f442a57"
+    },
+    "country:CH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 410,
+      "sha256": "9c6910a7e79efaf2bc542451dc7cd887037ae50042afa6ff477c29876c51c373"
+    },
+    "country:CI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CI",
+      "bounds": [
+        "1997-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1118,
+      "sha256": "ec41630f72d11e2cebd1535b253e488bb221467fc6bd6745bf00525ecd915c7f"
+    },
+    "country:CK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CK",
+      "bounds": [
+        "2000-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1192,
+      "sha256": "877432528bf18e3a649eeacc80fb226d2a6c8409b6ac00d83d8a6ddcfaecd9ed"
+    },
+    "country:CL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1445,
+      "sha256": "714623f7b4c79fa7eebf28cbb334d400948c512b4c1a607ee864292f3d757aa5"
+    },
+    "country:CM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1202,
+      "sha256": "d1fa03cea72a9cfb6882ebbcf30f7f61e34899043a4ed77ac054cc2140f4557e"
+    },
+    "country:CN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CN",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1567,
+      "sha256": "8325bdebeddd33bd0d2ede4069890ddeca3a759933fde427302e24b32406b7a7"
+    },
+    "country:CO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2070,
+      "sha256": "a4f96a906d62b7964e316bf2aaf71f9b4d8587c775b57d9cffdd319a7c25ebab"
+    },
+    "country:CR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 946,
+      "sha256": "d4d162c42c400a7bc2b4afb5a67a5d308a0061ae8a25dea9f289a24e625e4986"
+    },
+    "country:CU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 899,
+      "sha256": "85abf62c61e8fc1c3cd372333485fa126e984cf66232fa7b6a90b4f92d84ab51"
+    },
+    "country:CV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CV",
+      "bounds": [
+        "1976-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1012,
+      "sha256": "4d4a2472f0d31fa1566feab097d9b06afd6f706a1daeff6f482ff5b5cff7045c"
+    },
+    "country:CW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CW",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1160,
+      "sha256": "36c9795f34c6494f136101675d544fa88207adb17e516ad2de8b56072d4b41e1"
+    },
+    "country:CX": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CX",
+      "bounds": [
+        "2007-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1068,
+      "sha256": "4a84f5e57ff81d09721ca080fb96059fadf41ee314c837dd5dd7ae62cd5ca40d"
+    },
+    "country:CY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1445,
+      "sha256": "616c5d31185cd10b4bd667c35d7c9b92a60eb848042d3107662464dc72fb98cc"
+    },
+    "country:CZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "CZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1165,
+      "sha256": "f15260c89a012925e239d2dbda333038a42b355b92e0bbe390bb2d3cd3d3e593"
+    },
+    "country:DE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DE",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 837,
+      "sha256": "df3840644b63a8e13dd31f5d13d350d80ba42f912d4186ffbfd3954d8e3c0d49"
+    },
+    "country:DJ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DJ",
+      "bounds": [
+        "1978-01-01",
+        "2096-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1005,
+      "sha256": "ba27056bf19e9e4dbc79f320fd3571e6914b11543756db80f5012b11ec0607e0"
+    },
+    "country:DK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 988,
+      "sha256": "0ec892188e96ebb17e560f60a6116adf145ddf95d372358cddbba65192d9985d"
+    },
+    "country:DM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DM",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1253,
+      "sha256": "2c721eaa7049c37999efb4f4566decba7987643d859f55ed48a42e69a2dc2598"
+    },
+    "country:DO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DO",
+      "bounds": [
+        "1998-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 957,
+      "sha256": "f6e28cc13f86ec92c54cfd1ac528c9f53bd15c4271517df1e70239426d34c87a"
+    },
+    "country:DZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "DZ",
+      "bounds": [
+        "1970-01-01",
+        "2096-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1043,
+      "sha256": "e74b110c6a82d6bea67b20ed24035635f28b727beccc6fbf5c2fa435726d3439"
+    },
+    "country:EC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "EC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1490,
+      "sha256": "b864c5ed20b7dd0828709047d8244e5caac0c0648b6694c0ee7fb4d5691e9007"
+    },
+    "country:EE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "EE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 929,
+      "sha256": "708d00bf0ca04afc9ad8f95501cce0faecb1a94dd95505f112b504be94074752"
+    },
+    "country:EG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "EG",
+      "bounds": [
+        "1970-01-01",
+        "2097-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1301,
+      "sha256": "80d4e6e574590998709589784a7f0f7d8629dc6462b2f4b5cb5bf31969e4d296"
+    },
+    "country:EH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "EH",
+      "bounds": [
+        "2000-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 714,
+      "sha256": "0b6d1e4598c9dbaf49824ecdc38ed2136a6c29ef55539d02db7b7290c6045982"
+    },
+    "country:ER": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ER",
+      "bounds": [
+        "1994-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1045,
+      "sha256": "56231804ce3fb38c571fec5e702889a55381f8593e6ab2356b50c41eee3a3ab5"
+    },
+    "country:ES": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ES",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 971,
+      "sha256": "887247a91e69e87b7177bf064274e2e80795c7385f97b132f88eaebcb32d502e"
+    },
+    "country:ET": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ET",
+      "bounds": [
+        "1976-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1050,
+      "sha256": "d0b600327e225ec6c3b44b72995097087bb0da42c2da9422b145e1d63cffebfc"
+    },
+    "country:FI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1147,
+      "sha256": "e03a5a52bc6dc8a1ac7b7b31982d54580010b239412e85e3c75b48d649e31cd2"
+    },
+    "country:FJ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FJ",
+      "bounds": [
+        "2016-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 733,
+      "sha256": "b6314c3191d641949d027779043d13b354d4ab7cd6a7d0c7d53c34ec9f0be921"
+    },
+    "country:FK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FK",
+      "bounds": [
+        "1983-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 946,
+      "sha256": "5efc83fec0bd10b183b8e51229f3e6acd14f550e4a1f0c93057ac668ff2a5c13"
+    },
+    "country:FM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FM",
+      "bounds": [
+        "1987-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 834,
+      "sha256": "3014848343602dd3e5a8df74e95fbfbbd4938453f3c271f4f9f401ac9a3eb1d0"
+    },
+    "country:FO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1349,
+      "sha256": "a44edab8e807cc81bf556d906e6a4a63532cf6af2e50492bbcae33ebd4548c13"
+    },
+    "country:FR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "FR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1120,
+      "sha256": "2b67c255170944537f68159f6610bcc1d317d524dd762b99821c135bd8c674e0"
+    },
+    "country:GA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1256,
+      "sha256": "5cc1ea0bc77839f8bcd54a53d51672fcc4d8e7e989906ce457f1d22907fa4d83"
+    },
+    "country:GB": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 781,
+      "sha256": "a88f8f573864a3ab37ac54619f01117de71b360900d46721d2680b36b0bb5737"
+    },
+    "country:GD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GD",
+      "bounds": [
+        "2000-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1273,
+      "sha256": "b1ff1e8dbc5d354c59e0b6272f62cbf9823ca3cdfe2b506f284fe5f2da448a5d"
+    },
+    "country:GE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GE",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1289,
+      "sha256": "6b60e40bf4cec524fcb91f5c5673593faee3d8d1caf91afa0044d353d9a9b317"
+    },
+    "country:GF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1200,
+      "sha256": "5ac4e5acd73f3078f7117ff515da438e22948b15fff46ec2f48c3fb045c9fcf5"
+    },
+    "country:GG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1133,
+      "sha256": "b322030eff10f18484d1c82be4464bcdc6ed19ded3d36eeb7244248d3144d0b7"
+    },
+    "country:GH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1517,
+      "sha256": "f1883bb1905ce43c45e9218ebf3b31d5df76ac8c5bcc5824ff37a7d89be953a8"
+    },
+    "country:GI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GI",
+      "bounds": [
+        "2000-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1206,
+      "sha256": "b02e8ae54dd77784fde2ab32bbf1bb8377ec0d82d1843b0fe27b126d6928d6f0"
+    },
+    "country:GL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GL",
+      "bounds": [
+        "1979-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 993,
+      "sha256": "08d9542611f8e0cfce84d5f2d9517b443a950d2c310ccdf4c58c093172a5a815"
+    },
+    "country:GM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1714,
+      "sha256": "a157dcb5677dc0ed41668f51c21f9d1da0404cb668cb0b5ada143e6b6553a847"
+    },
+    "country:GN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GN",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1126,
+      "sha256": "84a693c9af543f30e94e562fc5be8f9dccf6e36ae0a44f0c57af83cfa4c054b2"
+    },
+    "country:GP": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GP",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1542,
+      "sha256": "a108273b224ed94a32c3253d9b3ba6c60077488bc7c51f427c4ab16132d7ef2e"
+    },
+    "country:GQ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GQ",
+      "bounds": [
+        "2007-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1162,
+      "sha256": "a26914bbf89623f32dd13de1077c70fe0f25ded37a2ffd79486d83dfaa518955"
+    },
+    "country:GR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1289,
+      "sha256": "ade927080a53c314606a4cdfc52dc083eb2900b364db917e55eaef56d2f5ef36"
+    },
+    "country:GS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GS",
+      "bounds": [
+        "2012-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 817,
+      "sha256": "f4d5d47c00ff880a827a49e6e43d8df616edb50fee5aef3edb66c8ba8a7fcb92"
+    },
+    "country:GT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1034,
+      "sha256": "ded9343b59e6bee243570ee409bf42dca63a45f85d3ce58f9201a20f92223fcc"
+    },
+    "country:GU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1786,
+      "sha256": "4210fd45b800af43b20990c1d02a75788798a4e23945474fa75e0ace717236ef"
+    },
+    "country:GW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GW",
+      "bounds": [
+        "2023-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 527,
+      "sha256": "c5829ef97171911b26d022c77e9110eaee7f41cf0529b2cb82a0de9f7f8aceb9"
+    },
+    "country:GY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "GY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1438,
+      "sha256": "862b71551694b9a2804da460251b588d407cddbfc0a9cf167c06c0a1c597d12b"
+    },
+    "country:HK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1831,
+      "sha256": "51e77ebb9d39dfacf9fb038eac3adf112c1879dbffd2a27033d71114e615d117"
+    },
+    "country:HM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "country:HN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HN",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1076,
+      "sha256": "0150d4e40da4a6191ea1065a5658110b3959458cd9b91d04fedbad03527bbbef"
+    },
+    "country:HR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HR",
+      "bounds": [
+        "1992-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1046,
+      "sha256": "542bb4da9f9c05f3fb991d2af5d7a34ae7b41c58939ba709d7772b706680ea9f"
+    },
+    "country:HT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HT",
+      "bounds": [
+        "1987-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1268,
+      "sha256": "d52854b3751ff30cc35f01ddb20972343a51ac679d2d04a4a17561e6f1de9712"
+    },
+    "country:HU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "HU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1143,
+      "sha256": "70f56eba6a9135b3b410d0a5531059e61398b410b0680375ea0d1a09004e0eb3"
+    },
+    "country:ID": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ID",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1346,
+      "sha256": "f427f30d0827b80f2d5161d1a644daa53872a654fc699966d93f51abeef868c3"
+    },
+    "country:IE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1074,
+      "sha256": "84f6d7d98e6ada8f07af909abd272320c5b3ade27a98e1764a62b93f998c17c8"
+    },
+    "country:IL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 857,
+      "sha256": "337caf6c21c9695f0b26ce747546e8b03fd581683e2024c0c53d62ce63d026dc"
+    },
+    "country:IM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1298,
+      "sha256": "227649082add02b27ddebc90745bcd7f365898e164d27d75ea8148a86d768ea9"
+    },
+    "country:IN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IN",
+      "bounds": [
+        "1970-01-01",
+        "2076-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 888,
+      "sha256": "034f02f784428af6e4e143d46596d3dced9ec3e27d7acff6d6b27dcb20590433"
+    },
+    "country:IO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "country:IQ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IQ",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1282,
+      "sha256": "459785a8ccbda42b720938cb5c20345f48dc4365413b92807db431a041385f0a"
+    },
+    "country:IR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IR",
+      "bounds": [
+        "1980-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sat Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2277,
+      "sha256": "5f466c8bd1aec8d203216914fa4d9ab75522993ea80bf6c67579c777a93660af"
+    },
+    "country:IS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1360,
+      "sha256": "200bb439752dba5b67dc6b52450306747cfcd2e3b876d9ec8106c1f5a81d24c9"
+    },
+    "country:IT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "IT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1091,
+      "sha256": "6eb77c933f26d3f502e5161ffc45c8e8e2e0d28c1523ce98975282c15397fdf0"
+    },
+    "country:JE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "JE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1142,
+      "sha256": "232f2d030763e062cd420e418b713300ce0202d8417b65c7621a15f3050c963c"
+    },
+    "country:JM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "JM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1191,
+      "sha256": "2fad09277b3d66ed639d4adc8869791198005b7ce6d8a75b9fd3b2edc0467668"
+    },
+    "country:JO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "JO",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1089,
+      "sha256": "f8ba7de80ba6aad0e4de228b6e1d6a07df110df63fb97912b756fa935d9fbf0a"
+    },
+    "country:JP": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "JP",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1756,
+      "sha256": "3df55f405c686511898936d075fd2982566ecd8eed0fb639f7b5947e40fbd2cc"
+    },
+    "country:KE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1189,
+      "sha256": "d91ea777d4a03535ad75fd191a26bec955233eddc5f3bbab44ff06ed28e79724"
+    },
+    "country:KG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1413,
+      "sha256": "a07364193c38a2277e90c92acf3c5cf549cadc4bb47aa3d6e5840f0c64ff9d7e"
+    },
+    "country:KH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KH",
+      "bounds": [
+        "1993-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1708,
+      "sha256": "162f6caca9abccdd7e70e74bb7b1d456f3e90ed5786176df27f035c42f0390f9"
+    },
+    "country:KI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KI",
+      "bounds": [
+        "1980-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1387,
+      "sha256": "b5c3780bc885c97ec473c86a02733ac8501e6ee4c8d11110881ba703b0f670ba"
+    },
+    "country:KM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KM",
+      "bounds": [
+        "1976-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1100,
+      "sha256": "db14a7e8ba45203cb205d58a22328162f789919de763b897d12de00964dc8ae5"
+    },
+    "country:KN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KN",
+      "bounds": [
+        "1983-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1406,
+      "sha256": "16ce87f62144bb5c091677fa53f923b01e5763d79dc712f3d6ee3eb55d088395"
+    },
+    "country:KP": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KP",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1798,
+      "sha256": "99b250300b3ecad449bd41523c7a4e2eca6604b2b808e50ae35b2f3ca1442560"
+    },
+    "country:KR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1760,
+      "sha256": "004e831d5f8ae5de6965f30deb32caa7a26b6fc7293a533cc8289268eaf6ee9d"
+    },
+    "country:KW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KW",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1022,
+      "sha256": "51f079f2f6894d7a66c3719eec15cb42898ee5e26eb01f6da35aed0e9c99262e"
+    },
+    "country:KY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KY",
+      "bounds": [
+        "2006-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1134,
+      "sha256": "9f9a7c0baebc87350c69e51e22f983a3f0a263d0b5416eb1a5ef37959f1d9fd2"
+    },
+    "country:KZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "KZ",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1496,
+      "sha256": "e260dace86ae903eed2febc2c981c72fb27a32632787b6230473f04f88ac662c"
+    },
+    "country:LA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LA",
+      "bounds": [
+        "1976-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 827,
+      "sha256": "34df17120aa593a4e277ffe677b33df7edc6fdadf2d5a838d7cf76d465b607a6"
+    },
+    "country:LB": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LB",
+      "bounds": [
+        "1978-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1428,
+      "sha256": "1839d89336d9b1d8270ba8a5be975e3f4314454204b6b53b33efbda46369b0c8"
+    },
+    "country:LC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LC",
+      "bounds": [
+        "1979-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1444,
+      "sha256": "f0eaf80be2c0f81fd52d638131a39dd8389d4da14eb7cac95346c713b5a1204b"
+    },
+    "country:LI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1551,
+      "sha256": "abc0837b265558946942cb5b9b2618edfda17b86867efe53eb7eede825acdfde"
+    },
+    "country:LK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LK",
+      "bounds": [
+        "1972-01-01",
+        "2025-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 649,
+      "sha256": "e80c344c3bc3d2e7b75863e93de1650b7d48da7e2a30aa2e278ea538e041d326"
+    },
+    "country:LR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1149,
+      "sha256": "9b78faa7eac0b200eebff3ac77385640277b774777d7804a05752e0c68ff2bb4"
+    },
+    "country:LS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LS",
+      "bounds": [
+        "1996-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 910,
+      "sha256": "d3a4a4d2833387f48417e47a24c49c2765a5b59456561bb6118f9a4d165b9e4b"
+    },
+    "country:LT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LT",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1031,
+      "sha256": "fc0eb57db0e7be65592269d4a92252eba0a59c3d3b02d3a03408f36e5ecb7256"
+    },
+    "country:LU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1097,
+      "sha256": "fdc1babaf04917ee323c76c07376bc3b527c243c65078a4bdd0260310a440cbc"
+    },
+    "country:LV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LV",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1054,
+      "sha256": "81240402e07203ad34e797f2085fb5d95d5126b0c065ddbdfe8792a5201b663c"
+    },
+    "country:LY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "LY",
+      "bounds": [
+        "1988-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1011,
+      "sha256": "8f5ab5d2d23b327e99d05b96eb9e00dd48d7f201191fd2331d6b0d908a677003"
+    },
+    "country:MA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1434,
+      "sha256": "499b30be792b7c674ae7c89a57462ca705a6dcaea9e9935017a2eca307778ebc"
+    },
+    "country:MC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1395,
+      "sha256": "467b9456f6b3fe9d9f4a7b2561603c12c0d7b5984cddf43652c6d469dd7051ce"
+    },
+    "country:MD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MD",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 960,
+      "sha256": "9ee37a24f59f17a09159617fb78e8c33f56fe8be34f87ba8091f80df1bd52851"
+    },
+    "country:ME": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ME",
+      "bounds": [
+        "2007-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 711,
+      "sha256": "89035a12428d76ffd6f863fb9f1ccb640edd7678c905c42f83c70e3bfbaa510e"
+    },
+    "country:MF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MF",
+      "bounds": [
+        "2008-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 927,
+      "sha256": "b77507f6f060c5c8699b96ac1827293e596e5244d5daee02eb059bdeab0a21e2"
+    },
+    "country:MG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1197,
+      "sha256": "b8b688ffc96835a5ae5634e9e8af2c111e81d9e152dd8c1bf0d91abba4558ddb"
+    },
+    "country:MH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1220,
+      "sha256": "388dfcc8e5c44caee9bd77fde70a62be861a3aac021de6ef6dbe955d121ed536"
+    },
+    "country:MK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MK",
+      "bounds": [
+        "1999-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 920,
+      "sha256": "aff2d276f111a04233a02d3166f3bb958930132bd010d4bba92ae769a5a5876d"
+    },
+    "country:ML": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ML",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1018,
+      "sha256": "3385233f7f87408c282283c120670e3cb849731623c20ed7c27843541d2e0509"
+    },
+    "country:MM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2448,
+      "sha256": "e5b03d146e5cc939979fbee22c4f7e8abe8afda1c4a6baa4d897979f22fb14ea"
+    },
+    "country:MN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MN",
+      "bounds": [
+        "2004-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1045,
+      "sha256": "bc9f4f16b2c12f86c177f93473e6a15d8a6f7fc1962c67d08303e16d5812a985"
+    },
+    "country:MO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MO",
+      "bounds": [
+        "1985-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 830,
+      "sha256": "a5344bf352ecbf251fc142fd32d6c8d10dc64d1d6f358ab4f36b52da3351b98b"
+    },
+    "country:MP": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MP",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1929,
+      "sha256": "0f4633a64b729d5189676b081b04292f475d20e8ea5229535a9749e5f3540dfa"
+    },
+    "country:MQ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MQ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1414,
+      "sha256": "53758a57552c452c70ee175522fb4ec71cc254db8cfe960ffab33d7193edc5aa"
+    },
+    "country:MR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MR",
+      "bounds": [
+        "1970-01-01",
+        "2090-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 814,
+      "sha256": "68a31b849ce91ed37e2efa605d2a92ab6eba3cec118e57f01e77cb1c13f506ec"
+    },
+    "country:MS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MS",
+      "bounds": [
+        "2017-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1011,
+      "sha256": "f154316c5884f85dde79342a6262018217b2bee07009e2fcd48e3b2f1cc5e4eb"
+    },
+    "country:MT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MT",
+      "bounds": [
+        "1980-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1205,
+      "sha256": "3fc8443f094d9401334a732eec7a7408015bd39f3dda696afb7cd176b42cb06e"
+    },
+    "country:MU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MU",
+      "bounds": [
+        "1988-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 965,
+      "sha256": "954775f62fcbb9fae66fff78abf81f45c24af59f054b8c6894351842640a5343"
+    },
+    "country:MV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MV",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1406,
+      "sha256": "4c698ffaa78d3199af972abc74ddf4056167e9b6cd44465b8b21263794489f87"
+    },
+    "country:MW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MW",
+      "bounds": [
+        "2000-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1111,
+      "sha256": "7c1ee2fd40f37e8a81736f6c9f78c3c8a81b7d72a5770e319d43d523076681d4"
+    },
+    "country:MX": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 751,
+      "sha256": "bce0d034d5eb769dbb02e225a8da8620f651c9028425b8d371346654e209d557"
+    },
+    "country:MY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1264,
+      "sha256": "b573273407be2546f996b1bb1dce79c1e27165bf244174003391a398b1365460"
+    },
+    "country:MZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "MZ",
+      "bounds": [
+        "1975-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 955,
+      "sha256": "b148737ff2fd3ead4e9dfdbf6c68e15eeba8b5bd9994a0c7290744cf8957fada"
+    },
+    "country:NA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NA",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1217,
+      "sha256": "3f4004917b13ed373178a5c551d8c421cfc449ffb5bec7ae430e78ab25366701"
+    },
+    "country:NC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1215,
+      "sha256": "6f8874d4d47f5f7fe975523af101ae8ead1bc42f7d0be50fda6594f23cbcbd5d"
+    },
+    "country:NE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1560,
+      "sha256": "f6643416a99ec31f82f6b3bf337bc49fd6bc4c999c299a75a8eb3cb1ae8c0765"
+    },
+    "country:NF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NF",
+      "bounds": [
+        "2016-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 982,
+      "sha256": "b2343b6e67a3d96f1db8de66fdfe804d4a086f853f5c040099cb542bb4252f1c"
+    },
+    "country:NG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NG",
+      "bounds": [
+        "1979-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1385,
+      "sha256": "cda20fc23a1941b5f5ac2e9c5fee0d36027e54ff0459babd083b72ca4c6723f0"
+    },
+    "country:NI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 966,
+      "sha256": "1d65e7d5b994f2d61306ba6972de9aae9cca13304c7343bbd70394c82ba6bf98"
+    },
+    "country:NL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 917,
+      "sha256": "588e77113818acec2eb246753f56532f39298271790d4bc8089ab50285a73d00"
+    },
+    "country:NO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1113,
+      "sha256": "38480a531c00f76fbb0567ca0b965b1842fbbbd61d18552bc979a26348274b4a"
+    },
+    "country:NP": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NP",
+      "bounds": [
+        "2010-01-01",
+        "2035-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 571,
+      "sha256": "96439a99212e44bf1c5e9b0c61ecd4ca10ba8caccdc06560c86bfa37b831532a"
+    },
+    "country:NR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1657,
+      "sha256": "7797230e9b1c3d9c02e7e2f7a3c08a156538306f9331b6340ff154cf053f5cdf"
+    },
+    "country:NU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1417,
+      "sha256": "cf5b47d39c75d9e11facfbec42ee9e0518cc2d571a25a95d954e7b8a5fbc8984"
+    },
+    "country:NZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "NZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1311,
+      "sha256": "33125d2706557340147dbf42ed5ffa8dcb5f7a300d46992b1489df2af15704d6"
+    },
+    "country:OM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "OM",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1070,
+      "sha256": "797b5fb36e96381aee12df6ad5313cd589fd4f41445708c67435d6ae42bcc51c"
+    },
+    "country:PA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1310,
+      "sha256": "3e4924869fa7daebde1de9f5f8fb3183997f0c8ff68360ff3cebbae7a126b70a"
+    },
+    "country:PE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1424,
+      "sha256": "3a95854e15d2c05b41154097f6244fffb92f390e336a22615b606f7503f54917"
+    },
+    "country:PF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1422,
+      "sha256": "fddbc1137b94a366e11aff3a67df3538dfb76c72a4b176ba44e9a25e14f28716"
+    },
+    "country:PG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1072,
+      "sha256": "244aa24424a825887baee56c2d56da072568c9865bd1347d8e728b96ca83d335"
+    },
+    "country:PH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PH",
+      "bounds": [
+        "1988-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1377,
+      "sha256": "3aabebcc54e0ed27d44e96a99b2978c6969f9046e330f63b2d1e4bad5c74abc0"
+    },
+    "country:PK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PK",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1300,
+      "sha256": "321e80d72582610fbcf2b8d6596d8c9732e30ba0a902f8dcc5a5cc4121d63ef0"
+    },
+    "country:PL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1101,
+      "sha256": "e796aa16c7804c9895b91f8ae1475a5257f5c2be16518b8f63b21089912c9b4b"
+    },
+    "country:PM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1120,
+      "sha256": "2b67c255170944537f68159f6610bcc1d317d524dd762b99821c135bd8c674e0"
+    },
+    "country:PN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PN",
+      "bounds": [
+        "2016-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 550,
+      "sha256": "7ece5fd70fc0567fff8abfd7e48f4b5920974be560cf69d005e0716f327fba86"
+    },
+    "country:PR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1804,
+      "sha256": "9c9a6db59ab9a1d4d8112f18dd6f3cc72e06ed5c3755c952ec8779e13d1b62a6"
+    },
+    "country:PS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PS",
+      "bounds": [
+        "1989-01-01",
+        "2097-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1115,
+      "sha256": "48eba3f70ca68a02ec1a380aa5dc74b432e5f870b87103e02b721890e5e04ac6"
+    },
+    "country:PT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1176,
+      "sha256": "83275816a0f93737f6001b130c84c70a4a0bab88df38f8ff762a04686e21b5b6"
+    },
+    "country:PW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PW",
+      "bounds": [
+        "1981-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1214,
+      "sha256": "7e5148bf77a90018705be1d078f2cd101eb1b669a5675331e57fd2b6182809b9"
+    },
+    "country:PY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "PY",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1154,
+      "sha256": "dd2e5763f4c161bbab2f19e50b4ba5023d5715a44e7042e37cfa9236db4f2cb0"
+    },
+    "country:QA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "QA",
+      "bounds": [
+        "1971-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 585,
+      "sha256": "4c10e53664bab4050e624e671d621872c96bce594b9eb1f204da312a20d08a5f"
+    },
+    "country:RE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "RE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1204,
+      "sha256": "f2bd374897d912823712cd8f4269bea724de4cad71e5b98085e7d9ca2c65fc21"
+    },
+    "country:RO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "RO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1252,
+      "sha256": "1414320623a6918860f3b581136b331dd963a2fbca0327a457bd3a7a240c3879"
+    },
+    "country:RS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "RS",
+      "bounds": [
+        "2007-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 810,
+      "sha256": "53212e2c1519c0474fa7f94002c58c22a2a0362e0973b6a4fe91d6a6372c819c"
+    },
+    "country:RU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "RU",
+      "bounds": [
+        "1991-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1211,
+      "sha256": "f0c3d79e16da04e131ef099bbfa80c16811caab674e74a379f513ccf01414469"
+    },
+    "country:RW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "RW",
+      "bounds": [
+        "2012-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1204,
+      "sha256": "a6540d144e8470da3396dcddd399cc3bff0e7cdf7a2ae66b1e9d103675b36beb"
+    },
+    "country:SA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SA",
+      "bounds": [
+        "1970-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 989,
+      "sha256": "a1eb8fafeaa605584d69ba517bbb5f1cd633cf9caf9662d1897392c3e307f032"
+    },
+    "country:SB": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SB",
+      "bounds": [
+        "1979-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 979,
+      "sha256": "277ee6e8edd68b5ccbfb47cc58e6260703aca6caad01e029fe498b7a1eb5919b"
+    },
+    "country:SC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SC",
+      "bounds": [
+        "1994-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1128,
+      "sha256": "728d20a35542a3f9c2f0f7c64aeef3a65aa11e06d7496f69920bef0a8b533071"
+    },
+    "country:SD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SD",
+      "bounds": [
+        "1985-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 995,
+      "sha256": "3faeb784f05f280c2126608aa79d7ee77ae05ca5b3d5be31817a5e6f8e82cfad"
+    },
+    "country:SE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1282,
+      "sha256": "026ea62d6992e2ba8ee87f499781164f6922628324a3d2b4385bf33d24f537b8"
+    },
+    "country:SG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1177,
+      "sha256": "8e60a80453446f49cb0286f829ac614e9f6c56f2bf53a9d614da4a9bb9295660"
+    },
+    "country:SH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SH",
+      "bounds": [
+        "2015-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 435,
+      "sha256": "6f92c418ad6aef93cacc3eb335423e921022eb38c4b03aad397abb3695e4c75a"
+    },
+    "country:SI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SI",
+      "bounds": [
+        "1992-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1031,
+      "sha256": "9c4f6c986f875a55818ac721d651afc4d92902b2cc8dc07d4bc8ff1d08717c3e"
+    },
+    "country:SJ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SJ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1113,
+      "sha256": "38480a531c00f76fbb0567ca0b965b1842fbbbd61d18552bc979a26348274b4a"
+    },
+    "country:SK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SK",
+      "bounds": [
+        "1993-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1097,
+      "sha256": "7fe02970214713c8df38b982a11886c01ec917a5d1a83fd46126b5db19bd4bba"
+    },
+    "country:SL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1428,
+      "sha256": "95e38e728443b5c458dfe0927b32d903c17db18dc590dc9125b524ca8bbc351d"
+    },
+    "country:SM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1661,
+      "sha256": "64ca975af493fb1b0212abf92f81ac9f9bd1a9a40ecf1bd1f07bf18ff00cf057"
+    },
+    "country:SN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SN",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1317,
+      "sha256": "d3238472dac2a77cae979ae5d2b29301e5ead66fcd1f5412cb726adacaf35d3e"
+    },
+    "country:SO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SO",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 845,
+      "sha256": "e54f18df1ba1edace6746942ae6e42729bca8505fd3a15b4e1b908c2d6e4ef50"
+    },
+    "country:SR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SR",
+      "bounds": [
+        "1972-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1216,
+      "sha256": "d30e172719244348ec1738d3e4887b60eaa5891e275467b0c71df6ce9c2b5307"
+    },
+    "country:SS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SS",
+      "bounds": [
+        "2012-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 851,
+      "sha256": "680f69e82eb811c9773474b0db1f985ee4d2fcfd4602a08275e9c9a3fbe99e5a"
+    },
+    "country:ST": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ST",
+      "bounds": [
+        "2014-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 765,
+      "sha256": "17477da8f45550da6beddf1155d32bef79f49b158fdc68440a7fb5cf35a4c818"
+    },
+    "country:SV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SV",
+      "bounds": [
+        "1973-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 930,
+      "sha256": "17e9525cb5d9b57b537347ac0ebfbffa0b2eb09137899a345db5d5ef01ea5a7d"
+    },
+    "country:SX": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SX",
+      "bounds": [
+        "2011-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 910,
+      "sha256": "5452709e3aefbe44b0950d6d7104b30165d8926896b359197639a1db6978069b"
+    },
+    "country:SY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SY",
+      "bounds": [
+        "2004-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1221,
+      "sha256": "d09260c5e6feae0b280c7f513a9b190719e0a8782f9af59b98429c054029a66a"
+    },
+    "country:SZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "SZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1200,
+      "sha256": "d5a51a6983cd23598f0cb664722886d0534ce0a0080d4a0888c3c3290323c4b8"
+    },
+    "country:TC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1560,
+      "sha256": "eb30f3b4395cb4d1fe851da44f44afe451510cc578056e958559574bdc37a663"
+    },
+    "country:TD": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TD",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1206,
+      "sha256": "f0d1cbbca6b9f8fa0cfd2dbf3f36a9b8e545782965cf296e61e0ad2848bc13ca"
+    },
+    "country:TF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1120,
+      "sha256": "2b67c255170944537f68159f6610bcc1d317d524dd762b99821c135bd8c674e0"
+    },
+    "country:TG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1302,
+      "sha256": "53fa24a6958eabba4310cea4ba5cee7f6d6a2648b37374b0e427448e2af11cc8"
+    },
+    "country:TH": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2184,
+      "sha256": "5689e06c7b98da9430b7999534867bb40920a674b7c4de2054d0b4ce2be4601b"
+    },
+    "country:TJ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TJ",
+      "bounds": [
+        "1992-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 888,
+      "sha256": "fd4e22655a781ae1f0b88dfdfe40d8dcb0648247d9ac94cafbc65421489b0bc7"
+    },
+    "country:TK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TK",
+      "bounds": [
+        "2003-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 532,
+      "sha256": "1ceba96b69cac337d4b1ae9d383bcc09d6ef3f58e98270d49facdd8cc99563b3"
+    },
+    "country:TL": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TL",
+      "bounds": [
+        "2006-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1218,
+      "sha256": "0593d359f1821e2959bd10233587fcddce4abff54e77529dc79e89c8a8de170c"
+    },
+    "country:TM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TM",
+      "bounds": [
+        "1992-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 900,
+      "sha256": "f89ec87d32e52a6d6272718ae4d1ea4b9aa00f4b383d7065fa09483b496368a5"
+    },
+    "country:TN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TN",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1452,
+      "sha256": "aafadcc9bb473f14ce413fadeb401b2f9b92af13ca65b3d8218f492357382182"
+    },
+    "country:TO": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TO",
+      "bounds": [
+        "1989-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1076,
+      "sha256": "a1288009a604092ee0f083adf1e88008c559aa18285a65cf178b85c7ee2fc4dc"
+    },
+    "country:TR": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1156,
+      "sha256": "85e99dcf1eb24721797e1957de232ffa596fba762f1f44676e2173692bd431cf"
+    },
+    "country:TT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1540,
+      "sha256": "7c5e79636721ec70afc8b1334a05d76ee4ec91ca692bc0cf25461e30274995ad"
+    },
+    "country:TV": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TV",
+      "bounds": [
+        "1990-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1145,
+      "sha256": "1cbd59580a58b2ab1870c786f26048c6559823c0de197fdea2ef12e37f5f4df4"
+    },
+    "country:TW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TW",
+      "bounds": [
+        "1998-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1422,
+      "sha256": "09aa1deda71b653334e361aa3bd90901790c810abef07f90b5d5eea95de4564b"
+    },
+    "country:TZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "TZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1612,
+      "sha256": "c4f03e74212117fa4401d24d387d5e07a2d3c2922811ac224bd2f3024ef5809c"
+    },
+    "country:UA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UA",
+      "bounds": [
+        "1991-01-01",
+        "2021-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 398,
+      "sha256": "b16f9d714f03932a90524c053e0a22b5c54967799e87eceebebb3838ea7ff777"
+    },
+    "country:UG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1283,
+      "sha256": "80fd15a00c242f0341412958cb53b5cd8de1c1ac0554871761e23b0567bb9762"
+    },
+    "country:UK": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 781,
+      "sha256": "a88f8f573864a3ab37ac54619f01117de71b360900d46721d2680b36b0bb5737"
+    },
+    "country:UM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1242,
+      "sha256": "ffcd7a4d17b683d8e9223439df7aa792d99a2be03ce28ecf32a28de934c07c64"
+    },
+    "country:US": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "US",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1373,
+      "sha256": "f8e61c407ac0634f745886d1ad00f13c2f79ba38d60698b504e1d46a584864a7"
+    },
+    "country:US-NY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "US",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1648,
+      "sha256": "4893c6b5b65d17af99ef27aca9dae51a3c64084d4f801a67462361eb2406c12c"
+    },
+    "country:UY": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 479,
+      "sha256": "d15dba3d92d59f332fea9f3ac14750b61c61c300cfa387bbd7025acd340a8835"
+    },
+    "country:UZ": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "UZ",
+      "bounds": [
+        "1992-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 902,
+      "sha256": "d73d451a98d0a4f57abca75ff45ce73b82d5edc0562b87871b8cd559ac36c802"
+    },
+    "country:VA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2548,
+      "sha256": "c6f985f3ff5403e287c6a8e3741abb7b906adf3d06e2c50a81096c2a234df8e8"
+    },
+    "country:VC": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VC",
+      "bounds": [
+        "1979-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1395,
+      "sha256": "50c035a1856caaed1bfb78edab493c95a77ddf74aea7f68a1b3354f32f742544"
+    },
+    "country:VE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1452,
+      "sha256": "3e8fd3d01193d9022090c3e381ce5c32781f14ddaa2a96eaa0fc1635bd6df79e"
+    },
+    "country:VG": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1745,
+      "sha256": "34d61569a7a596fbc1c295fd42f1df0102e5ec40cbb0df69f3e88129d9ea4ced"
+    },
+    "country:VI": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2179,
+      "sha256": "332723f41504b5ad78bdcaec4af738116c35919a010ad269ea04d0c758c9ace3"
+    },
+    "country:VN": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VN",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1263,
+      "sha256": "96f0cd6a864aacab414483f1299eb7297a1097160745b4d47b5c5db1f7680da8"
+    },
+    "country:VU": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "VU",
+      "bounds": [
+        "1981-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1477,
+      "sha256": "b991248d5fba546dc8cc3d9db4894dc0ad3ec0eba5b2c788892b5d6e871acb01"
+    },
+    "country:WF": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "WF",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1402,
+      "sha256": "1741c3601bb549824d4d4991fe6a9730436d885b31e5a667e395799393785553"
+    },
+    "country:WS": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "WS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1121,
+      "sha256": "33e8f87893c83921f2e611a2ea79a385164ca44964b3a3e969d4e8fe2460ba47"
+    },
+    "country:YE": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "YE",
+      "bounds": [
+        "1991-01-01",
+        "2077-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1156,
+      "sha256": "fb225c01a9ff77ae7d4492d15ed0d8472a17396802aa680390cb520efac5ece6"
+    },
+    "country:YT": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "YT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1203,
+      "sha256": "ac27a9144db8c6ed0c41b870cba9bc5d634b2537d6a7dcaeb269e2217762533d"
+    },
+    "country:ZA": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ZA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1328,
+      "sha256": "6bcfe838bf2c26c3964945d070703dba7345f475a7d56d3ca97b92f87de8dd8d"
+    },
+    "country:ZM": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ZM",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1573,
+      "sha256": "87e30d4d0a96579601f50f205075eb7c891b03802bd4097969216c4c9546185a"
+    },
+    "country:ZW": {
+      "provider": "python_holidays",
+      "provider_version": "0.83",
+      "upstream": "ZW",
+      "bounds": [
+        "1988-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1192,
+      "sha256": "8de2273c896f40494a87fceecfbb3bc20ac51d35f1babba1b3cd5b734d72928b"
+    },
+    "exchange:24/5": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "24/5",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "UTC",
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "exchange:24/7": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "24/7",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat Sun",
+      "tz": "UTC",
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "exchange:us_futures": {
+      "provider": "exchange_calendars",
+      "provider_version": "4.5.6",
+      "upstream": "us_futures",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": "America/New_York",
+      "session_start": "00:00:00",
+      "holidays": 374,
+      "sha256": "d525b2ae8468225ba2d0cc241f4283356630e0d6e0056f53a9235a48d72f708d"
+    },
+    "fin:COB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Denmark",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1358,
+      "sha256": "b20560486119e548209f8d10d92894e3bade40bca63e38162707a06577a38a13"
+    },
+    "fin:HKB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "HongKong",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1039,
+      "sha256": "69b438e884ca9572fe699ace900bf78bd953b0f9fce21c86e15858fda8b06eb8"
+    },
+    "fin:LNB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedKingdom.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1055,
+      "sha256": "1ecb8422a22ef0ceaa128beee9aaafaeb575efe36466dd955b1affc5b3a6e941"
+    },
+    "fin:NYB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1376,
+      "sha256": "657088a2f7d9deda1b5708f59afb1581b07737f7a6b3d10d936afa615bd8f9df"
+    },
+    "fin:OSB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Norway",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1185,
+      "sha256": "3e00f0837786e6e23a6af20e354ab9d016453a4f2345ce13c61f3954f30e40e3"
+    },
+    "fin:SIB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Singapore",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 635,
+      "sha256": "ce9bd4febb46b61fbbf534958ab85f3edd2bb69e18315c68653f350fc4313bf6"
+    },
+    "fin:STB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Sweden",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1282,
+      "sha256": "026ea62d6992e2ba8ee87f499781164f6922628324a3d2b4385bf33d24f537b8"
+    },
+    "fin:SYB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Australia",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1270,
+      "sha256": "670765de80fae2b2fd8f4a5068f149e083fac2c1d231d368cded5c5c233bd587"
+    },
+    "fin:TARGET2": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "TARGET",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 536,
+      "sha256": "21e0a73bc242d38fd208f93340e7c92dcb3e4c546d3bc288cff804586d127e77"
+    },
+    "fin:TKB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Japan",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2061,
+      "sha256": "fb78300a14631dda00dafc6a99c3db24ba7680e11496572008a965a2ac47a76f"
+    },
+    "fin:TRB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Canada.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1483,
+      "sha256": "f026dcc7922054e9f842ae42afca64dfbf5b47d240f8f21f939bb7ebb44c52d0"
+    },
+    "fin:ZUB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Switzerland",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1080,
+      "sha256": "aaf6d7318ce9efc6e6eef92a26a1553217351a900471d6daf8d2828b05256ef7"
+    },
+    "ql:Argentina.Merval": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Argentina.Merval",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1296,
+      "sha256": "94e0dc062d6bfbf211e79a2bc182081378b257c3db0f6eae8874e3840952112d"
+    },
+    "ql:Australia.ASX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Australia.ASX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1008,
+      "sha256": "6b8e7d6299a8114e8b69d721b90d9cdd0bc01fb6d96c6c86775955eaeb589711"
+    },
+    "ql:Australia.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Australia.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1270,
+      "sha256": "670765de80fae2b2fd8f4a5068f149e083fac2c1d231d368cded5c5c233bd587"
+    },
+    "ql:Austria.Exchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Austria.Exchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1049,
+      "sha256": "5a5e8782896d8eaa034d299d217b5025bdb144b89e6a481b15ef30837ba00fc3"
+    },
+    "ql:Austria.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Austria.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1362,
+      "sha256": "72e1ffab6d3bdc2ee96a58f982b14f7b16fe46a491511b53a94cc1fce125ea50"
+    },
+    "ql:Botswana": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Botswana",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1307,
+      "sha256": "89c333d285ebd5f2d299fd5267ed1c9caaca17a65da2ef76697f2c6f8c27b829"
+    },
+    "ql:Brazil.Exchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Brazil.Exchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1638,
+      "sha256": "76ad34adcb3fdf5cc825fa5406bb60498b148e4753e36513b4852b0c1158bb92"
+    },
+    "ql:Brazil.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Brazil.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1326,
+      "sha256": "9961fb42d2187fa6cda65994b9a3a6d9e9f7a8f2e38a9b3aee16692a13f3eb8c"
+    },
+    "ql:Canada.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Canada.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1483,
+      "sha256": "f026dcc7922054e9f842ae42afca64dfbf5b47d240f8f21f939bb7ebb44c52d0"
+    },
+    "ql:Canada.TSX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Canada.TSX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1272,
+      "sha256": "a4e6f754471d8e753f00711b586f93748aef6a3e65fbd7bb615b9959cd2b7ee7"
+    },
+    "ql:Chile.SSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Chile.SSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1526,
+      "sha256": "70c95c6bf42f8474088212e9c110f632e7ba54d26ef8fbbbbd4397b508143ba8"
+    },
+    "ql:China.IB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "China.IB",
+      "bounds": [
+        "1970-01-01",
+        "2026-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 860,
+      "sha256": "1f90735c818dfc089612d501fbfe78c226c5dee84104832338d088530e9eda02"
+    },
+    "ql:China.SSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "China.SSE",
+      "bounds": [
+        "1970-01-01",
+        "2026-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 861,
+      "sha256": "97875e5530c88686848fe4b3f80c7f509d28e92331ab07ef7fe720e779ecd323"
+    },
+    "ql:Croatia.ZSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Croatia.ZSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1461,
+      "sha256": "742280c0ba0dbbcf34e7a1003df7ef26aded1b7459a0e3feaf8ea0389e2ff894"
+    },
+    "ql:CzechRepublic.PSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "CzechRepublic.PSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1247,
+      "sha256": "c4190134d1259a8c8057377f509dfca0beb48db514f7ce513852303bcb7ff2a5"
+    },
+    "ql:Denmark": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Denmark",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1358,
+      "sha256": "b20560486119e548209f8d10d92894e3bade40bca63e38162707a06577a38a13"
+    },
+    "ql:Finland": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Finland",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1177,
+      "sha256": "718fa041cebcd77aaf700354c578d6328a4b6b684376df7d6c1305a473ef9d4b"
+    },
+    "ql:France.Exchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "France.Exchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 824,
+      "sha256": "9d4989d5eee5fdd1bb3c1cb3db22d4df2cf08936c5fe20e2aee2e73859d599b7"
+    },
+    "ql:France.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "France.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1065,
+      "sha256": "8f9334a1b83c38287e1f85b5819218a7476e0f92fb9ee3ce8106a05d18baf370"
+    },
+    "ql:Germany.Eurex": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Germany.Eurex",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 824,
+      "sha256": "9d4989d5eee5fdd1bb3c1cb3db22d4df2cf08936c5fe20e2aee2e73859d599b7"
+    },
+    "ql:Germany.FrankfurtStockExchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Germany.FrankfurtStockExchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 729,
+      "sha256": "6ace72270538ee81adb7f322bdaf4b82115d7e01d17c2bd5151e592fbc34d4a7"
+    },
+    "ql:Germany.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Germany.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1213,
+      "sha256": "dac1f25e8344ac7580b83056a3ce6f36a9e13addc1f127665320c6ad01fd15ad"
+    },
+    "ql:Germany.Xetra": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Germany.Xetra",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 729,
+      "sha256": "6ace72270538ee81adb7f322bdaf4b82115d7e01d17c2bd5151e592fbc34d4a7"
+    },
+    "ql:HongKong.HKEx": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "HongKong.HKEx",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1039,
+      "sha256": "69b438e884ca9572fe699ace900bf78bd953b0f9fce21c86e15858fda8b06eb8"
+    },
+    "ql:Hungary": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Hungary",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1092,
+      "sha256": "6db44d4ac08acdbd9ac7ee1ef94bae4e2770ea5ca074e973f569f9100254f785"
+    },
+    "ql:Iceland.ICEX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Iceland.ICEX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1373,
+      "sha256": "7d01d842a83ec8ff71d3d8ffa72b5ae1a77e2450f2b1c5df53a0ac73f94294d9"
+    },
+    "ql:India.NSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "India.NSE",
+      "bounds": [
+        "1970-01-01",
+        "2026-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 480,
+      "sha256": "4a34a243bd22a593793d06d2148c1388c6584d2808bcdeb25860cf07067dbb5c"
+    },
+    "ql:Indonesia.BEJ": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Indonesia.BEJ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 662,
+      "sha256": "d24b4dc103c4b8cc8182b32af6b4dad68d554b40c61da6d98547b65c3cf81567"
+    },
+    "ql:Indonesia.JSX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Indonesia.JSX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 662,
+      "sha256": "d24b4dc103c4b8cc8182b32af6b4dad68d554b40c61da6d98547b65c3cf81567"
+    },
+    "ql:Israel.SHIR": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Israel.SHIR",
+      "bounds": [
+        "1970-01-01",
+        "2050-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 892,
+      "sha256": "798338efa08a803e5d208aede3098890cf1050fedd3581a81ba91cb6d7f23903"
+    },
+    "ql:Israel.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Israel.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2025-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 3214,
+      "sha256": "b220938b5d9e08f943d6ca977444c5b452c5ec9c77c2d4b628e0719af0af8b1d"
+    },
+    "ql:Israel.TASE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Israel.TASE",
+      "bounds": [
+        "1970-01-01",
+        "2025-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 3214,
+      "sha256": "b220938b5d9e08f943d6ca977444c5b452c5ec9c77c2d4b628e0719af0af8b1d"
+    },
+    "ql:Israel.Telbor": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Israel.Telbor",
+      "bounds": [
+        "1970-01-01",
+        "2050-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 735,
+      "sha256": "ae34b594c26046b83483d30b785c5742c64f357862b25c8cb2014c3300335088"
+    },
+    "ql:Italy.Exchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Italy.Exchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 916,
+      "sha256": "824534edd692ba201500f880e134eb357e4b5c17387c67918e88e0fc50f4e026"
+    },
+    "ql:Italy.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Italy.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1039,
+      "sha256": "03844f016a2c565f609235676a7eb2c3448bd50581518fa2d80c1a12548a7ba6"
+    },
+    "ql:Japan": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Japan",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2061,
+      "sha256": "fb78300a14631dda00dafc6a99c3db24ba7680e11496572008a965a2ac47a76f"
+    },
+    "ql:Malta.MSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Malta.MSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1525,
+      "sha256": "5d674fe77ef9466648cb586b1a11e33abe45a5eb08fd3535bcb2dc5924ffc3b0"
+    },
+    "ql:Mexico.BMV": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Mexico.BMV",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1192,
+      "sha256": "14d16e1a3210b47acb6303c9510e1fbc3b895b37a6057718a0ec0f057d678fd3"
+    },
+    "ql:Montenegro.MNSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Montenegro.MNSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 933,
+      "sha256": "4542c1289b19941bdf30a8a974c85434e90fcfa01d9147a9ef315e6b81853f55"
+    },
+    "ql:NewZealand.Auckland": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "NewZealand.Auckland",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1444,
+      "sha256": "38696a213016057f0669a68120fdd5380fabad0c9c0c06bb85b71bb0593d7654"
+    },
+    "ql:NewZealand.Wellington": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "NewZealand.Wellington",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1444,
+      "sha256": "dd911d0edb284802e68c0eb7d2a542827c9f1286a87b9708521857c9562564f8"
+    },
+    "ql:NorthMacedonia.MSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "NorthMacedonia.MSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 989,
+      "sha256": "df4a7479274844793c7d98fb3d4f9439d55973856c87e01dd8fea0f40799b689"
+    },
+    "ql:Norway": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Norway",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1185,
+      "sha256": "3e00f0837786e6e23a6af20e354ab9d016453a4f2345ce13c61f3954f30e40e3"
+    },
+    "ql:Poland.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Poland.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1071,
+      "sha256": "b13ae7117b782d5ca94215d71d3f0c9c5455f6c9a3959f053399863ed25e2c2d"
+    },
+    "ql:Poland.WSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Poland.WSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1261,
+      "sha256": "acffc2cfb240d5cfaff57fe99a96301072dd1e01652dcd1b63b3b76b79bf5eac"
+    },
+    "ql:Romania.BVB": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Romania.BVB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1153,
+      "sha256": "4ecb297804631699a51ecbad3f1bc3d77159dc0f981c173b9c281508b6f02ba9"
+    },
+    "ql:Romania.Public": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Romania.Public",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1151,
+      "sha256": "d46d7cdb3ea6856aaeadc1b0fbec7b166d82ace50ec402d0e23d31fe46638986"
+    },
+    "ql:Russia.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Russia.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1328,
+      "sha256": "78f6b389ca67a8ff029404efb773a342668091aaff18ff5b1681939ce251645d"
+    },
+    "ql:SaudiArabia.Tadawul": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "SaudiArabia.Tadawul",
+      "bounds": [
+        "1970-01-01",
+        "2029-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2516,
+      "sha256": "9c8c42021f8fab46bd29ee825f81896c3e189ae8689d11c7e3ff9a8834b4adf4"
+    },
+    "ql:Serbia.BSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Serbia.BSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 985,
+      "sha256": "50c1797a0a509e9529b7c6dcf44fe77107ea0dc52d077a952e6d399a7a4db178"
+    },
+    "ql:Singapore.SGX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Singapore.SGX",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 635,
+      "sha256": "ce9bd4febb46b61fbbf534958ab85f3edd2bb69e18315c68653f350fc4313bf6"
+    },
+    "ql:Slovakia.BSSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Slovakia.BSSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1485,
+      "sha256": "10910a678c118a6a5705dd1588ec3df9fd95883278c949d8523aa261a2db14e2"
+    },
+    "ql:Slovenia.LSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Slovenia.LSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1288,
+      "sha256": "51e2d12bc224f1fbf7777a3458e2da6ebd976aae547b8d06e34f7f0cbf0ee42f"
+    },
+    "ql:SouthAfrica": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "SouthAfrica",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1371,
+      "sha256": "13037b14be5860e2afbfdf3dc2df21e8cdf77984bad473587f86febc83339936"
+    },
+    "ql:SouthKorea.KRX": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "SouthKorea.KRX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1422,
+      "sha256": "09a35259295cf2fce24ffd75d8983b06d88b97a09ae7d6b25f75a82074029a18"
+    },
+    "ql:SouthKorea.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "SouthKorea.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1289,
+      "sha256": "9b4825adeb80c147c8fa65c016b53b674aac4b2d0b6d34b99fb3f3fbcba3d890"
+    },
+    "ql:Sweden": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Sweden",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1282,
+      "sha256": "026ea62d6992e2ba8ee87f499781164f6922628324a3d2b4385bf33d24f537b8"
+    },
+    "ql:Switzerland": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Switzerland",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1080,
+      "sha256": "aaf6d7318ce9efc6e6eef92a26a1553217351a900471d6daf8d2828b05256ef7"
+    },
+    "ql:TARGET": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "TARGET",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 536,
+      "sha256": "21e0a73bc242d38fd208f93340e7c92dcb3e4c546d3bc288cff804586d127e77"
+    },
+    "ql:Taiwan.TSEC": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Taiwan.TSEC",
+      "bounds": [
+        "1970-01-01",
+        "2026-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 407,
+      "sha256": "febd1af7b655c64adc675876631f478e067985575c00e15c6a68a039d29dd6a4"
+    },
+    "ql:Thailand": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Thailand",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1781,
+      "sha256": "6708cd481867515721136dbe2a9d33270547539cd478209c1b973b936988ee7c"
+    },
+    "ql:Turkey": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Turkey",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 788,
+      "sha256": "171700301fee957953f040e1d2abef05e7be2c950ba983eb9a3ca3899d751c61"
+    },
+    "ql:Ukraine.USE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Ukraine.USE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1224,
+      "sha256": "2fb10f68c2e0fa0a19f97ce357b6cfee2b1cd050b8e9ecc7a8b3533e7c22b093"
+    },
+    "ql:UnitedKingdom.Exchange": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedKingdom.Exchange",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1055,
+      "sha256": "1ecb8422a22ef0ceaa128beee9aaafaeb575efe36466dd955b1affc5b3a6e941"
+    },
+    "ql:UnitedKingdom.Metals": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedKingdom.Metals",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1055,
+      "sha256": "1ecb8422a22ef0ceaa128beee9aaafaeb575efe36466dd955b1affc5b3a6e941"
+    },
+    "ql:UnitedKingdom.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedKingdom.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1055,
+      "sha256": "1ecb8422a22ef0ceaa128beee9aaafaeb575efe36466dd955b1affc5b3a6e941"
+    },
+    "ql:UnitedStates.FederalReserve": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.FederalReserve",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1288,
+      "sha256": "9bd2b2a895a34381d708669826332099bd25a71add7822215c1eddf2403a327e"
+    },
+    "ql:UnitedStates.GovernmentBond": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.GovernmentBond",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1449,
+      "sha256": "0378165ee1ec9f1eb4e1fc173b5736b62ecf73fb668ef156d805361c64a677cc"
+    },
+    "ql:UnitedStates.LiborImpact": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.LiborImpact",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1350,
+      "sha256": "1d996221f50309d0ff0d6d5f7f3999348999e48045a5fd353495a3fa32e4f992"
+    },
+    "ql:UnitedStates.NERC": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.NERC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 728,
+      "sha256": "c93b052ac36ec288cd57251fc433ef484817795ae6e253247c19818e59f7e268"
+    },
+    "ql:UnitedStates.NYSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.NYSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1229,
+      "sha256": "842cc071dbc0bb91ad8bf62fa2f509d07e81361df1788cdef84fe3ae6831c6c2"
+    },
+    "ql:UnitedStates.SOFR": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.SOFR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1473,
+      "sha256": "bd6b06e24b9d16d10c05b826f589b32553ae4990cbed2d22e799d3fd72c689e6"
+    },
+    "ql:UnitedStates.Settlement": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1376,
+      "sha256": "657088a2f7d9deda1b5708f59afb1581b07737f7a6b3d10d936afa615bd8f9df"
+    },
+    "ql:Uzbekistan.UZSE": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Uzbekistan.UZSE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 676,
+      "sha256": "ae394d79f671e314b1f1214bfdecfb63459794f716cc2812b893227faf562baf"
+    },
+    "ql:WeekendsOnly": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "WeekendsOnly",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "rate:CORRA": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Canada.Settlement",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1483,
+      "sha256": "f026dcc7922054e9f842ae42afca64dfbf5b47d240f8f21f939bb7ebb44c52d0"
+    },
+    "rate:SARON": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Switzerland",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1080,
+      "sha256": "aaf6d7318ce9efc6e6eef92a26a1553217351a900471d6daf8d2828b05256ef7"
+    },
+    "rate:SOFR": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "UnitedStates.SOFR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1473,
+      "sha256": "bd6b06e24b9d16d10c05b826f589b32553ae4990cbed2d22e799d3fd72c689e6"
+    },
+    "rate:TONA": {
+      "provider": "quantlib",
+      "provider_version": "1.43",
+      "upstream": "Japan",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2061,
+      "sha256": "fb78300a14631dda00dafc6a99c3db24ba7680e11496572008a965a2ac47a76f"
+    },
+    "wk:AO": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "AO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1099,
+      "sha256": "d1d7378e4962e067ade041deac9712f587218266759a4566028b2911e4cbe84f"
+    },
+    "wk:AR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "AR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1695,
+      "sha256": "40f461806ab396a9695d1e43f146b6a23e40715ebf237d9a427d992bba2b9a83"
+    },
+    "wk:AT": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "AT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1362,
+      "sha256": "72e1ffab6d3bdc2ee96a58f982b14f7b16fe46a491511b53a94cc1fce125ea50"
+    },
+    "wk:AU": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "AU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 914,
+      "sha256": "ba29da9cd80e6e384839f34001380983be8c695c303a445deb20a1ec97ddc7b1"
+    },
+    "wk:BB": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1405,
+      "sha256": "e3df37cc3424a7e4a029b84fa819700907dcbe85146c391e9cde6a73f678f20c"
+    },
+    "wk:BE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1045,
+      "sha256": "2007ae04643431223be18a9e4b8a9cb9b6e0aec0859ee8d921e3b3166320f89f"
+    },
+    "wk:BG": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1531,
+      "sha256": "f2a695ea07b391b724bfd6f88fb8d81d9e7a8ed81087d82222b460dda4d8fcc7"
+    },
+    "wk:BJ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BJ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1499,
+      "sha256": "fdf6cb76ebf7d298b835b8bf9e4539c45916310dc503dabade1429c2eb5085ce"
+    },
+    "wk:BR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 749,
+      "sha256": "a4a059ce2edc0c7f343ea4c35bd21a71f491efd121873ce5dc811251eb38bb0c"
+    },
+    "wk:BY": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "BY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 959,
+      "sha256": "58a7508ef087bb5d00c2f078cc28606fb10819671140600ef0d342dd36bb9ce1"
+    },
+    "wk:CA": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 524,
+      "sha256": "666ff34141c9c4c6144b48c68a4b12fb5237a1ced13580f0de93fbe51f0dc824"
+    },
+    "wk:CH": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 895,
+      "sha256": "80d12fd8e501077c35ee612b702c4a5e5564bd2ae60284c6e09b3e0c024b3cc5"
+    },
+    "wk:CI": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1317,
+      "sha256": "22eac8eab4384fb6d5cf69b2bb533c1226c3ab520264279e3e0eb89932d17d11"
+    },
+    "wk:CL": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CL",
+      "bounds": [
+        "1970-01-01",
+        "2051-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 888,
+      "sha256": "0e3e1027b68dd853d58c1b0d755182b46003d50308deaec7ad64e886750dc420"
+    },
+    "wk:CN": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CN",
+      "bounds": [
+        "2018-01-01",
+        "2023-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 107,
+      "sha256": "332916a060013779ad548a8fc221d896cf4706013585871f734272e91255ae83"
+    },
+    "wk:CO": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 2109,
+      "sha256": "b4f05948ba2f91ccd7926bb44dfe171104c5b8abc646ee7c588f701374241454"
+    },
+    "wk:CY": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1665,
+      "sha256": "e55682445c505330f251e0428dbba06158b0b0303c9d715691ce137e199e0985"
+    },
+    "wk:CZ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "CZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1245,
+      "sha256": "32baaf149f2517426e8e2ae42b0d1524bcf9c2a29152628bee93b501a754b3d8"
+    },
+    "wk:DE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "DE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 988,
+      "sha256": "a6fe41ffe0884ddb8a35b68c730ed8d07a014580c0347fb1c107dc9301ac4ae5"
+    },
+    "wk:DK": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "DK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1160,
+      "sha256": "ba7c94f4f1fb25549be6152d1d361d878f09303753a1786317cd5337ce2e583c"
+    },
+    "wk:DZ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "DZ",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 844,
+      "sha256": "76afaf68cd84145cfa570fc3ba4f5640d295dc24f6be7d742d38fb24fb55ba1b"
+    },
+    "wk:EE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "EE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 975,
+      "sha256": "b40c0349a859a37e45bb79d24c5c83ca15fb0d2b13488b285694461d5b86ef8f"
+    },
+    "wk:ES": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "ES",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 971,
+      "sha256": "887247a91e69e87b7177bf064274e2e80795c7385f97b132f88eaebcb32d502e"
+    },
+    "wk:FI": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "FI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1177,
+      "sha256": "718fa041cebcd77aaf700354c578d6328a4b6b684376df7d6c1305a473ef9d4b"
+    },
+    "wk:FR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "FR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1131,
+      "sha256": "0c86aa95d647669c55f50f7c8bd262543324e2c4cbe753c3765664d06904cfb6"
+    },
+    "wk:GB": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "GB",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1057,
+      "sha256": "d48abfd242a18f9fabb6a0272dc4c6d9c416752ca155e8a1030c0e06444b2693"
+    },
+    "wk:GE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "GE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1471,
+      "sha256": "af94744b9666e6a414cb2091b2404971a977e0b7034fb24dd16879e47c30dc45"
+    },
+    "wk:GG": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "GG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1140,
+      "sha256": "13e15fc37f000ba65132f33cc27a04f9ab05e83220321f04e82f1b87adf9897e"
+    },
+    "wk:GR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "GR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1262,
+      "sha256": "23eff12b8909d2376d201fde8f8f6e088c808bab58847a95d06782432b0ed3e4"
+    },
+    "wk:HK": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "HK",
+      "bounds": [
+        "1991-01-01",
+        "2051-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri Sat",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1030,
+      "sha256": "b2bb16a0616d5c0065be6b2f77e9d98a88cd61959eaf92a5d627ed271586c058"
+    },
+    "wk:HR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "HR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1283,
+      "sha256": "02e2d7e8bfbf856b7ba2a4c2f99d456b3d0a3f55b1b0859059f759ceec319b93"
+    },
+    "wk:HU": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "HU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1092,
+      "sha256": "6db44d4ac08acdbd9ac7ee1ef94bae4e2770ea5ca074e973f569f9100254f785"
+    },
+    "wk:IE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "IE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1152,
+      "sha256": "9cab90b7051637deb64fc1613a97dc79ee87c0aa47cdfa966b9f46c4e4975473"
+    },
+    "wk:IL": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "IL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1646,
+      "sha256": "e8439d75bc833977c94502ae8a6d4dea2cad57c416dbb4567a7da2b2f4125b28"
+    },
+    "wk:IS": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "IS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1563,
+      "sha256": "69368f47990b182ece923e9faec0c5f8bbf14f895ff4f8168ed063b1c4c5d125"
+    },
+    "wk:IT": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "IT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1060,
+      "sha256": "34f7ca84655d7439e78778cb8da482e601585901a02c41c71ef8ec79f290e3f9"
+    },
+    "wk:JP": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "JP",
+      "bounds": [
+        "1991-01-01",
+        "2051-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 762,
+      "sha256": "ae60499a86659a1da15b32b81b83d300278a9de91fac73f497b2d37eeb62fbc8"
+    },
+    "wk:KE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "KE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1489,
+      "sha256": "def859a32254e2cea47fc1286fafe62ac0414f43dee9247bf0f6aa9d7b873a23"
+    },
+    "wk:KR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "KR",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1381,
+      "sha256": "890acab6e0e4b07d53c2066c89ca55c0b3aa6b13ef11762ec486f2ba117d4cec"
+    },
+    "wk:KY": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "KY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1442,
+      "sha256": "e5acd0a699f35015392cef6ae53253f26cbd77be2abd7dd8bf7acad4e5a95ce2"
+    },
+    "wk:KZ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "KZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1381,
+      "sha256": "849f1c220d2f9117e7231c9b2b7c22e8dbe799ab5a6b529c9ae50fe7ea5724ee"
+    },
+    "wk:LT": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "LT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1217,
+      "sha256": "8bb1540c67eb141f32ef39360db5a3d489ffc1c2cc9822f39765deff14ab8211"
+    },
+    "wk:LU": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "LU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1097,
+      "sha256": "fdc1babaf04917ee323c76c07376bc3b527c243c65078a4bdd0260310a440cbc"
+    },
+    "wk:LV": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "LV",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1239,
+      "sha256": "9d81b420d5f96353ca57e397c9fbf77f176b54867391f23dc123c9d83cde7cf1"
+    },
+    "wk:MC": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MC",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1271,
+      "sha256": "9a0b9aed413e6492bafe64f6830f02465bd6242770dbc4a552402b463f76511d"
+    },
+    "wk:MG": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1040,
+      "sha256": "eea67886fbb3ef68cd9d11329146cffeb61d6b07ae78c75ded402fee9e065ed6"
+    },
+    "wk:MH": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MH",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1218,
+      "sha256": "73b13e5ff70a186f8c6069b5ec636153af3d3c9c4c31c70b78e2a441e92c454a"
+    },
+    "wk:MT": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1345,
+      "sha256": "31fc05028b616f24cac63a49ff88a5790dbad45842db24b2f22fef39ececf7f5"
+    },
+    "wk:MX": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MX",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 993,
+      "sha256": "e4dcf7bf7a28fafaa2e30404d4478e1f1f86e5d8457524f9356a15abb622a41d"
+    },
+    "wk:MY": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MY",
+      "bounds": [
+        "2010-01-01",
+        "2024-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 213,
+      "sha256": "3718c43ce83291771a0ea2de92934272b260edf01b7df190fec6d92e9d692b6d"
+    },
+    "wk:MZ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "MZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 971,
+      "sha256": "089020aa9810793f1f0ff27dccda184d37a86bdc052edbf69da76101be7e7a63"
+    },
+    "wk:NG": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "NG",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1025,
+      "sha256": "12d1a7af054e3ebf2644773caac122884a5dc303e3b97ace297dba5066459c66"
+    },
+    "wk:NL": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "NL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 989,
+      "sha256": "e789aa1964719eb633f94802affb5015b0166b3aa65ec5eb96b445d05f08169b"
+    },
+    "wk:NO": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "NO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1113,
+      "sha256": "38480a531c00f76fbb0567ca0b965b1842fbbbd61d18552bc979a26348274b4a"
+    },
+    "wk:NZ": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "NZ",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1307,
+      "sha256": "071d34b993c54d4ce55a04f6340850ecd57aadb87b916cf62a11ae71a930833f"
+    },
+    "wk:PA": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "PA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1104,
+      "sha256": "f53ba2c1640cdb6959675a45660313ad6075ee0ab2155e99366f931b3bbcb4e9"
+    },
+    "wk:PH": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "PH",
+      "bounds": [
+        "1970-01-01",
+        "2099-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1916,
+      "sha256": "00747fc7864c406b46718465cf296e4b69c9d5f31ba18932c9805f1eb530b267"
+    },
+    "wk:PL": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "PL",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1100,
+      "sha256": "3aa1f3a61112d5d50d2b1cbc4b71db9ff2279bf3b01a8696cab4305a9e8c0f31"
+    },
+    "wk:PT": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "PT",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1181,
+      "sha256": "05297ca5250913f32b1bab09d5b5f3cfb6305dd97e2331ab854a9836d60a6668"
+    },
+    "wk:PY": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "PY",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1195,
+      "sha256": "f1dc361643678fbf3b2b03f0cf081057c870c2c4c99a1363a84c07797ba3cbfd"
+    },
+    "wk:QA": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "QA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Sun",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 956,
+      "sha256": "c70af148c0829816548ec5617f2e44775cc707eb02818f4e9d7ba761811bcca0"
+    },
+    "wk:RO": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "RO",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1295,
+      "sha256": "2e12ebe8b0c71f7ab5d7131da513c7ed6dae7d02c5f3f1b40181cc93baa59c64"
+    },
+    "wk:RS": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "RS",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 993,
+      "sha256": "1d8899844dadd1278e6e281aa8a6f3007d6511f9a86ea198f1033c2092df8076"
+    },
+    "wk:RU": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "RU",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1444,
+      "sha256": "e40060b91954e77bc760969e3643d5f6402994101d57dcaa9f1b286ade6918c0"
+    },
+    "wk:SE": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "SE",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1271,
+      "sha256": "f0cc997eccf9ba5cc1e34b36d8a0cecce6f43af4fcd1da5f5777514ee6b5f172"
+    },
+    "wk:SG": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "SG",
+      "bounds": [
+        "2000-01-01",
+        "2030-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 300,
+      "sha256": "81fb7713649ac6410db21f4e85060de629f29a553670d9967fec44163261c374"
+    },
+    "wk:SI": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "SI",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1244,
+      "sha256": "7fbfa2493a12da76129e5998bf64b44154835db1c6a3338fbe193310b8c704d9"
+    },
+    "wk:SK": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "SK",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1476,
+      "sha256": "7a737ce75eca6d5180eb1786e0a419cda197da82408858065ceb87f07fe4ec76"
+    },
+    "wk:ST": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "ST",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 841,
+      "sha256": "edb8cfe9f7fa74e008b1f2d717cc1cdb6260a53e45331f4f147f3fdeb5a539d6"
+    },
+    "wk:SV": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "SV",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1012,
+      "sha256": "4bef06fcd07d92482ddd89603aafb69356e361e006e166ef75e8251f915b077d"
+    },
+    "wk:TN": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "TN",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1186,
+      "sha256": "6b53fa632e3209badcfec13b9405c912f96aabcaf66cc8ad840c89794a3d21e2"
+    },
+    "wk:TR": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "TR",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1352,
+      "sha256": "fdafd44745a5bb30f1cc0142315b00e5848a770915f5f2989f5360bca85f056c"
+    },
+    "wk:TW": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "TW",
+      "bounds": [
+        "1991-01-01",
+        "2051-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 462,
+      "sha256": "871ac107f68fd789a4e4b7ccd46fd1848f4fb5786874dccf6197a145763b543d"
+    },
+    "wk:UA": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "UA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1288,
+      "sha256": "8a69c1a15953dd5f385a83a98838579ddec5deb9ada43d6fb2e75769f3175c69"
+    },
+    "wk:US": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "US",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1296,
+      "sha256": "e6b0f87d4fccb4820760ff47e6971f57d40bdb47c87da7d79219d8ea9e09a664"
+    },
+    "wk:ZA": {
+      "provider": "workalendar",
+      "provider_version": "17.0.0",
+      "upstream": "ZA",
+      "bounds": [
+        "1970-01-01",
+        "2100-12-31"
+      ],
+      "weekmask": "Mon Tue Wed Thu Fri",
+      "tz": null,
+      "session_start": "00:00:00",
+      "holidays": 1349,
+      "sha256": "b3637350cc4857e0c275255d28d068094cb59c7fd67272dfa6ac4f2a523da183"
+    }
+  }
+}

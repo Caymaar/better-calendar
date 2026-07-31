@@ -10,12 +10,13 @@ that array — so everything is O(log n) per element and vectorised.
 ```python
 import better_calendar as bcal
 
-bcal.adjust("2026-05-31", "MF")          # '2026-05-29'  Sunday; forward would leave May
-bcal.offset("2026-07-31", 5)             # '2026-08-07'
-bcal.count("2026-07-27", "2026-08-01")   # 5            half-open [start, end)
+bcal.adjust("2026-05-31", "MF")  # '2026-05-29'  Sunday; forward would leave May
+bcal.offset("2026-07-31", 5)  # '2026-08-07'
+bcal.count("2026-07-27", "2026-08-01")  # 5            half-open [start, end)
 ```
 
-`numpy` is the only required dependency. Importing the package does not import pandas.
+`numpy` is the only required dependency. Importing the package does not import pandas, and
+answering a query never imports a holiday provider.
 
 ## Status
 
@@ -27,15 +28,14 @@ Pre-1.0, built milestone by milestone (see `.claude/CLAUDE.md` §17).
 | M1 | `core/`: epoch, type conversion and preservation, errors, `DateRange` | done |
 | M2 | `Calendar`: membership, roll conventions, offsets, counting | done |
 | M3 | Algebra, registry, `weekday` and `crypto:24x7` calendars | done |
-| M4 | Providers, snapshots, CLI | not started |
+| M4 | Providers, snapshots, CLI | done |
 | M5 | `BDay`, tenors, spot lags, pandas interop | not started |
 | M6 | Schedules and recurrences | not started |
 | M7 | Sessions (`session_of`, `session_bounds`, `grid`) | not started |
 | M8 | Docs, YAML overrides, packaging, 1.0 | not started |
 
-Until M4 lands, only `weekday` and `crypto:24x7` resolve. Named calendars such as `XNYS`
-or `fin:TARGET2` are recognised as aliases and rejected with an explanatory error rather
-than a bare "unknown calendar".
+477 calendars ship in the wheel: 59 exchanges, 251 countries, 91 QuantLib settlement and
+rate calendars, and 76 from workalendar. Schedules, tenors and sessions are still ahead.
 
 ## Install
 
@@ -58,9 +58,9 @@ out; sequence in, `DatetimeIndex` out (a `datetime64[D]` array when pandas is ab
 from datetime import date
 import better_calendar as bcal
 
-bcal.offset(date(2026, 7, 31), 1)        # datetime.date(2026, 8, 3)
-bcal.offset("20260731", 1)               # '20260803'
-bcal.offset(20260731, 1)                 # 20260803
+bcal.offset(date(2026, 7, 31), 1)  # datetime.date(2026, 8, 3)
+bcal.offset("20260731", 1)  # '20260803'
+bcal.offset(20260731, 1)  # 20260803
 ```
 
 Accepted inputs: `date`, `datetime`, `pandas.Timestamp`, `numpy.datetime64`, ISO-8601
@@ -72,9 +72,9 @@ purpose — there is no way to tell it from `MM/DD/YYYY`, and a wrong guess is s
 ```python
 from better_calendar import Roll
 
-bcal.adjust("2026-08-01")                     # '2026-08-03'  following
-bcal.adjust("2026-05-31", Roll.MODIFIED_FOLLOWING)   # '2026-05-29'
-bcal.adjust("2026-08-01", "P")                # '2026-07-31'  preceding
+bcal.adjust("2026-08-01")  # '2026-08-03'  following
+bcal.adjust("2026-05-31", Roll.MODIFIED_FOLLOWING)  # '2026-05-29'
+bcal.adjust("2026-08-01", "P")  # '2026-07-31'  preceding
 ```
 
 `NONE`, `FOLLOWING`, `PRECEDING`, `MODIFIED_FOLLOWING`, `MODIFIED_PRECEDING`, `NEAREST`
@@ -87,13 +87,13 @@ Operations are named after **business days**, never after holidays — because "
 two calendars" means opposite things depending on which one the speaker has in mind.
 
 ```python
-a & b        # good in BOTH        == union of the holiday sets   <- settlement
-a | b        # good in AT LEAST ONE
-a - b        # good in a, not in b
-a ^ b        # good in exactly one
+a & b  # good in BOTH        == union of the holiday sets   <- settlement
+a | b  # good in AT LEAST ONE
+a - b  # good in a, not in b
+a ^ b  # good in exactly one
 
-Calendar.all_open([a, b, c])   # verbose alias for &
-Calendar.any_open([a, b, c])   # verbose alias for |
+Calendar.all_open([a, b, c])  # verbose alias for &
+Calendar.any_open([a, b, c])  # verbose alias for |
 ```
 
 Composites are ordinary frozen `Calendar` objects, so they work in offsets and as cache
@@ -114,18 +114,63 @@ weekmask strings.
 The failure this exists to prevent:
 
 ```python
-ts = pd.Timestamp("2026-07-31 23:30", tz="UTC")   # Friday
-ts.date()                                          # 2026-07-31  Friday
-ts.tz_convert("Europe/Paris").date()               # 2026-08-01  Saturday
+ts = pd.Timestamp("2026-07-31 23:30", tz="UTC")  # Friday
+ts.date()  # 2026-07-31  Friday
+ts.tz_convert("Europe/Paris").date()  # 2026-08-01  Saturday
 ```
 
 Opt out with `bcal.config.default_tz = "UTC"` if your service has already decided
 everything is UTC. It is the library's only global state.
 
+### Named calendars
+
+```python
+bcal.get("XNYS")                       # by MIC
+bcal.get("NYSE")                       # or by alias
+bcal.offset("2026-07-02", 1, cal="XNYS")     # '2026-07-06', skipping 3 July
+bcal.is_bday("2026-04-06", cal="EUR")        # False: Easter Monday, TARGET2 closed
+bcal.list(provider="quantlib")               # what came from where
+```
+
+Identifiers are namespaced: a bare four-letter name is an ISO-10383 MIC (`XNYS`, `XPAR`),
+and everything else is prefixed — `country:FR`, `fin:TARGET2`, `rate:SOFR`, `ql:` for any
+QuantLib class and market, `wk:` for workalendar, `crypto:24x7`. Aliases live in one
+declarative table, so `NYSE`, `TARGET`, `EUR` and `SONIA` all resolve.
+
 ### Bounds
 
-Every calendar has an explicit finite horizon (1970-01-01 to 2100-12-31 by default) and
-raises `OutOfBoundsError` outside it. Nothing is ever extrapolated.
+Every calendar has an explicit finite horizon and raises `OutOfBoundsError` outside it.
+Nothing is ever extrapolated — and the horizon is what the upstream can actually answer
+for, not what was asked:
+
+```python
+bcal.get("XTKS").bounds        # (1997-01-01, 2100-12-31)  Tokyo data starts in 1997
+bcal.get("XHKG").bounds        # (1970-01-01, 2049-12-31)  Hong Kong data ends in 2049
+bcal.get("ql:Israel.TASE")     # stops in 2025: the Hebrew calendar table ends there
+```
+
+That last one matters. Lunar, Hebrew and Islamic holidays are tabulated rather than
+derived, and upstream tables end **without saying so** — past its table, QuantLib's
+Shanghai calendar quietly drops from eighteen holidays a year to one, and keeps answering
+"yes, business day" with total confidence. Snapshot generation detects that collapse and
+clips the horizon, so you get `OutOfBoundsError` instead of a wrong answer.
+
+### Where the data comes from
+
+Holiday data is **snapshotted**, not computed at query time. Upgrading
+`exchange-calendars` can never silently move a settlement date, because runtime never
+calls it — it reads a file that a human reviewed and merged.
+
+```bash
+better-calendar snapshot --provider all    # regenerate; run rarely, commit the result
+better-calendar diff                       # non-zero exit if any date moved
+better-calendar describe rate:SOFR         # provenance: provider, version, bounds, hash
+better-calendar next XNYS 2026-07-31 +5
+```
+
+The snapshot is one ISO date per line, one file per calendar, so a weekly CI job that
+regenerates against the latest upstreams opens a pull request showing exactly which dates
+changed — `+2027-05-31` / `-2027-06-01` — rather than "binary file changed".
 
 ## Development
 
@@ -136,7 +181,8 @@ uv run ruff check .
 uv run mypy
 ```
 
-Doctests run as part of the suite, so every example in this README and in the docstrings
-is executed in CI. Roll conventions, membership and counting are cross-validated against
-`numpy.busday_offset` over a ten-year horizon; `QuantLib` and `exchange-calendars` join as
-oracles at M4.
+Doctests run as part of the suite, so every example in the docstrings is executed in CI.
+Roll conventions, membership and counting are cross-validated against `numpy.busday_offset`
+over a ten-year horizon, and the committed snapshot is checked day-for-day against live
+`QuantLib`, `exchange-calendars` and `holidays` over each calendar's full horizon. Those
+tests are marked `oracle` and skip cleanly without the provider extras.

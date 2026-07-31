@@ -7,8 +7,8 @@ Resolution order, applied in this order and documented as part of the public con
 2. **Explicitly registered.** Anything installed with :func:`register` wins, so an
    organisation can shadow a shipped calendar without forking it.
 3. **Built in.** ``weekday`` and ``crypto:24x7``, which need no snapshot.
-4. **Snapshot.** Provider-materialised calendars loaded from the committed data (I8).
-   Not implemented yet — see milestone M4.
+4. **Snapshot.** Provider-materialised calendars read from the committed data (I8). No
+   provider is imported: the answer comes from a file that a human reviewed and merged.
 5. **Alias.** ``aliases.toml`` maps a colloquial name onto a canonical id, which is then
    resolved from step 2 again. Chains are followed; cycles are rejected.
 
@@ -28,6 +28,7 @@ from typing import Any, Callable, Union
 
 from better_calendar.calendars._toml import read_table
 from better_calendar.calendars.base import WEEKMASK_ALL, WEEKMASK_WEEKDAYS, Calendar
+from better_calendar.calendars.snapshot import load_calendar, load_manifest, snapshot_ids
 from better_calendar.core.epoch import DEFAULT_BOUNDS
 from better_calendar.core.errors import BetterCalendarError, UnknownCalendarError
 
@@ -115,27 +116,38 @@ def _canonicalise(name: str, *, _seen: list[str] | None = None) -> str:
 
 def _known_names() -> list[str]:
     """Everything a user could plausibly have meant, for did-you-mean suggestions."""
-    return sorted({*_REGISTERED, *_BUILTINS, *aliases().keys(), *aliases().values()})
+    return sorted(
+        {*_REGISTERED, *_BUILTINS, *snapshot_ids(), *aliases().keys(), *aliases().values()}
+    )
 
 
-@lru_cache(maxsize=256)
-def _get_cached(name: str) -> Calendar:
+def _resolve_step(name: str) -> Calendar | None:
+    """One pass of the resolution order: registered, then built in, then snapshot."""
     if name in _REGISTERED:
         return _REGISTERED[name]
     if name in _BUILTINS:
         return _BUILTINS[name]()
+    if name in load_manifest():
+        return load_calendar(name)
+    return None
+
+
+@lru_cache(maxsize=512)
+def _get_cached(name: str) -> Calendar:
+    found = _resolve_step(name)
+    if found is not None:
+        return found
 
     canonical = _canonicalise(name)
     if canonical != name:
-        if canonical in _REGISTERED:
-            return _REGISTERED[canonical]
-        if canonical in _BUILTINS:
-            return _BUILTINS[canonical]()
+        # Recurse rather than resolve inline, so an alias and its target share one cache
+        # entry — and therefore one object. `_canonicalise` has already rejected cycles.
+        if _resolve_step(canonical) is not None:
+            return _get_cached(canonical)
         raise UnknownCalendarError(
-            f"Calendar {name!r} is a known alias for {canonical!r}, but {canonical!r} "
-            f"has no committed snapshot yet. Provider-materialised calendars arrive with "
-            f"milestone M4; until then only {', '.join(sorted(_BUILTINS))} and calendars "
-            f"installed with better_calendar.register() can be resolved."
+            f"Calendar {name!r} is a known alias for {canonical!r}, but {canonical!r} is "
+            f"not in the committed snapshot. Regenerate it with `better-calendar "
+            f"snapshot`, or install the calendar yourself with better_calendar.register()."
         )
     raise UnknownCalendarError.for_name(name, _known_names())
 
@@ -256,15 +268,22 @@ def list_calendars(*, provider: str | None = None) -> list[str]:
         Sorted identifiers.
 
     Examples:
-        >>> list_calendars()
+        >>> {"weekday", "crypto:24x7"} <= set(list_calendars())
+        True
+        >>> list_calendars(provider="builtin")
         ['crypto:24x7', 'weekday']
-        >>> list_calendars(provider="quantlib")
-        []
     """
-    names = sorted({*_BUILTINS, *_REGISTERED})
+    names = sorted({*_BUILTINS, *_REGISTERED, *snapshot_ids()})
     if provider is None:
         return names
-    return [name for name in names if get(name).provider == provider]
+    # The manifest already knows each snapshot calendar's provider, so filtering does not
+    # have to read (and parse) every calendar file just to answer the question.
+    manifest = load_manifest()
+    return [
+        name
+        for name in names
+        if (manifest[name].provider if name in manifest else get(name).provider) == provider
+    ]
 
 
 def describe(name: str) -> dict[str, Any]:

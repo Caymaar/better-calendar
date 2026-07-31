@@ -1,0 +1,33 @@
+# Named financial centres and risk-free-rate calendars (CLAUDE.md §5.4).
+#
+# QuantLib names its calendars after countries and markets; the market names people
+# actually use are ISDA-style centre codes and RFR names. This table is that translation
+# and nothing more — it maps a name onto a QuantLib class (optionally `.Market`). It
+# encodes no holiday rules, which stay entirely upstream (§18).
+#
+# Anything not named here is still reachable under the `ql:` namespace, e.g.
+# `ql:UnitedStates.NYSE`.
+
+[calendars]
+
+# --- financial centres, ISDA-style codes ------------------------------------
+"fin:TARGET2" = "TARGET"
+"fin:NYB" = "UnitedStates.Settlement"       # New York banking
+"fin:LNB" = "UnitedKingdom.Settlement"      # London banking
+"fin:TKB" = "Japan"                         # Tokyo banking
+"fin:ZUB" = "Switzerland"                   # Zurich banking
+"fin:TRB" = "Canada.Settlement"             # Toronto banking
+"fin:SYB" = "Australia"                     # Sydney banking
+"fin:OSB" = "Norway"                        # Oslo banking
+"fin:STB" = "Sweden"                        # Stockholm banking
+"fin:COB" = "Denmark"                       # Copenhagen banking
+"fin:HKB" = "HongKong"                      # Hong Kong banking
+"fin:SIB" = "Singapore"                     # Singapore banking
+
+# --- risk-free rates ---------------------------------------------------------
+# ESTR and SONIA are pure aliases (see aliases.toml); the rest need their own
+# snapshot because the underlying QuantLib market differs from the banking centre.
+"rate:SOFR" = "UnitedStates.SOFR"           # SIFMA / US government bond market
+"rate:TONA" = "Japan"
+"rate:SARON" = "Switzerland"
+"rate:CORRA" = "Canada.Settlement"

@@ -41,9 +41,9 @@ def test_get_is_memoised():
 
 
 def test_list_and_describe():
-    assert bcal.list() == ["crypto:24x7", "weekday"]
     assert bcal.list(provider="builtin") == ["crypto:24x7", "weekday"]
-    assert bcal.list(provider="quantlib") == []
+    assert {"weekday", "crypto:24x7", "XNYS", "fin:TARGET2"} <= set(bcal.list())
+    assert "fin:TARGET2" in bcal.list(provider="quantlib")
     info = bcal.describe("weekday")
     assert info["requested"] == "weekday"
     assert info["canonical"] == "weekday"
@@ -60,21 +60,30 @@ def test_unknown_name_without_a_close_match():
         bcal.get("zzzzzzzzzz")
 
 
-def test_alias_without_a_snapshot_says_so():
-    """`NYSE` is a known alias for `XNYS`, which milestone M4 will materialise."""
-    with pytest.raises(UnknownCalendarError, match="known alias for 'XNYS'"):
-        bcal.get("NYSE")
+def test_alias_resolves_through_the_snapshot():
+    assert bcal.get("NYSE").name == "XNYS"
+
+
+def test_an_alias_and_its_target_share_one_object():
+    """Memoisation has to survive the alias hop, or every alias loads a second copy."""
+    assert bcal.get("NYSE") is bcal.get("XNYS")
 
 
 def test_alias_chains_are_followed():
-    with pytest.raises(UnknownCalendarError, match="known alias for 'fin:TARGET2'"):
-        bcal.get("ESTR")  # ESTR -> rate:ESTR -> fin:TARGET2
+    # ESTR -> rate:ESTR -> fin:TARGET2, and the euro short-term rate does follow TARGET2.
+    assert bcal.get("ESTR") is bcal.get("fin:TARGET2")
 
 
 def test_alias_table_is_case_insensitive():
     assert aliases()["nyse"] == "XNYS"
-    with pytest.raises(UnknownCalendarError, match="known alias for 'XNYS'"):
-        bcal.get("nyse")
+    assert bcal.get("nyse") is bcal.get("XNYS")
+
+
+def test_an_alias_to_something_unsnapshotted_says_which():
+    bcal.register("zzz:alias-target-missing", Calendar("zzz:alias-target-missing"))
+    unregister("zzz:alias-target-missing")
+    with pytest.raises(UnknownCalendarError, match="No similar name is registered"):
+        bcal.get("zzz:alias-target-missing")
 
 
 @pytest.mark.usefixtures("_cleanup")

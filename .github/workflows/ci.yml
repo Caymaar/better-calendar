@@ -41,3 +41,35 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --no-dev
       - run: uv run --no-dev python -c "import sys, better_calendar; assert 'pandas' not in sys.modules"
+
+  bare-install:
+    # The snapshot ships in the wheel and is read with numpy alone: a bare install must
+    # answer for XNYS without any provider present (I8, §5.3).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --no-dev
+      - run: |
+          uv run --no-dev python - <<'PY'
+          import sys
+          import better_calendar as bcal
+          assert bcal.offset("2026-07-02", 1, cal="XNYS") == "2026-07-06"   # 3 July closed
+          assert not bcal.is_bday("2026-04-06", cal="fin:TARGET2")          # Easter Monday
+          assert len(bcal.list()) > 400
+          for provider in ("exchange_calendars", "holidays", "QuantLib", "workalendar"):
+              assert provider not in sys.modules, provider
+          PY
+
+  drift-on-demand:
+    # The scheduled run lives in snapshot-drift.yml; this one guards pull requests that
+    # touch the providers or the committed data.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras
+      - name: Snapshot matches the pinned upstreams
+        run: uv run better-calendar diff
