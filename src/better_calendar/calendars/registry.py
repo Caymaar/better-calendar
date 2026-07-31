@@ -6,10 +6,12 @@ Resolution order, applied in this order and documented as part of the public con
    through untouched, and ``None`` means the default ``weekday`` calendar (§13).
 2. **Explicitly registered.** Anything installed with :func:`register` wins, so an
    organisation can shadow a shipped calendar without forking it.
-3. **Built in.** ``weekday`` and ``crypto:24x7``, which need no snapshot.
-4. **Snapshot.** Provider-materialised calendars read from the committed data (I8). No
+3. **Configured.** Calendars defined in the organisation's configuration file (§5.6),
+   which compose on top of the shipped ones rather than forking them.
+4. **Built in.** ``weekday`` and ``crypto:24x7``, which need no snapshot.
+5. **Snapshot.** Provider-materialised calendars read from the committed data (I8). No
    provider is imported: the answer comes from a file that a human reviewed and merged.
-5. **Alias.** ``aliases.toml`` maps a colloquial name onto a canonical id, which is then
+6. **Alias.** ``aliases.toml`` maps a colloquial name onto a canonical id, which is then
    resolved from step 2 again. Chains are followed; cycles are rejected.
 
 Anything unresolved raises
@@ -40,7 +42,9 @@ __all__ = [
     "get",
     "list_calendars",
     "register",
+    "reload_config",
     "resolve",
+    "resolve_shipped",
     "unregister",
 ]
 
@@ -116,20 +120,59 @@ def _canonicalise(name: str, *, _seen: list[str] | None = None) -> str:
 
 def _known_names() -> list[str]:
     """Everything a user could plausibly have meant, for did-you-mean suggestions."""
+    from better_calendar.calendars.providers import custom
+
     return sorted(
-        {*_REGISTERED, *_BUILTINS, *snapshot_ids(), *aliases().keys(), *aliases().values()}
+        {
+            *_REGISTERED,
+            *custom.load_overrides(),
+            *_BUILTINS,
+            *snapshot_ids(),
+            *aliases().keys(),
+            *aliases().values(),
+        }
     )
 
 
-def _resolve_step(name: str) -> Calendar | None:
-    """One pass of the resolution order: registered, then built in, then snapshot."""
-    if name in _REGISTERED:
-        return _REGISTERED[name]
+def resolve_shipped(name: str) -> Calendar | None:
+    """Resolve from the layers this library ships, ignoring registrations and config.
+
+    Exists so that a configured calendar can use *itself* as its base — writing
+    ``XNYS: {base: XNYS, extra_holidays: [...]}`` means "the shipped XNYS plus these",
+    which is the natural way to add a local closure to a public calendar. Without this
+    the lookup would find the override again and recurse forever.
+
+    Args:
+        name: A canonical identifier.
+
+    Returns:
+        The built-in or snapshot calendar, or ``None`` if there is none.
+
+    Examples:
+        >>> resolve_shipped("weekday").provider
+        'builtin'
+        >>> resolve_shipped("no such calendar") is None
+        True
+    """
     if name in _BUILTINS:
         return _BUILTINS[name]()
     if name in load_manifest():
         return load_calendar(name)
     return None
+
+
+def _resolve_step(name: str) -> Calendar | None:
+    """One pass of the resolution order: registered, configured, built in, snapshot."""
+    from better_calendar.calendars.providers import custom
+
+    if name in _REGISTERED:
+        return _REGISTERED[name]
+    if name in custom.load_overrides():
+        # Configured calendars beat the shipped snapshot on purpose: that is how a desk
+        # shadows `XNYS` with its own closures without forking anything.
+        built: Calendar = custom.build(name)
+        return built
+    return resolve_shipped(name)
 
 
 @lru_cache(maxsize=512)
@@ -273,7 +316,9 @@ def list_calendars(*, provider: str | None = None) -> list[str]:
         >>> list_calendars(provider="builtin")
         ['crypto:24x7', 'weekday']
     """
-    names = sorted({*_BUILTINS, *_REGISTERED, *snapshot_ids()})
+    from better_calendar.calendars.providers import custom
+
+    names = sorted({*_BUILTINS, *_REGISTERED, *custom.load_overrides(), *snapshot_ids()})
     if provider is None:
         return names
     # The manifest already knows each snapshot calendar's provider, so filtering does not
@@ -306,3 +351,18 @@ def describe(name: str) -> dict[str, Any]:
     info["requested"] = name
     info["canonical"] = _canonicalise(name)
     return info
+
+
+def reload_config() -> None:
+    """Re-read the organisation configuration file and drop cached resolutions.
+
+    Called for you the first time anything resolves; call it yourself after writing the
+    file at runtime, which is mostly a thing tests do.
+
+    Examples:
+        >>> reload_config()
+    """
+    from better_calendar.calendars.providers import custom
+
+    custom.load_overrides.cache_clear()
+    _get_cached.cache_clear()

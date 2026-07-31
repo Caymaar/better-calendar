@@ -781,6 +781,78 @@ class Calendar:
             "hash": self._key[-1],
         }
 
+    # -- sessions (§9) --------------------------------------------------------
+
+    def session_of(self, value: Any, *, tz: str | None = None) -> Any:
+        """The calendar day an instant belongs to.
+
+        The key function of §9, and the answer to the timezone trap of §10: ``ts.date()``
+        silently answers in whatever zone the timestamp happens to carry, while this makes
+        you say which frame you mean.
+
+        Args:
+            value: An instant, or a sequence of them.
+            tz: Timezone to read instants in; defaults to :attr:`tz`.
+
+        Returns:
+            A :class:`datetime.date` for a scalar, a ``DatetimeIndex`` for a sequence.
+
+        Raises:
+            AmbiguousTimezoneError: If neither the calendar nor the caller supplies a
+                timezone.
+
+        Examples:
+            >>> import pandas as pd
+            >>> ts = pd.Timestamp("2026-07-31 23:30", tz="UTC")
+            >>> Calendar("utc", tz="UTC").session_of(ts)
+            datetime.date(2026, 7, 31)
+            >>> Calendar("paris", tz="Europe/Paris").session_of(ts)
+            datetime.date(2026, 8, 1)
+        """
+        from better_calendar.sessions.session import session_of
+
+        return session_of(value, cal=self, tz=tz)
+
+    def session_bounds(self, day: Any, *, tz: str | None = None) -> Any:
+        """The half-open UTC interval this calendar day covers.
+
+        Args:
+            day: The calendar day.
+            tz: Timezone the session is defined in; defaults to :attr:`tz`.
+
+        Returns:
+            ``(start, end)`` as UTC ``pandas.Timestamp`` objects.
+
+        Examples:
+            >>> first, last = Calendar("utc", tz="UTC").session_bounds("2026-07-31")
+            >>> str(first), str(last)
+            ('2026-07-31 00:00:00+00:00', '2026-08-01 00:00:00+00:00')
+        """
+        from better_calendar.sessions.session import session_bounds
+
+        return session_bounds(day, cal=self, tz=tz)
+
+    def grid(self, start: Any, end: Any, step: str, *, tz: str | None = None) -> Any:
+        """Regular timestamps inside each session, anchored on :attr:`session_start`.
+
+        Args:
+            start: First day to cover.
+            end: Last day to cover, inclusive.
+            step: Grid step — ``"4h"``, ``"15min"``, ``"30s"``.
+            tz: Timezone the sessions are defined in; defaults to :attr:`tz`.
+
+        Returns:
+            A UTC-aware ``DatetimeIndex``.
+
+        Examples:
+            >>> crypto = Calendar("crypto", weekmask="all", tz="UTC")
+            >>> len(crypto.grid("2026-07-31", "2026-07-31", "6h"))
+            4
+        """
+        from better_calendar.sessions.session import grid
+
+        return grid(start, end, step, cal=self, tz=tz)
+
     # -- derivation ---------------------------------------------------------
 
     def with_holidays(

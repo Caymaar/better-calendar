@@ -99,3 +99,90 @@ def test_sequence_output_degrades_to_numpy_without_pandas():
         [sys.executable, "-c", code], capture_output=True, text=True, check=True
     )
     assert out.stdout.strip() == "ndarray datetime64[D]"
+
+
+CURATED_API = [
+    # §13, verbatim.
+    "Calendar",
+    "get",
+    "list",
+    "describe",
+    "register",
+    "BDay",
+    "Roll",
+    "adjust",
+    "offset",
+    "count",
+    "add_tenor",
+    "spot",
+    "Schedule",
+    "DateRange",
+    "nth_weekday",
+    "last_weekday",
+    "nth_business_day",
+    "nth_day",
+    "month_ends",
+    "quarter_ends",
+    "year_ends",
+    "imm_dates",
+    "option_expiries",
+    "to_date",
+    "to_datetime",
+    "to_timestamp",
+    "session_of",
+    "session_bounds",
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT",
+    "SUN",
+    "MAX_YEAR",
+    "config",
+]
+
+
+@pytest.mark.parametrize("name", CURATED_API)
+def test_the_curated_api_of_section_13_is_complete(name):
+    import better_calendar
+
+    assert hasattr(better_calendar, name), name
+    assert name in better_calendar.__all__, name
+
+
+def test_the_package_version_matches_pyproject():
+    import re
+
+    import better_calendar
+
+    text = (Path(__file__).resolve().parents[1] / "pyproject.toml").read_text()
+    declared = re.search(r'^version = "([^"]+)"', text, re.M)
+    assert declared is not None
+    assert better_calendar.__version__ == declared.group(1)
+
+
+def test_the_example_config_is_shipped_beside_the_readme():
+    root = Path(__file__).resolve().parents[1]
+    assert (root / "better-calendar.yaml.example").exists()
+    assert (root / "README.md").exists()
+
+
+def test_no_provider_is_imported_by_any_public_entry_point():
+    """§5.3: providers are build-time only, whatever the caller touches."""
+    code = (
+        "import sys, better_calendar as bcal\n"
+        "from datetime import date\n"
+        "bcal.offset('2026-07-02', 1, cal='XNYS')\n"
+        "bcal.add_tenor('2026-01-31', '1M')\n"
+        "bcal.spot('2026-07-31', 'EUR')\n"
+        "bcal.last_weekday('2026-01-01', '2026-03-31', bcal.FRI)\n"
+        "bcal.Schedule('2026-01-15', '2027-01-15').unadjusted()\n"
+        "bcal.session_of('2026-07-31 23:30+00:00', tz='UTC')\n"
+        "print(any(m in sys.modules for m in "
+        "('exchange_calendars', 'holidays', 'QuantLib', 'workalendar')))\n"
+    )
+    out = subprocess.run(
+        [sys.executable, "-c", code], capture_output=True, text=True, check=True
+    )
+    assert out.stdout.strip() == "False"

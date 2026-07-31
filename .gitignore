@@ -19,3 +19,4 @@ htmlcov/
 
 # macOS
 .DS_Store
+dist/

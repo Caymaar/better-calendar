@@ -79,12 +79,13 @@ from better_calendar.schedule.recurrence import (
     nth_weekday,
 )
 from better_calendar.schedule.schedule import Schedule
+from better_calendar.sessions.session import at_times, session_bounds, session_of
 
 #: ``bcal.list()`` deliberately shadows the builtin inside this namespace (§13); the
 #: unshadowed name stays available as ``list_calendars`` for callers who dislike that.
 list = list_calendars
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 __all__ = [
     "DEFAULT_BOUNDS",
@@ -119,6 +120,7 @@ __all__ = [
     "adjust",
     "all_open",
     "any_open",
+    "at_times",
     "config",
     "count",
     "describe",
@@ -140,6 +142,8 @@ __all__ = [
     "quarter_ends",
     "register",
     "resolve",
+    "session_bounds",
+    "session_of",
     "sessions",
     "spot",
     "spot_lag",

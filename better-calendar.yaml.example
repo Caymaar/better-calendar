@@ -1,0 +1,42 @@
+# better-calendar organisation configuration (CLAUDE.md §5.6).
+#
+# Copy to ./better-calendar.yaml, or point $BETTER_CALENDAR_CONFIG at it.
+#
+# Reading YAML needs the `yaml` extra:  pip install 'better-calendar[yaml]'
+# An identical file named better-calendar.toml needs nothing beyond the base install.
+#
+# These calendars compose *on top of* the shipped ones. Never fork a provider calendar
+# to add a local closure — that is exactly what this file is for, and a fork silently
+# stops receiving upstream corrections.
+
+calendars:
+  # A desk that follows TARGET2 but also closes on its own days.
+  desk:paris:
+    base: fin:TARGET2
+    extra_holidays: ["2026-01-02", "2026-12-24"]
+    remove_holidays: []
+    tz: Europe/Paris
+
+  # A local view of an exchange: everything XNYS says, plus one internal closure.
+  desk:us-equities:
+    base: XNYS
+    extra_holidays: ["2026-11-27"]
+
+  # Shadowing a shipped identifier is allowed and resolves ahead of the snapshot,
+  # so existing call sites pick the local version up with no code change.
+  # XNYS:
+  #   base: XNYS
+  #   extra_holidays: ["2026-11-27"]
+
+  # A calendar built from scratch rather than from a base.
+  desk:gulf:
+    weekmask: "Sun Mon Tue Wed Thu"
+    extra_holidays: ["2026-03-20"]
+    bounds: ["2020-01-01", "2035-12-31"]
+    tz: Asia/Dubai
+
+  # Sessions that do not begin at local midnight (§9).
+  desk:fx:
+    base: fin:NYB
+    tz: America/New_York
+    session_start: "17:00"

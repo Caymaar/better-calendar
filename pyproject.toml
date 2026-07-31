@@ -1,6 +1,6 @@
 [project]
 name = "better-calendar"
-version = "0.1.0"
+version = "1.0.0"
 description = "Business-day arithmetic, calendar algebra and schedule generation, in one place."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -10,7 +10,7 @@ authors = [
 ]
 keywords = ["calendar", "business-days", "holidays", "finance", "schedule"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Financial and Insurance Industry",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -30,12 +30,17 @@ exchange = ["exchange-calendars>=4.5"]
 holidays = ["holidays>=0.40"]
 quantlib = ["QuantLib>=1.32"]
 workalendar = ["workalendar>=17.0"]
+# Reading the §5.6 organisation config: YAML always needs PyYAML, and TOML needs
+# tomli below 3.11, where tomllib is not yet in the standard library.
+config = ["PyYAML>=6.0", "tomli>=2.0; python_version < '3.11'"]
 all = [
     "pandas>=2.0",
     "exchange-calendars>=4.5",
     "holidays>=0.40",
     "QuantLib>=1.32",
     "workalendar>=17.0",
+    "PyYAML>=6.0",
+    "tomli>=2.0; python_version < '3.11'",
 ]
 
 [dependency-groups]
@@ -47,6 +52,8 @@ dev = [
     "mypy>=1.11",
     "pre-commit>=3.5",
     "pandas>=2.0",
+    "PyYAML>=6.0",
+    "tomli>=2.0; python_version < '3.11'",
 ]
 
 [build-system]
@@ -122,6 +129,8 @@ follow_untyped_imports = true
 # Provider upstreams are build-time only and ship no stubs; they are reached through
 # `require_upstream`, which hands back an untyped module on purpose.
 module = [
+    "yaml",
+    "tomli",
     "exchange_calendars", "exchange_calendars.*",
     "holidays", "holidays.*",
     "QuantLib", "QuantLib.*",

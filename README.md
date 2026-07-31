@@ -18,34 +18,20 @@ bcal.count("2026-07-27", "2026-08-01")  # 5            half-open [start, end)
 `numpy` is the only required dependency. Importing the package does not import pandas, and
 answering a query never imports a holiday provider.
 
-## Status
-
-Pre-1.0, built milestone by milestone (see `.claude/CLAUDE.md` §17).
-
-| Milestone | Scope | State |
-|---|---|---|
-| M0 | Scaffolding, ruff / mypy --strict / pytest / CI | done |
-| M1 | `core/`: epoch, type conversion and preservation, errors, `DateRange` | done |
-| M2 | `Calendar`: membership, roll conventions, offsets, counting | done |
-| M3 | Algebra, registry, `weekday` and `crypto:24x7` calendars | done |
-| M4 | Providers, snapshots, CLI | done |
-| M5 | `BDay`, tenors, spot lags, pandas interop | done |
-| M6 | Schedules and recurrences | done |
-| M7 | Sessions (`session_of`, `session_bounds`, `grid`) | not started |
-| M8 | Docs, YAML overrides, packaging, 1.0 | not started |
-
 477 calendars ship in the wheel: 59 exchanges, 251 countries, 91 QuantLib settlement and
-rate calendars, and 76 from workalendar. Sessions are the last piece.
+rate calendars, and 76 from workalendar.
 
 ## Install
 
 ```bash
 pip install better-calendar                  # numpy only
 pip install 'better-calendar[pandas]'        # DatetimeIndex / Timestamp output
+pip install 'better-calendar[config]'        # read the organisation config file
 pip install 'better-calendar[all]'           # every provider, for snapshot generation
 ```
 
-Python 3.9+.
+Python 3.9+. The provider extras are only needed to *regenerate* the holiday snapshot;
+using the shipped one needs nothing but numpy.
 
 ## What it gives you
 
@@ -183,7 +169,7 @@ The two questions that motivated the library:
 ```python
 from better_calendar import FRI, THU
 
-bcal.last_weekday("2026-01-01", "2026-12-31", FRI)              # last Friday of each month
+bcal.last_weekday("2026-01-01", "2026-12-31", FRI)  # last Friday of each month
 bcal.nth_weekday("2026-01-01", "2026-12-31", 2, THU, freq="Q")  # 2nd Thursday of each quarter
 ```
 
@@ -193,13 +179,13 @@ skipped silently rather than raising, because raising would make the API unusabl
 any real span.
 
 ```python
-bcal.nth_day("2026-01-01", "2026-03-31", -1)              # last calendar day
+bcal.nth_day("2026-01-01", "2026-03-31", -1)  # last calendar day
 bcal.nth_business_day("2026-01-01", "2026-03-31", 1, cal="XNYS")
-bcal.month_ends("2026-01-01", "2026-03-31")               # 31 Jan, 28 Feb, 31 Mar
-bcal.month_ends("2026-01-01", "2026-03-31", cal="XNYS")   # 30 Jan, 27 Feb, 31 Mar
-bcal.quarter_ends("2026-01-01", "2026-12-31", anchor_month=2)   # a fiscal year
-bcal.imm_dates("2026-01-01", "2026-12-31")                # 3rd Wed of Mar/Jun/Sep/Dec
-bcal.option_expiries("2026-01-01", "2026-12-31", cal="XNYS")    # 3rd Fri, adjusted back
+bcal.month_ends("2026-01-01", "2026-03-31")  # 31 Jan, 28 Feb, 31 Mar
+bcal.month_ends("2026-01-01", "2026-03-31", cal="XNYS")  # 30 Jan, 27 Feb, 31 Mar
+bcal.quarter_ends("2026-01-01", "2026-12-31", anchor_month=2)  # a fiscal year
+bcal.imm_dates("2026-01-01", "2026-12-31")  # 3rd Wed of Mar/Jun/Sep/Dec
+bcal.option_expiries("2026-01-01", "2026-12-31", cal="XNYS")  # 3rd Fri, adjusted back
 ```
 
 Passing `cal` to `month_ends` changes the *question*, not just the answer: without one you
@@ -210,9 +196,9 @@ get the last calendar day, with one the last business day.
 ```python
 schedule = Schedule("2026-02-28", "2026-08-31", freq="3M", cal="XNYS", eom=True)
 
-schedule.unadjusted()   # ['2026-02-28', '2026-05-31', '2026-08-31']
-schedule.dates()        # ['2026-02-27', '2026-05-29', '2026-08-31']
-schedule.periods()      # [DateRange(...), DateRange(...)]
+schedule.unadjusted()  # ['2026-02-28', '2026-05-31', '2026-08-31']
+schedule.dates()  # ['2026-02-27', '2026-05-29', '2026-08-31']
+schedule.periods()  # [DateRange(...), DateRange(...)]
 ```
 
 Generation is **two strictly separated stages**, and this is the load-bearing design
@@ -240,6 +226,58 @@ bcal.spot("2026-07-31", "CAD")  # '2026-08-04'  T+1, but Toronto is closed on th
 Lags are money-market deposit conventions and live in `data/spot_lags.toml`, so a desk
 can correct a row without a release. FX spot is a property of the *pair*, not of a
 currency, and is deliberately out of scope.
+
+### Sessions
+
+A calendar day is the interval `[session_start, session_start + 24h)` in the calendar's
+timezone — local midnight for ordinary calendars, `00:00` UTC for crypto, `17:00` New York
+for FX. That one definition answers the question that actually comes up: *which day does
+this instant belong to?*
+
+```python
+ts = pd.Timestamp("2026-07-31 23:30", tz="UTC")
+
+bcal.session_of(ts, cal="XNYS")  # date(2026, 7, 31)
+bcal.session_of(ts, tz="Europe/Paris")  # date(2026, 8, 1)  already Saturday there
+
+paris = bcal.get("XPAR")
+paris.session_bounds("2026-03-29")  # 23 hours long: the clocks went forward
+paris.grid("2026-07-31", "2026-07-31", "4h")  # anchored on session_start, not UTC midnight
+bcal.at_times(bcal.imm_dates("2026-01-01", "2026-12-31"), ["08:00", "16:00"])
+```
+
+A session really is 23 or 25 hours long across a daylight-saving transition, and that is
+reported rather than normalised away — code that assumes 24 hours is the code this exists
+to correct. (European transitions fall on Sundays, so an exchange session rarely spans
+one; a 24/7 or `session_start`-shifted calendar does.)
+
+`grid` is what prevents the classic mis-anchored resample: a four-hour grid built from UTC
+midnight cuts a Tokyo or Paris session in the wrong places.
+
+Deliberately **not** here: `is_open`, `next_open`, lunch breaks, early closes. `is_open()`
+returning `is_bday()` would be false for every exchange with an opening bell, so the day
+calendar simply does not have it.
+
+### Organisation-specific calendars
+
+A desk closes on 24 December; the euro area does not. Never fork a provider calendar for
+that — compose on top of it in `./better-calendar.yaml`, or wherever
+`$BETTER_CALENDAR_CONFIG` points:
+
+```yaml
+calendars:
+  desk:paris:
+    base: fin:TARGET2
+    extra_holidays: ["2026-01-02", "2026-12-24"]
+    tz: Europe/Paris
+```
+
+`bcal.get("desk:paris")` then resolves like any other calendar. Naming an entry after a
+shipped calendar (`XNYS: {base: XNYS, extra_holidays: [...]}`) shadows it, so existing call
+sites pick up the local version with no code change. See `better-calendar.yaml.example`.
+
+TOML works identically. Reading either format needs the `config` extra on Python < 3.11;
+on 3.11+ TOML costs nothing.
 
 ### Bounds
 
@@ -284,6 +322,20 @@ uv run pytest          # tests + doctests
 uv run ruff check .
 uv run mypy
 ```
+
+## Design notes
+
+Ten invariants hold throughout, and the ones worth knowing before you read any code:
+
+- **Frozen and hashable.** Calendars never mutate, which is what makes them safe as cache
+  keys and safe to share between threads.
+- **Finite bounds, never extrapolated.** Outside the horizon you get `OutOfBoundsError`,
+  including where an upstream's own data quietly runs out.
+- **Output type matches input type.** `date` in, `date` out, all the way through.
+- **Half-open `[start, end)` by default.** Any other convention has to be named.
+- **Set operations are named after business days, never holidays.** `a & b` is "good in
+  both", which is the union of the holiday sets — the vocabulary trap that makes this
+  worth stating twice.
 
 Doctests run as part of the suite, so every example in the docstrings is executed in CI.
 Roll conventions, membership and counting are cross-validated against `numpy.busday_offset`

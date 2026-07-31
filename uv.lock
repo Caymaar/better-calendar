@@ -70,7 +70,7 @@ wheels = [
 
 [[package]]
 name = "better-calendar"
-version = "0.1.0"
+version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "numpy", version = "2.0.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -87,8 +87,14 @@ all = [
     { name = "holidays", version = "0.101", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "pandas", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "pandas", version = "3.0.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "pyyaml" },
     { name = "quantlib" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
     { name = "workalendar" },
+]
+config = [
+    { name = "pyyaml" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
 exchange = [
     { name = "exchange-calendars", version = "4.5.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -122,7 +128,9 @@ dev = [
     { name = "pytest", version = "8.4.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "pytest", version = "9.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "pytest-cov" },
+    { name = "pyyaml" },
     { name = "ruff" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
 
 [package.metadata]
@@ -134,12 +142,16 @@ requires-dist = [
     { name = "numpy", specifier = ">=1.24" },
     { name = "pandas", marker = "extra == 'all'", specifier = ">=2.0" },
     { name = "pandas", marker = "extra == 'pandas'", specifier = ">=2.0" },
+    { name = "pyyaml", marker = "extra == 'all'", specifier = ">=6.0" },
+    { name = "pyyaml", marker = "extra == 'config'", specifier = ">=6.0" },
     { name = "quantlib", marker = "extra == 'all'", specifier = ">=1.32" },
     { name = "quantlib", marker = "extra == 'quantlib'", specifier = ">=1.32" },
+    { name = "tomli", marker = "python_full_version < '3.11' and extra == 'all'", specifier = ">=2.0" },
+    { name = "tomli", marker = "python_full_version < '3.11' and extra == 'config'", specifier = ">=2.0" },
     { name = "workalendar", marker = "extra == 'all'", specifier = ">=17.0" },
     { name = "workalendar", marker = "extra == 'workalendar'", specifier = ">=17.0" },
 ]
-provides-extras = ["pandas", "exchange", "holidays", "quantlib", "workalendar", "all"]
+provides-extras = ["pandas", "exchange", "holidays", "quantlib", "workalendar", "config", "all"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -149,7 +161,9 @@ dev = [
     { name = "pre-commit", specifier = ">=3.5" },
     { name = "pytest", specifier = ">=8.0" },
     { name = "pytest-cov", specifier = ">=5.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
     { name = "ruff", specifier = ">=0.6" },
+    { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0" },
 ]
 
 [[package]]

@@ -61,6 +61,30 @@ jobs:
               assert provider not in sys.modules, provider
           PY
 
+  wheel:
+    # The snapshot has to survive packaging, and a bare install has to answer without any
+    # provider, without pandas, and without a config reader.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - run: uv venv --python 3.9 bare
+      - run: VIRTUAL_ENV=bare uv pip install dist/*.whl
+      - run: |
+          ./bare/bin/python - <<'PY'
+          import sys
+          from datetime import date
+          import better_calendar as bcal
+          for forbidden in ("pandas", "exchange_calendars", "holidays", "QuantLib", "workalendar", "yaml"):
+              assert forbidden not in sys.modules, forbidden
+          assert bcal.offset("2026-07-02", 1, cal="XNYS") == "2026-07-06"
+          assert bcal.add_tenor("2026-02-28", "1M", eom=True) == "2026-03-31"
+          assert date(2026, 7, 31) + bcal.BDay(5) == date(2026, 8, 7)
+          assert bcal.session_of("2026-07-31 23:30+00:00", tz="Europe/Paris") == date(2026, 8, 1)
+          assert len(bcal.list()) > 400
+          PY
+
   drift-on-demand:
     # The scheduled run lives in snapshot-drift.yml; this one guards pull requests that
     # touch the providers or the committed data.
