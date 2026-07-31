@@ -1,0 +1,51 @@
+# Calendar aliases (CLAUDE.md §5.4).
+#
+# The single declarative source of truth: an alias must never be hardcoded anywhere
+# else in the package. Keys are matched case-insensitively; values must be canonical
+# identifiers (a MIC, or a `namespace:name` pair).
+#
+# Aliases are allowed to point at calendars that are not built yet — resolution
+# reports "known alias, no snapshot" rather than "unknown calendar", which is a much
+# more useful thing to read.
+
+[aliases]
+
+# --- exchanges: common colloquial names -> ISO 10383 MIC ---------------------
+NYSE = "XNYS"
+NASDAQ = "XNAS"
+LSE = "XLON"
+XETRA = "XETR"
+EURONEXT_PARIS = "XPAR"
+TSE = "XTKS"
+CME = "XCME"
+
+# --- financial centres -------------------------------------------------------
+TARGET = "fin:TARGET2"
+TARGET2 = "fin:TARGET2"
+EUR = "fin:TARGET2"
+GBP = "fin:LNB"
+LONDON = "fin:LNB"
+USD = "fin:NYB"
+NEWYORK = "fin:NYB"
+
+# --- risk-free rates ---------------------------------------------------------
+ESTR = "rate:ESTR"
+SOFR = "rate:SOFR"
+SONIA = "rate:SONIA"
+TONA = "rate:TONA"
+SARON = "rate:SARON"
+CORRA = "rate:CORRA"
+
+"rate:ESTR" = "fin:TARGET2"
+"rate:SONIA" = "fin:LNB"
+
+# --- countries ---------------------------------------------------------------
+FR = "country:FR"
+US = "country:US"
+GB = "country:GB"
+DE = "country:DE"
+JP = "country:JP"
+
+# --- always-open -------------------------------------------------------------
+CRYPTO = "crypto:24x7"
+"24x7" = "crypto:24x7"
