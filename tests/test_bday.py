@@ -298,3 +298,28 @@ def test_unknown_currency_is_actionable():
 def test_spot_lag_table_is_read_only():
     with pytest.raises(TypeError):
         bcal.SPOT_LAG["EUR"] = 99  # type: ignore[index]  # the point of the test
+
+
+def test_every_currency_has_a_usable_settlement_calendar():
+    """A spot lag whose calendar cannot answer for the present is a trap, not data.
+
+    This caught nine currencies with no alias at all, plus ILS and CNH, whose QuantLib
+    settlement calendars are tabulated and stop before today.
+    """
+    from datetime import date
+
+    unusable = {}
+    for currency in bcal.SPOT_LAG:
+        try:
+            calendar = bcal.get(currency)
+        except bcal.UnknownCalendarError:
+            unusable[currency] = "no calendar"
+            continue
+        if calendar.bounds[1] < date(2035, 12, 31):
+            unusable[currency] = f"horizon ends {calendar.bounds[1]}"
+    assert unusable == {}
+
+
+def test_spot_answers_for_every_currency_in_the_table():
+    for currency in bcal.SPOT_LAG:
+        assert bcal.spot("2026-07-31", currency)

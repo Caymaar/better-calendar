@@ -11,6 +11,11 @@
 #
 # Conventions do move. This table is data precisely so that a desk can correct a row
 # without touching code; the values below are the widely quoted defaults, not gospel.
+#
+# Every currency here must resolve to a settlement calendar through aliases.toml, and that
+# calendar must be able to answer for the present — a lag with no usable calendar is a
+# trap, not information. ILS and CNH are absent for exactly that reason: QuantLib's Israeli
+# and Chinese settlement calendars are tabulated and stop before today. A test enforces it.
 
 [lags]
 GBP = 0
@@ -19,13 +24,11 @@ CAD = 1
 
 AUD = 2
 CHF = 2
-CNH = 2
 CZK = 2
 DKK = 2
 EUR = 2
 HKD = 2
 HUF = 2
-ILS = 2
 JPY = 2
 MXN = 2
 NOK = 2

@@ -323,6 +323,20 @@ uv run ruff check .
 uv run mypy
 ```
 
+## Notebooks
+
+Six notebooks couvrent l'intégralité de l'API publique, commités avec leurs sorties et
+ré-exécutés en CI — voir [`notebooks/`](notebooks/README.md).
+
+| # | Sujet |
+|---|---|
+| 01 | Prise en main : types, roll conventions, intervalles, bornes |
+| 02 | Calendriers, registre, provenance, algèbre et son piège de vocabulaire |
+| 03 | `BDay`, interop pandas, tenors, règle de fin de mois, dates de règlement |
+| 04 | Récurrences, générateurs nommés, `Schedule` et les stubs |
+| 05 | Fuseaux, `session_of`, `session_bounds`, `grid`, `at_times` |
+| 06 | Snapshots, dérive amont, CLI, calendriers d'organisation |
+
 ## Design notes
 
 Ten invariants hold throughout, and the ones worth knowing before you read any code:

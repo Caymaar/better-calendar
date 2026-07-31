@@ -137,3 +137,18 @@ def test_free_functions_resolve_strings():
     assert bcal.is_bday("2026-08-01") is False
     assert bcal.is_bday("2026-08-01", cal="crypto:24x7") is True
     assert bcal.offset("2026-07-31", 1, cal=bcal.get("weekday")) == "2026-08-03"
+
+
+def test_every_alias_resolves():
+    """An alias pointing at a calendar that is not shipped is a silent dead end.
+
+    This caught `NASDAQ -> XNAS` and `CME -> XCME`: exchange-calendars folds both into
+    another identifier, so neither was ever in the snapshot.
+    """
+    broken = {}
+    for alias, target in aliases().items():
+        try:
+            bcal.get(alias)
+        except UnknownCalendarError:
+            broken[alias] = target
+    assert broken == {}

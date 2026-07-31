@@ -12,12 +12,12 @@
 
 # --- exchanges: common colloquial names -> ISO 10383 MIC ---------------------
 NYSE = "XNYS"
-NASDAQ = "XNAS"
+NASDAQ = "XNYS"        # exchange-calendars folds XNAS into XNYS
 LSE = "XLON"
 XETRA = "XETR"
 EURONEXT_PARIS = "XPAR"
 TSE = "XTKS"
-CME = "XCME"
+CME = "CMES"
 
 # --- financial centres -------------------------------------------------------
 TARGET = "fin:TARGET2"
@@ -36,6 +36,16 @@ SEK = "fin:STB"
 DKK = "fin:COB"
 HKD = "fin:HKB"
 SGD = "fin:SIB"
+# Currencies with no ISDA-style centre of their own resolve straight to the QuantLib
+# settlement calendar. Every currency in data/spot_lags.toml must resolve to something,
+# or `spot(d, ccy)` would have no default calendar — a test enforces that.
+TRY = "ql:Turkey"
+NZD = "ql:NewZealand.Wellington"
+CZK = "ql:CzechRepublic.PSE"
+HUF = "ql:Hungary"
+PLN = "ql:Poland.Settlement"
+MXN = "ql:Mexico.BMV"
+ZAR = "ql:SouthAfrica"
 
 # --- risk-free rates ---------------------------------------------------------
 ESTR = "rate:ESTR"

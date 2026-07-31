@@ -85,6 +85,18 @@ jobs:
           assert len(bcal.list()) > 400
           PY
 
+  notebooks:
+    # The notebooks are documentation that runs, so CI runs it. Outputs are not compared —
+    # only that every cell still executes against the current library.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras
+      - run: uv run python tools/run_notebooks.py
+
   drift-on-demand:
     # The scheduled run lives in snapshot-drift.yml; this one guards pull requests that
     # touch the providers or the committed data.
