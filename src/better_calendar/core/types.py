@@ -281,10 +281,20 @@ def _scalar_to_days(value: object, kind: Kind, tz: str | None) -> int:
     raise BetterCalendarError(f"{kind} is not a scalar kind.")
 
 
+def _pandas_containers(pandas: Any) -> tuple[type, ...]:
+    """The pandas types that carry a sequence of timestamps.
+
+    ``DatetimeArray`` is in here because of how pandas dispatches operators: writing
+    ``series + BDay(3)`` never hands us the Series, it hands us the underlying array and
+    rebuilds the container from what we return (§7.2).
+    """
+    return (pandas.Series, pandas.Index, pandas.arrays.DatetimeArray)
+
+
 def _seq_to_days(value: object, tz: str | None) -> NDArray[np.int64]:
     """Vectorised conversion for sequences, with fast paths for the array types."""
     pandas = loaded_pandas()
-    if pandas is not None and isinstance(value, (pandas.Series, pandas.Index)):
+    if pandas is not None and isinstance(value, _pandas_containers(pandas)):
         index = pandas.DatetimeIndex(value)
         if index.tz is not None:
             resolved = _resolve_tz(tz)
@@ -392,7 +402,7 @@ def _seq_from_days(days: NDArray[np.int64], like: object) -> Any:
     inside the offset does not move the clock (I5).
     """
     pandas = loaded_pandas()
-    if pandas is not None and isinstance(like, (pandas.Series, pandas.Index)):
+    if pandas is not None and isinstance(like, _pandas_containers(pandas)):
         index = pandas.DatetimeIndex(like)
         zone = index.tz
         wall = index.tz_localize(None) if zone is not None else index

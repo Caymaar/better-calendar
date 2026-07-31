@@ -24,6 +24,7 @@ __all__ = [
     "MAX_YEAR",
     "MIN_DAY",
     "MIN_YEAR",
+    "add_months",
     "date_to_days",
     "datetime64_to_days",
     "days_to_date",
@@ -133,3 +134,53 @@ def weekday_of(days: NDArray[np.int64]) -> NDArray[np.int64]:
         array([3])
     """
     return np.asarray((days + WEEKDAY_SHIFT) % 7, dtype=np.int64)
+
+
+def add_months(
+    days: NDArray[np.int64],
+    months: int,
+    *,
+    end_of_month: bool = False,
+) -> NDArray[np.int64]:
+    """Add whole months to epoch days, vectorised, with the two month-end rules (§7.3).
+
+    **Clamping** is unconditional: 31 January plus one month is 28 or 29 February, because
+    the 31st of February does not exist. **The end-of-month rule** is separate and opt-in:
+    when ``end_of_month`` is set and the input is the last day of its month, the result is
+    the last day of *its* month, so 28 February 2026 plus one month becomes 31 March
+    rather than 28 March. Keeping the two apart is the whole point — conflating them is
+    where the off-by-one-day bugs live.
+
+    Args:
+        days: ``int64`` epoch days.
+        months: Whole months to add; may be negative.
+        end_of_month: Apply the end-of-month rule on top of clamping.
+
+    Returns:
+        The shifted epoch days.
+
+    Examples:
+        >>> jan31 = np.array([date_to_days(date(2026, 1, 31))], dtype=np.int64)
+        >>> days_to_date(int(add_months(jan31, 1)[0]))            # clamped
+        datetime.date(2026, 2, 28)
+        >>> feb28 = np.array([date_to_days(date(2026, 2, 28))], dtype=np.int64)
+        >>> days_to_date(int(add_months(feb28, 1)[0]))            # no EOM rule
+        datetime.date(2026, 3, 28)
+        >>> days_to_date(int(add_months(feb28, 1, end_of_month=True)[0]))
+        datetime.date(2026, 3, 31)
+    """
+    as_days = days_to_datetime64(np.ascontiguousarray(days, dtype=np.int64))
+    source_month = as_days.astype("datetime64[M]")
+    source_first = source_month.astype("datetime64[D]")
+    day_index = (as_days - source_first).astype(np.int64)
+    source_length = ((source_month + 1).astype("datetime64[D]") - source_first).astype(np.int64)
+
+    target_month = source_month + months
+    target_first = target_month.astype("datetime64[D]")
+    target_length = ((target_month + 1).astype("datetime64[D]") - target_first).astype(np.int64)
+
+    clamped = np.minimum(day_index, target_length - 1)
+    if end_of_month:
+        clamped = np.where(day_index == source_length - 1, target_length - 1, clamped)
+    shifted = target_first + clamped.astype("timedelta64[D]")
+    return datetime64_to_days(np.ascontiguousarray(shifted))

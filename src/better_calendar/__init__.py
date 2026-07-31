@@ -43,6 +43,7 @@ from better_calendar.core.errors import (
 from better_calendar.core.range import DateRange
 from better_calendar.core.types import to_date, to_datetime, to_timestamp
 from better_calendar.functions import (
+    add_tenor,
     adjust,
     count,
     is_bday,
@@ -50,8 +51,12 @@ from better_calendar.functions import (
     offset,
     prev_bday,
     sessions,
+    spot,
 )
+from better_calendar.offsets.bday import BDay
 from better_calendar.offsets.conventions import Roll
+from better_calendar.offsets.spot import SPOT_LAG, spot_lag
+from better_calendar.offsets.tenor import Tenor, parse_tenor
 
 #: ``bcal.list()`` deliberately shadows the builtin inside this namespace (§13); the
 #: unshadowed name stays available as ``list_calendars`` for callers who dislike that.
@@ -63,7 +68,9 @@ __all__ = [
     "DEFAULT_BOUNDS",
     "MAX_YEAR",
     "MIN_YEAR",
+    "SPOT_LAG",
     "AmbiguousTimezoneError",
+    "BDay",
     "BetterCalendarError",
     "Calendar",
     "Config",
@@ -73,9 +80,11 @@ __all__ = [
     "ProviderError",
     "Roll",
     "ScheduleError",
+    "Tenor",
     "TenorParseError",
     "UnknownCalendarError",
     "__version__",
+    "add_tenor",
     "adjust",
     "all_open",
     "any_open",
@@ -88,10 +97,13 @@ __all__ = [
     "list_calendars",
     "next_bday",
     "offset",
+    "parse_tenor",
     "prev_bday",
     "register",
     "resolve",
     "sessions",
+    "spot",
+    "spot_lag",
     "to_date",
     "to_datetime",
     "to_timestamp",

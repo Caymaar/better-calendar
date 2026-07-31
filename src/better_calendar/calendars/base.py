@@ -19,9 +19,10 @@ from typing import Any, Literal, Union
 import numpy as np
 from numpy.typing import NDArray
 
-from better_calendar.core._pandas import optional_pandas
+from better_calendar.core._pandas import optional_pandas, require_pandas
 from better_calendar.core.epoch import (
     DEFAULT_BOUNDS,
+    add_months,
     date_to_days,
     datetime64_to_days,
     days_to_date,
@@ -556,6 +557,132 @@ class Calendar:
         if self._is_seq(start) or self._is_seq(end):
             return counts
         return int(counts[0])
+
+    # -- tenors ---------------------------------------------------------------
+
+    def add_tenor(
+        self,
+        value: Any,
+        tenor: str,
+        *,
+        roll: RollLike = Roll.NONE,
+        eom: bool = False,
+        tz: str | None = None,
+    ) -> Any:
+        """Add a tenor expression such as ``"3M"``, ``"2B"`` or ``"1Y+2B"``.
+
+        Terms are applied **left to right**, and the order matters: ``"1M+2B"`` is not
+        ``"2B+1M"`` in general. Month and year terms clamp to the end of the target month;
+        ``eom`` additionally applies the end-of-month rule. See
+        :mod:`better_calendar.offsets.tenor` for both.
+
+        Business-day terms move through this calendar, rolling forward first if they start
+        from a non-business day — the same order :meth:`offset` uses. ``roll`` is applied
+        once, to the final result.
+
+        Args:
+            value: A date-like scalar or sequence.
+            tenor: The tenor expression, case-insensitive.
+            roll: How to adjust the final result; ``Roll.NONE`` by default, because a
+                tenor is a period and adjusting it is a separate decision.
+            eom: Apply the end-of-month rule to month and year terms.
+            tz: Timezone used to project aware inputs; defaults to :attr:`tz`.
+
+        Returns:
+            The same type as ``value`` (I6).
+
+        Raises:
+            TenorParseError: If the expression does not match the grammar.
+
+        Examples:
+            >>> cal = Calendar("weekday")
+            >>> cal.add_tenor("2026-01-31", "1M")            # clamped into February
+            '2026-02-28'
+            >>> cal.add_tenor("2026-02-28", "1M", eom=True)  # end-of-month rule
+            '2026-03-31'
+            >>> cal.add_tenor("2026-07-31", "2B")            # Friday, two business days
+            '2026-08-04'
+            >>> cal.add_tenor("2026-05-31", "1M", roll="MF") # land on a business day
+            '2026-06-30'
+        """
+        from better_calendar.offsets.tenor import parse_tenor
+
+        parsed = parse_tenor(tenor)
+        days = self._days(value, tz=tz)
+        for term in parsed.terms:
+            days = self._apply_term(days, term.unit, term.count, eom=eom)
+        return self._restore(self._adjust_days(days, Roll.parse(roll)), value)
+
+    def _apply_term(
+        self, days: NDArray[np.int64], unit: str, count: int, *, eom: bool
+    ) -> NDArray[np.int64]:
+        """Apply one tenor term to an array of epoch days."""
+        if unit == "D":
+            shifted = days + count
+        elif unit == "W":
+            shifted = days + 7 * count
+        elif unit == "M":
+            shifted = add_months(days, count, end_of_month=eom)
+        elif unit == "Y":
+            shifted = add_months(days, 12 * count, end_of_month=eom)
+        else:  # "B" — the only unit that needs the calendar itself
+            base = self._adjust_days(days, Roll.FOLLOWING)
+            index = np.searchsorted(self._good, base, side="left") + count
+            if ((index < 0) | (index >= self._good.size)).any():
+                raise OutOfBoundsError.for_offset(f"{count}B", self.bounds, self.name)
+            return np.asarray(self._good[index], dtype=np.int64)
+        self._check_bounds(shifted)
+        return np.asarray(shifted, dtype=np.int64)
+
+    def bday(self, n: int = 1, *, roll: RollLike = Roll.FOLLOWING) -> Any:
+        """A :class:`~better_calendar.offsets.bday.BDay` bound to this calendar.
+
+        Args:
+            n: Number of business days the offset moves.
+            roll: How to normalise a non-business day before moving.
+
+        Returns:
+            An offset object usable as ``some_date + cal.bday(3)``.
+
+        Examples:
+            >>> from datetime import date
+            >>> date(2026, 7, 31) + Calendar("weekday").bday(1)
+            datetime.date(2026, 8, 3)
+        """
+        from better_calendar.offsets.bday import BDay
+
+        return BDay(n, cal=self, roll=Roll.parse(roll))
+
+    def to_pandas_offset(self) -> Any:
+        """This calendar as a real :class:`pandas.offsets.CustomBusinessDay`.
+
+        For pandas machinery that insists on a genuine ``DateOffset`` — ``date_range``,
+        ``resample``, ``rolling`` with a frequency. It is markedly slower than
+        :meth:`offset`, because pandas walks day by day rather than indexing into a sorted
+        array, so reach for it only when interoperability demands it.
+
+        **The two disagree when the starting date is not a business day.** ``offset``
+        normalises first and then moves ``n`` days, which is what ``numpy.busday_offset``
+        does; ``CustomBusinessDay`` treats the normalisation as the move, so adding one
+        business day to a Saturday lands on Monday rather than Tuesday. Neither is wrong,
+        but they are not interchangeable — start from a business day, or use
+        :meth:`offset` and be explicit about ``roll``.
+
+        Returns:
+            A ``CustomBusinessDay`` with this calendar's weekmask and holidays.
+
+        Raises:
+            ProviderError: If pandas is not installed.
+
+        Examples:
+            >>> offset = Calendar("weekday").to_pandas_offset()
+            >>> type(offset).__name__
+            'CustomBusinessDay'
+        """
+        pandas = require_pandas("to_pandas_offset()")
+        return pandas.offsets.CustomBusinessDay(
+            weekmask=self.weekmask, holidays=list(self.holidays)
+        )
 
     # -- introspection ------------------------------------------------------
 

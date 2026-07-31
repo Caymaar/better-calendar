@@ -29,13 +29,13 @@ Pre-1.0, built milestone by milestone (see `.claude/CLAUDE.md` §17).
 | M2 | `Calendar`: membership, roll conventions, offsets, counting | done |
 | M3 | Algebra, registry, `weekday` and `crypto:24x7` calendars | done |
 | M4 | Providers, snapshots, CLI | done |
-| M5 | `BDay`, tenors, spot lags, pandas interop | not started |
+| M5 | `BDay`, tenors, spot lags, pandas interop | done |
 | M6 | Schedules and recurrences | not started |
 | M7 | Sessions (`session_of`, `session_bounds`, `grid`) | not started |
 | M8 | Docs, YAML overrides, packaging, 1.0 | not started |
 
 477 calendars ship in the wheel: 59 exchanges, 251 countries, 91 QuantLib settlement and
-rate calendars, and 76 from workalendar. Schedules, tenors and sessions are still ahead.
+rate calendars, and 76 from workalendar. Schedules and sessions are still ahead.
 
 ## Install
 
@@ -125,17 +125,68 @@ everything is UTC. It is the library's only global state.
 ### Named calendars
 
 ```python
-bcal.get("XNYS")                       # by MIC
-bcal.get("NYSE")                       # or by alias
-bcal.offset("2026-07-02", 1, cal="XNYS")     # '2026-07-06', skipping 3 July
-bcal.is_bday("2026-04-06", cal="EUR")        # False: Easter Monday, TARGET2 closed
-bcal.list(provider="quantlib")               # what came from where
+bcal.get("XNYS")  # by MIC
+bcal.get("NYSE")  # or by alias
+bcal.offset("2026-07-02", 1, cal="XNYS")  # '2026-07-06', skipping 3 July
+bcal.is_bday("2026-04-06", cal="EUR")  # False: Easter Monday, TARGET2 closed
+bcal.list(provider="quantlib")  # what came from where
 ```
 
 Identifiers are namespaced: a bare four-letter name is an ISO-10383 MIC (`XNYS`, `XPAR`),
 and everything else is prefixed — `country:FR`, `fin:TARGET2`, `rate:SOFR`, `ql:` for any
 QuantLib class and market, `wk:` for workalendar, `crypto:24x7`. Aliases live in one
 declarative table, so `NYSE`, `TARGET`, `EUR` and `SONIA` all resolve.
+
+### Tenors
+
+```python
+bcal.add_tenor("2026-01-31", "1M")                 # '2026-02-28'  clamped
+bcal.add_tenor("2026-02-28", "1M", eom=True)       # '2026-03-31'  end-of-month rule
+bcal.add_tenor("2026-07-31", "1Y+2B", cal="XNYS")  # '2027-08-04'
+```
+
+Grammar: `term (('+' | '-') term)*` where a term is `[-] INT unit` and the units are `D`
+calendar days, `B` business days, `W` weeks, `M` months, `Y` years. Terms apply **left to
+right**, and the order matters — `"1M+2B"` is not `"2B+1M"`.
+
+Two month-end rules, deliberately kept apart because conflating them is where the
+off-by-one-day bugs live. **Clamping** is unconditional: 31 January plus a month is 28
+February, because 31 February does not exist. **The end-of-month rule** is opt-in: with
+`eom=True`, a date that is the last of its month lands on the last of the target month.
+
+### Offsets as objects
+
+```python
+from better_calendar import BDay
+
+date(2026, 7, 31) + BDay(5)              # datetime.date(2026, 8, 7)
+"2026-07-02" + BDay(1, cal="XNYS")       # '2026-07-06'
+series + BDay(3, cal="XNYS")             # works, but see below
+```
+
+`cal.offset(series, 3)` is the recommended form for containers — same answer, shorter
+path. `BDay` exists for the places an offset *object* reads best. For pandas machinery
+that demands a real `DateOffset` (`date_range`, `resample`), use
+`cal.to_pandas_offset()`; note that it and `cal.offset` disagree when the start is not a
+business day, because pandas counts the normalisation as the move and we do not.
+
+Importing `better_calendar.integrations.pandas_` registers a `.cal` accessor:
+
+```python
+trades["settles"] = trades["traded"].cal.offset(2, cal="XNYS")
+```
+
+### Settlement
+
+```python
+bcal.spot("2026-07-31", "EUR")     # '2026-08-04'  T+2 in TARGET2
+bcal.spot("2026-07-31", "GBP")     # '2026-07-31'  sterling settles same day
+bcal.spot("2026-07-31", "CAD")     # '2026-08-04'  T+1, but Toronto is closed on the 3rd
+```
+
+Lags are money-market deposit conventions and live in `data/spot_lags.toml`, so a desk
+can correct a row without a release. FX spot is a property of the *pair*, not of a
+currency, and is deliberately out of scope.
 
 ### Bounds
 
@@ -144,9 +195,9 @@ Nothing is ever extrapolated — and the horizon is what the upstream can actual
 for, not what was asked:
 
 ```python
-bcal.get("XTKS").bounds        # (1997-01-01, 2100-12-31)  Tokyo data starts in 1997
-bcal.get("XHKG").bounds        # (1970-01-01, 2049-12-31)  Hong Kong data ends in 2049
-bcal.get("ql:Israel.TASE")     # stops in 2025: the Hebrew calendar table ends there
+bcal.get("XTKS").bounds  # (1997-01-01, 2100-12-31)  Tokyo data starts in 1997
+bcal.get("XHKG").bounds  # (1970-01-01, 2049-12-31)  Hong Kong data ends in 2049
+bcal.get("ql:Israel.TASE")  # stops in 2025: the Hebrew calendar table ends there
 ```
 
 That last one matters. Lunar, Hebrew and Islamic holidays are tabulated rather than
