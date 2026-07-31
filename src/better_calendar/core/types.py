@@ -46,6 +46,7 @@ __all__ = [
     "DateLike",
     "DateSeqLike",
     "Kind",
+    "days_to_index",
     "from_days",
     "kind_of",
     "to_date",
@@ -568,3 +569,27 @@ def bounds_as_days(bounds: tuple[date, date]) -> tuple[int, int]:
         (0, 30)
     """
     return date_to_days(bounds[0]), date_to_days(bounds[1])
+
+
+def days_to_index(days: NDArray[np.int64]) -> Any:
+    """Present epoch days as the library's standard multi-date result type.
+
+    A ``DatetimeIndex`` when pandas is available, a ``datetime64[D]`` array when it is
+    not — the degradation I6 allows. Every function that returns *several* dates goes
+    through here, so they all agree.
+
+    Args:
+        days: ``int64`` epoch days.
+
+    Returns:
+        A ``DatetimeIndex`` or a ``datetime64[D]`` array.
+
+    Examples:
+        >>> len(days_to_index(np.array([20665, 20668], dtype=np.int64)))
+        2
+    """
+    values = days_to_datetime64(np.ascontiguousarray(days, dtype=np.int64))
+    pandas = optional_pandas()
+    if pandas is None:  # pragma: no cover - depends on the environment
+        return values
+    return pandas.DatetimeIndex(values)

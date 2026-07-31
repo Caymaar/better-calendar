@@ -19,7 +19,7 @@ from typing import Any, Literal, Union
 import numpy as np
 from numpy.typing import NDArray
 
-from better_calendar.core._pandas import optional_pandas, require_pandas
+from better_calendar.core._pandas import require_pandas
 from better_calendar.core.epoch import (
     DEFAULT_BOUNDS,
     add_months,
@@ -34,7 +34,15 @@ from better_calendar.core.errors import (
     NotABusinessDayError,
     OutOfBoundsError,
 )
-from better_calendar.core.types import DateLike, DateSeqLike, Kind, from_days, kind_of, to_days
+from better_calendar.core.types import (
+    DateLike,
+    DateSeqLike,
+    Kind,
+    days_to_index,
+    from_days,
+    kind_of,
+    to_days,
+)
 from better_calendar.offsets.conventions import Roll, RollLike
 
 __all__ = ["WEEKMASK_ALL", "WEEKMASK_WEEKDAYS", "Calendar"]
@@ -709,7 +717,7 @@ class Calendar:
         last = int(self._days(end, tz=tz)[0])
         lo = int(np.searchsorted(self._good, first, side=start_side))
         hi = int(np.searchsorted(self._good, last, side=end_side))
-        return _as_index(self._good[lo:hi])
+        return days_to_index(self._good[lo:hi])
 
     def holidays_between(self, start: Any, end: Any, *, closed: str = "left") -> Any:
         """The holidays between two dates, half-open ``[start, end)`` by default.
@@ -735,7 +743,7 @@ class Calendar:
         days = datetime64_to_days(self.holidays)
         lower = first if closed in ("left", "both") else first + 1
         upper = last if closed in ("right", "both") else last - 1
-        return _as_index(days[(days >= lower) & (days <= upper)])
+        return days_to_index(days[(days >= lower) & (days <= upper)])
 
     def sessions(self) -> Any:
         """Every business day inside :attr:`bounds`.
@@ -748,7 +756,7 @@ class Calendar:
             >>> len(cal.sessions())
             22
         """
-        return _as_index(self._good)
+        return days_to_index(self._good)
 
     def describe(self) -> dict[str, Any]:
         """A provenance and shape summary, suitable for logging or a CLI.
@@ -955,12 +963,3 @@ def _month_index(days: NDArray[np.int64]) -> NDArray[np.int64]:
     """Months since the epoch, so that "same month" is one integer comparison."""
     months = days_to_datetime64(np.ascontiguousarray(days)).astype("datetime64[M]")
     return np.ascontiguousarray(months).view(np.int64)
-
-
-def _as_index(days: NDArray[np.int64]) -> Any:
-    """Return day numbers as a ``DatetimeIndex``, degrading to numpy if pandas is absent."""
-    values = days_to_datetime64(np.ascontiguousarray(days))
-    pandas = optional_pandas()
-    if pandas is None:  # pragma: no cover - depends on the environment
-        return values
-    return pandas.DatetimeIndex(values)

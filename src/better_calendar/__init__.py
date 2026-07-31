@@ -57,6 +57,28 @@ from better_calendar.offsets.bday import BDay
 from better_calendar.offsets.conventions import Roll
 from better_calendar.offsets.spot import SPOT_LAG, spot_lag
 from better_calendar.offsets.tenor import Tenor, parse_tenor
+from better_calendar.schedule.generators import (
+    imm_dates,
+    month_ends,
+    option_expiries,
+    quarter_ends,
+    year_ends,
+)
+from better_calendar.schedule.recurrence import (
+    FRI,
+    MON,
+    SAT,
+    SUN,
+    THU,
+    TUE,
+    WED,
+    Weekday,
+    last_weekday,
+    nth_business_day,
+    nth_day,
+    nth_weekday,
+)
+from better_calendar.schedule.schedule import Schedule
 
 #: ``bcal.list()`` deliberately shadows the builtin inside this namespace (§13); the
 #: unshadowed name stays available as ``list_calendars`` for callers who dislike that.
@@ -66,9 +88,16 @@ __version__ = "0.1.0"
 
 __all__ = [
     "DEFAULT_BOUNDS",
+    "FRI",
     "MAX_YEAR",
     "MIN_YEAR",
+    "MON",
+    "SAT",
     "SPOT_LAG",
+    "SUN",
+    "THU",
+    "TUE",
+    "WED",
     "AmbiguousTimezoneError",
     "BDay",
     "BetterCalendarError",
@@ -79,10 +108,12 @@ __all__ = [
     "OutOfBoundsError",
     "ProviderError",
     "Roll",
+    "Schedule",
     "ScheduleError",
     "Tenor",
     "TenorParseError",
     "UnknownCalendarError",
+    "Weekday",
     "__version__",
     "add_tenor",
     "adjust",
@@ -92,13 +123,21 @@ __all__ = [
     "count",
     "describe",
     "get",
+    "imm_dates",
     "is_bday",
+    "last_weekday",
     "list",
     "list_calendars",
+    "month_ends",
     "next_bday",
+    "nth_business_day",
+    "nth_day",
+    "nth_weekday",
     "offset",
+    "option_expiries",
     "parse_tenor",
     "prev_bday",
+    "quarter_ends",
     "register",
     "resolve",
     "sessions",
@@ -108,4 +147,5 @@ __all__ = [
     "to_datetime",
     "to_timestamp",
     "unregister",
+    "year_ends",
 ]

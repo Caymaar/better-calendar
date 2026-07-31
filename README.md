@@ -30,12 +30,12 @@ Pre-1.0, built milestone by milestone (see `.claude/CLAUDE.md` §17).
 | M3 | Algebra, registry, `weekday` and `crypto:24x7` calendars | done |
 | M4 | Providers, snapshots, CLI | done |
 | M5 | `BDay`, tenors, spot lags, pandas interop | done |
-| M6 | Schedules and recurrences | not started |
+| M6 | Schedules and recurrences | done |
 | M7 | Sessions (`session_of`, `session_bounds`, `grid`) | not started |
 | M8 | Docs, YAML overrides, packaging, 1.0 | not started |
 
 477 calendars ship in the wheel: 59 exchanges, 251 countries, 91 QuantLib settlement and
-rate calendars, and 76 from workalendar. Schedules and sessions are still ahead.
+rate calendars, and 76 from workalendar. Sessions are the last piece.
 
 ## Install
 
@@ -140,8 +140,8 @@ declarative table, so `NYSE`, `TARGET`, `EUR` and `SONIA` all resolve.
 ### Tenors
 
 ```python
-bcal.add_tenor("2026-01-31", "1M")                 # '2026-02-28'  clamped
-bcal.add_tenor("2026-02-28", "1M", eom=True)       # '2026-03-31'  end-of-month rule
+bcal.add_tenor("2026-01-31", "1M")  # '2026-02-28'  clamped
+bcal.add_tenor("2026-02-28", "1M", eom=True)  # '2026-03-31'  end-of-month rule
 bcal.add_tenor("2026-07-31", "1Y+2B", cal="XNYS")  # '2027-08-04'
 ```
 
@@ -159,9 +159,9 @@ February, because 31 February does not exist. **The end-of-month rule** is opt-i
 ```python
 from better_calendar import BDay
 
-date(2026, 7, 31) + BDay(5)              # datetime.date(2026, 8, 7)
-"2026-07-02" + BDay(1, cal="XNYS")       # '2026-07-06'
-series + BDay(3, cal="XNYS")             # works, but see below
+date(2026, 7, 31) + BDay(5)  # datetime.date(2026, 8, 7)
+"2026-07-02" + BDay(1, cal="XNYS")  # '2026-07-06'
+series + BDay(3, cal="XNYS")  # works, but see below
 ```
 
 `cal.offset(series, 3)` is the recommended form for containers — same answer, shorter
@@ -176,12 +176,65 @@ Importing `better_calendar.integrations.pandas_` registers a `.cal` accessor:
 trades["settles"] = trades["traded"].cal.offset(2, cal="XNYS")
 ```
 
+### Recurrences
+
+The two questions that motivated the library:
+
+```python
+from better_calendar import FRI, THU
+
+bcal.last_weekday("2026-01-01", "2026-12-31", FRI)              # last Friday of each month
+bcal.nth_weekday("2026-01-01", "2026-12-31", 2, THU, freq="Q")  # 2nd Thursday of each quarter
+```
+
+`n` is 1-based and **negative counts from the end** — `-1` is "last", `-2` "second to
+last". If a period has no such occurrence (February rarely has a fifth Friday) it is
+skipped silently rather than raising, because raising would make the API unusable over
+any real span.
+
+```python
+bcal.nth_day("2026-01-01", "2026-03-31", -1)              # last calendar day
+bcal.nth_business_day("2026-01-01", "2026-03-31", 1, cal="XNYS")
+bcal.month_ends("2026-01-01", "2026-03-31")               # 31 Jan, 28 Feb, 31 Mar
+bcal.month_ends("2026-01-01", "2026-03-31", cal="XNYS")   # 30 Jan, 27 Feb, 31 Mar
+bcal.quarter_ends("2026-01-01", "2026-12-31", anchor_month=2)   # a fiscal year
+bcal.imm_dates("2026-01-01", "2026-12-31")                # 3rd Wed of Mar/Jun/Sep/Dec
+bcal.option_expiries("2026-01-01", "2026-12-31", cal="XNYS")    # 3rd Fri, adjusted back
+```
+
+Passing `cal` to `month_ends` changes the *question*, not just the answer: without one you
+get the last calendar day, with one the last business day.
+
+### Schedules
+
+```python
+schedule = Schedule("2026-02-28", "2026-08-31", freq="3M", cal="XNYS", eom=True)
+
+schedule.unadjusted()   # ['2026-02-28', '2026-05-31', '2026-08-31']
+schedule.dates()        # ['2026-02-27', '2026-05-29', '2026-08-31']
+schedule.periods()      # [DateRange(...), DateRange(...)]
+```
+
+Generation is **two strictly separated stages**, and this is the load-bearing design
+decision. `unadjusted()` is pure calendar arithmetic — no calendar, no holidays, no roll
+convention. Only `dates()` applies `cal.adjust`.
+
+The reason is reconciliation. A downstream system holding a trade booked last year needs
+to know its 15 March coupon is the same contractual date as ours, even if a holiday moved
+when it actually pays. If the unadjusted schedule depended on holiday data, regenerating a
+snapshot would make the *contract* appear to change.
+
+Stubs handle terms that do not divide evenly: `short_front` (the default), `long_front`,
+`short_back`, `long_back`, or `none` to refuse. A *front* stub anchors the regular grid on
+the end date and generates backwards, so coupons land on maturity rather than drifting
+away from it.
+
 ### Settlement
 
 ```python
-bcal.spot("2026-07-31", "EUR")     # '2026-08-04'  T+2 in TARGET2
-bcal.spot("2026-07-31", "GBP")     # '2026-07-31'  sterling settles same day
-bcal.spot("2026-07-31", "CAD")     # '2026-08-04'  T+1, but Toronto is closed on the 3rd
+bcal.spot("2026-07-31", "EUR")  # '2026-08-04'  T+2 in TARGET2
+bcal.spot("2026-07-31", "GBP")  # '2026-07-31'  sterling settles same day
+bcal.spot("2026-07-31", "CAD")  # '2026-08-04'  T+1, but Toronto is closed on the 3rd
 ```
 
 Lags are money-market deposit conventions and live in `data/spot_lags.toml`, so a desk
