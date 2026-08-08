@@ -33,6 +33,25 @@ pip install 'better-calendar[all]'           # every provider, for snapshot gene
 Python 3.9+. The provider extras are only needed to *regenerate* the holiday snapshot;
 using the shipped one needs nothing but numpy.
 
+## Documentation
+
+- **[docs/reference.md](docs/reference.md)** — every public function, the dependency story,
+  and the design decisions behind the parts that are easy to get wrong.
+- **[docs/calendar-data.md](docs/calendar-data.md)** — where the holiday data comes from,
+  why it is frozen, how an upstream correction reaches you, and how to add your own
+  closures.
+- **[notebooks/](notebooks/README.md)** — six runnable notebooks covering the whole public
+  API, committed with their outputs and re-executed in CI.
+
+| # | Notebook |
+|---|---|
+| 01 | Getting started: types, roll conventions, intervals, bounds |
+| 02 | Calendars, registry, provenance, algebra and its vocabulary trap |
+| 03 | `BDay`, pandas interop, tenors, the month-end rules, settlement dates |
+| 04 | The `schedule` engine, named shortcuts, coupon schedules and stubs |
+| 05 | Timezones, `session_of`, `session_bounds`, `grid`, `at_times` |
+| 06 | Snapshots, upstream drift, the CLI, organisation calendars |
+
 ## What it gives you
 
 ### Type transparency
@@ -168,11 +187,11 @@ Every dated rule is **two independent decisions**: how to cut the window into pe
 what to take from each one. `schedule()` is those two decisions and nothing else.
 
 ```python
-bcal.schedule(a, b, "M", "last FRI")                    # last Friday of each month
-bcal.schedule(a, b, "Q", "2 THU")                       # 2nd Thursday of each quarter
-bcal.schedule(a, b, "M", "last B", cal="XNYS")          # last trading day of each month
-bcal.schedule(a, b, "M", "3 WED", months=(3, 6, 9, 12)) # IMM dates
-bcal.schedule(a, b, "6M", "edges", cal="XNYS", roll="MF")   # a coupon schedule
+bcal.schedule(a, b, "M", "last FRI")  # last Friday of each month
+bcal.schedule(a, b, "Q", "2 THU")  # 2nd Thursday of each quarter
+bcal.schedule(a, b, "M", "last B", cal="XNYS")  # last trading day of each month
+bcal.schedule(a, b, "M", "3 WED", months=(3, 6, 9, 12))  # IMM dates
+bcal.schedule(a, b, "6M", "edges", cal="XNYS", roll="MF")  # a coupon schedule
 ```
 
 **`every`** cuts: `D`, `W`, `M`, `Q`, `Y`, or a multiple. A bare unit aligns to the
@@ -196,13 +215,14 @@ The named helpers are one-line spellings of the same engine, and a test pins eac
 equivalence so the claim cannot rot:
 
 ```python
-bcal.last_weekday(a, b, FRI)              # == schedule(a, b, "M", "last FRI")
-bcal.month_ends(a, b)                     # == schedule(a, b, "M", "last")
-bcal.month_ends(a, b, cal="XNYS")         # == schedule(a, b, "M", "last B", cal="XNYS")
-bcal.quarter_ends(a, b, anchor_month=2)   # a fiscal year
-bcal.imm_dates(a, b)                      # == schedule(a, b, "M", "3 WED", months=…)
-bcal.option_expiries(a, b, cal="XNYS")    # 3rd Friday, rolled back off a holiday
-bcal.nth_day(a, b, -1)  ;  bcal.nth_business_day(a, b, 1, cal="XNYS")
+bcal.last_weekday(a, b, FRI)  # == schedule(a, b, "M", "last FRI")
+bcal.month_ends(a, b)  # == schedule(a, b, "M", "last")
+bcal.month_ends(a, b, cal="XNYS")  # == schedule(a, b, "M", "last B", cal="XNYS")
+bcal.quarter_ends(a, b, anchor_month=2)  # a fiscal year
+bcal.imm_dates(a, b)  # == schedule(a, b, "M", "3 WED", months=…)
+bcal.option_expiries(a, b, cal="XNYS")  # 3rd Friday, rolled back off a holiday
+bcal.nth_day(a, b, -1)
+bcal.nth_business_day(a, b, 1, cal="XNYS")
 ```
 
 #### Coupon schedules
@@ -217,7 +237,7 @@ bcal.schedule("2026-02-28", "2027-08-31", "6M", "edges", eom=True)
 bcal.schedule("2026-02-28", "2027-08-31", "6M", "edges", eom=True, cal="XNYS", roll="MF")
 # ['2026-02-27', '2026-08-31', '2027-02-26', '2027-08-31']   when it actually pays
 
-bcal.periods("2026-01-15", "2027-01-15", "3M", cal="XNYS", roll="MF")   # DateRange list
+bcal.periods("2026-01-15", "2027-01-15", "3M", cal="XNYS", roll="MF")  # DateRange list
 ```
 
 **Nothing lets the calendar in until you pass `roll`.** That separation is the load-bearing
@@ -337,20 +357,6 @@ uv run pytest          # tests + doctests
 uv run ruff check .
 uv run mypy
 ```
-
-## Notebooks
-
-Six notebooks couvrent l'intégralité de l'API publique, commités avec leurs sorties et
-ré-exécutés en CI — voir [`notebooks/`](notebooks/README.md).
-
-| # | Sujet |
-|---|---|
-| 01 | Prise en main : types, roll conventions, intervalles, bornes |
-| 02 | Calendriers, registre, provenance, algèbre et son piège de vocabulaire |
-| 03 | `BDay`, interop pandas, tenors, règle de fin de mois, dates de règlement |
-| 04 | Récurrences, générateurs nommés, `Schedule` et les stubs |
-| 05 | Fuseaux, `session_of`, `session_bounds`, `grid`, `at_times` |
-| 06 | Snapshots, dérive amont, CLI, calendriers d'organisation |
 
 ## Design notes
 

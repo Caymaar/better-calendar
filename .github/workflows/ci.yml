@@ -1,8 +1,8 @@
 name: CI
 
+# Pushes to main are covered by release.yml, which gates publication on the same checks.
+# Running both there would duplicate every job.
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 

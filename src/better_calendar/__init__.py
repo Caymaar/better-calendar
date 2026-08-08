@@ -86,7 +86,7 @@ from better_calendar.sessions.session import at_times, session_bounds, session_o
 #: unshadowed name stays available as ``list_calendars`` for callers who dislike that.
 list = list_calendars
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 __all__ = [
     "DEFAULT_BOUNDS",
