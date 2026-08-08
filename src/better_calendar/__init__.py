@@ -78,7 +78,8 @@ from better_calendar.schedule.recurrence import (
     nth_day,
     nth_weekday,
 )
-from better_calendar.schedule.schedule import Schedule
+from better_calendar.schedule.schedule import periods, schedule
+from better_calendar.schedule.selector import EDGES, Nth, parse_selector
 from better_calendar.sessions.session import at_times, session_bounds, session_of
 
 #: ``bcal.list()`` deliberately shadows the builtin inside this namespace (§13); the
@@ -89,6 +90,7 @@ __version__ = "1.0.0"
 
 __all__ = [
     "DEFAULT_BOUNDS",
+    "EDGES",
     "FRI",
     "MAX_YEAR",
     "MIN_YEAR",
@@ -106,10 +108,10 @@ __all__ = [
     "Config",
     "DateRange",
     "NotABusinessDayError",
+    "Nth",
     "OutOfBoundsError",
     "ProviderError",
     "Roll",
-    "Schedule",
     "ScheduleError",
     "Tenor",
     "TenorParseError",
@@ -137,11 +139,14 @@ __all__ = [
     "nth_weekday",
     "offset",
     "option_expiries",
+    "parse_selector",
     "parse_tenor",
+    "periods",
     "prev_bday",
     "quarter_ends",
     "register",
     "resolve",
+    "schedule",
     "session_bounds",
     "session_of",
     "sessions",

@@ -162,58 +162,73 @@ Importing `better_calendar.integrations.pandas_` registers a `.cal` accessor:
 trades["settles"] = trades["traded"].cal.offset(2, cal="XNYS")
 ```
 
-### Recurrences
+### Recurrences and schedules
 
-The two questions that motivated the library:
-
-```python
-from better_calendar import FRI, THU
-
-bcal.last_weekday("2026-01-01", "2026-12-31", FRI)  # last Friday of each month
-bcal.nth_weekday("2026-01-01", "2026-12-31", 2, THU, freq="Q")  # 2nd Thursday of each quarter
-```
-
-`n` is 1-based and **negative counts from the end** — `-1` is "last", `-2` "second to
-last". If a period has no such occurrence (February rarely has a fifth Friday) it is
-skipped silently rather than raising, because raising would make the API unusable over
-any real span.
+Every dated rule is **two independent decisions**: how to cut the window into periods, and
+what to take from each one. `schedule()` is those two decisions and nothing else.
 
 ```python
-bcal.nth_day("2026-01-01", "2026-03-31", -1)  # last calendar day
-bcal.nth_business_day("2026-01-01", "2026-03-31", 1, cal="XNYS")
-bcal.month_ends("2026-01-01", "2026-03-31")  # 31 Jan, 28 Feb, 31 Mar
-bcal.month_ends("2026-01-01", "2026-03-31", cal="XNYS")  # 30 Jan, 27 Feb, 31 Mar
-bcal.quarter_ends("2026-01-01", "2026-12-31", anchor_month=2)  # a fiscal year
-bcal.imm_dates("2026-01-01", "2026-12-31")  # 3rd Wed of Mar/Jun/Sep/Dec
-bcal.option_expiries("2026-01-01", "2026-12-31", cal="XNYS")  # 3rd Fri, adjusted back
+bcal.schedule(a, b, "M", "last FRI")                    # last Friday of each month
+bcal.schedule(a, b, "Q", "2 THU")                       # 2nd Thursday of each quarter
+bcal.schedule(a, b, "M", "last B", cal="XNYS")          # last trading day of each month
+bcal.schedule(a, b, "M", "3 WED", months=(3, 6, 9, 12)) # IMM dates
+bcal.schedule(a, b, "6M", "edges", cal="XNYS", roll="MF")   # a coupon schedule
 ```
 
-Passing `cal` to `month_ends` changes the *question*, not just the answer: without one you
-get the last calendar day, with one the last business day.
+**`every`** cuts: `D`, `W`, `M`, `Q`, `Y`, or a multiple. A bare unit aligns to the
+calendar, a multiple aligns to `start` — so `"Q"` and `"3M"` are both three months and
+deliberately different.
 
-### Schedules
+**`on`** selects: `"1"`, `"15"`, `"last"`, `"-2"` for calendar days; `"1 B"`, `"last B"`
+for business days; `"2 THU"`, `"last FRI"`, `"-2 WED"` for weekdays; `"edges"` for the
+period boundaries. Negative counts from the end throughout. Pass a list for several at
+once, or the typed `Nth(-1, FRI)` when a string in a config file is not what you want.
+
+Business days and calendar days are **two independent axes**: `on="last B"` *counts*
+business days, `roll=` *moves* a result onto one. They agree more often than not, which is
+exactly why the difference has to be written down.
+
+`missing=` says what to do when a period has no such occurrence — `"skip"` (the default,
+because February rarely has a fifth Friday), `"clamp"` (which makes "the 31st of each
+month" a one-liner), or `"raise"`.
+
+The named helpers are one-line spellings of the same engine, and a test pins each
+equivalence so the claim cannot rot:
 
 ```python
-schedule = Schedule("2026-02-28", "2026-08-31", freq="3M", cal="XNYS", eom=True)
-
-schedule.unadjusted()  # ['2026-02-28', '2026-05-31', '2026-08-31']
-schedule.dates()  # ['2026-02-27', '2026-05-29', '2026-08-31']
-schedule.periods()  # [DateRange(...), DateRange(...)]
+bcal.last_weekday(a, b, FRI)              # == schedule(a, b, "M", "last FRI")
+bcal.month_ends(a, b)                     # == schedule(a, b, "M", "last")
+bcal.month_ends(a, b, cal="XNYS")         # == schedule(a, b, "M", "last B", cal="XNYS")
+bcal.quarter_ends(a, b, anchor_month=2)   # a fiscal year
+bcal.imm_dates(a, b)                      # == schedule(a, b, "M", "3 WED", months=…)
+bcal.option_expiries(a, b, cal="XNYS")    # 3rd Friday, rolled back off a holiday
+bcal.nth_day(a, b, -1)  ;  bcal.nth_business_day(a, b, 1, cal="XNYS")
 ```
 
-Generation is **two strictly separated stages**, and this is the load-bearing design
-decision. `unadjusted()` is pure calendar arithmetic — no calendar, no holidays, no roll
-convention. Only `dates()` applies `cal.adjust`.
+#### Coupon schedules
 
-The reason is reconciliation. A downstream system holding a trade booked last year needs
-to know its 15 March coupon is the same contractual date as ours, even if a holiday moved
-when it actually pays. If the unadjusted schedule depended on holiday data, regenerating a
-snapshot would make the *contract* appear to change.
+`on="edges"` returns the period **boundaries** rather than a day inside each period, with
+stub handling for terms that do not divide evenly:
 
-Stubs handle terms that do not divide evenly: `short_front` (the default), `long_front`,
-`short_back`, `long_back`, or `none` to refuse. A *front* stub anchors the regular grid on
-the end date and generates backwards, so coupons land on maturity rather than drifting
-away from it.
+```python
+bcal.schedule("2026-02-28", "2027-08-31", "6M", "edges", eom=True)
+# ['2026-02-28', '2026-08-31', '2027-02-28', '2027-08-31']   contractual
+
+bcal.schedule("2026-02-28", "2027-08-31", "6M", "edges", eom=True, cal="XNYS", roll="MF")
+# ['2026-02-27', '2026-08-31', '2027-02-26', '2027-08-31']   when it actually pays
+
+bcal.periods("2026-01-15", "2027-01-15", "3M", cal="XNYS", roll="MF")   # DateRange list
+```
+
+**Nothing lets the calendar in until you pass `roll`.** That separation is the load-bearing
+decision: a downstream system holding a trade booked last year needs to know its 15 March
+coupon is the same contractual date as yours, even if a holiday moved when it pays. If the
+contractual dates depended on holiday data, regenerating a snapshot would make the
+*contract* appear to change.
+
+Stubs: `short_front` (the default), `long_front`, `short_back`, `long_back`, or `none` to
+refuse. A *front* stub anchors the regular grid on the end date and generates backwards, so
+coupons land on maturity rather than drifting away from it.
 
 ### Settlement
 

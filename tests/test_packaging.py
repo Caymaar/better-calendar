@@ -115,7 +115,10 @@ CURATED_API = [
     "count",
     "add_tenor",
     "spot",
-    "Schedule",
+    # §13 lists `Schedule`; the class was replaced by the `schedule()` function, which
+    # covers it through `on="edges"` — see the M9 commit for why.
+    "schedule",
+    "periods",
     "DateRange",
     "nth_weekday",
     "last_weekday",
@@ -177,7 +180,7 @@ def test_no_provider_is_imported_by_any_public_entry_point():
         "bcal.add_tenor('2026-01-31', '1M')\n"
         "bcal.spot('2026-07-31', 'EUR')\n"
         "bcal.last_weekday('2026-01-01', '2026-03-31', bcal.FRI)\n"
-        "bcal.Schedule('2026-01-15', '2027-01-15').unadjusted()\n"
+        "bcal.schedule('2026-01-15', '2027-01-15', '6M', 'edges')\n"
         "bcal.session_of('2026-07-31 23:30+00:00', tz='UTC')\n"
         "print(any(m in sys.modules for m in "
         "('exchange_calendars', 'holidays', 'QuantLib', 'workalendar')))\n"

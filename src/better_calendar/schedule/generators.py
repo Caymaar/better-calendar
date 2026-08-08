@@ -1,28 +1,20 @@
-"""Named date generators built on the recurrence rules (§8).
+"""Named date generators — the recurrences that already have a name (§8).
 
-Period ends, IMM dates and option expiries: the handful of recurrences with names, which
-otherwise get re-derived slightly differently in every codebase that needs them.
+Like :mod:`~better_calendar.schedule.recurrence`, each of these is one line over
+:func:`~better_calendar.schedule.schedule.schedule`. They exist so that the handful of
+recurrences with a name do not get re-derived slightly differently in every codebase that
+needs them.
 """
 
 from __future__ import annotations
 
 from typing import Any
 
-import numpy as np
-
 from better_calendar.calendars.registry import CalendarLike
 from better_calendar.core.types import DateLike
 from better_calendar.offsets.conventions import Roll, RollLike
-from better_calendar.schedule.recurrence import (
-    WED,
-    _finish,
-    _window,
-    month_of,
-    nth_business_day,
-    nth_day,
-    periods,
-    weekday_within,
-)
+from better_calendar.schedule.schedule import schedule
+from better_calendar.schedule.selector import FRI, WED, Nth
 
 __all__ = [
     "imm_dates",
@@ -37,16 +29,11 @@ _IMM_MONTHS = (3, 6, 9, 12)
 
 
 def _period_ends(
-    start: DateLike,
-    end: DateLike,
-    freq: str,
-    cal: CalendarLike,
-    anchor_month: int | None,
+    start: DateLike, end: DateLike, every: str, cal: CalendarLike, anchor_month: int | None
 ) -> Any:
     """Last day of each period — calendar day without a calendar, business day with one."""
-    if cal is None:
-        return nth_day(start, end, -1, freq=freq, anchor_month=anchor_month)
-    return nth_business_day(start, end, -1, freq=freq, cal=cal, anchor_month=anchor_month)
+    selector = Nth(-1, "B") if cal is not None else Nth(-1)
+    return schedule(start, end, every, selector, cal=cal, anchor_month=anchor_month)
 
 
 def month_ends(start: DateLike, end: DateLike, *, cal: CalendarLike = None) -> Any:
@@ -54,7 +41,8 @@ def month_ends(start: DateLike, end: DateLike, *, cal: CalendarLike = None) -> A
 
     ``cal`` changes the question rather than merely adjusting the answer: without one you
     get the last *calendar* day, with one the last *business* day. 31 January 2026 is a
-    Saturday, so the two differ.
+    Saturday, so the two differ. Written out, the two calls are
+    ``schedule(s, e, "M", "last")`` and ``schedule(s, e, "M", "last B", cal=...)``.
 
     Args:
         start: First day of the window.
@@ -125,8 +113,9 @@ def year_ends(
 def imm_dates(start: DateLike, end: DateLike) -> Any:
     """IMM dates: the third Wednesday of March, June, September and December.
 
-    The third Wednesday of the quarter's *last* month, not of the quarter — those are
+    The third Wednesday of the quarter's *last month*, not of the quarter — those are
     different dates, and the distinction is worth stating because it is easy to get wrong.
+    Written out: ``schedule(s, e, "M", "3 WED", months=(3, 6, 9, 12))``.
 
     Args:
         start: First day of the window.
@@ -139,12 +128,7 @@ def imm_dates(start: DateLike, end: DateLike) -> Any:
         >>> list(imm_dates("2026-01-01", "2026-12-31").strftime("%Y-%m-%d"))
         ['2026-03-18', '2026-06-17', '2026-09-16', '2026-12-16']
     """
-    window = _window(start, end)
-    starts, ends = periods(*window, "M")
-    keep = np.isin(month_of(starts), _IMM_MONTHS)
-    starts, ends = starts[keep], ends[keep]
-    found = weekday_within(starts, ends, 3, WED)
-    return _finish(found, (found >= starts) & (found <= ends), window, None, Roll.NONE)
+    return schedule(start, end, "M", Nth(3, WED), months=_IMM_MONTHS)
 
 
 def option_expiries(
@@ -177,6 +161,4 @@ def option_expiries(
         >>> list(option_expiries("2022-04-01", "2022-04-30", cal="XNYS").strftime("%m-%d"))
         ['04-14']
     """
-    from better_calendar.schedule.recurrence import FRI, nth_weekday
-
-    return nth_weekday(start, end, 3, FRI, freq="M", cal=cal, roll=roll)
+    return schedule(start, end, "M", Nth(3, FRI), cal=cal, roll=roll)
