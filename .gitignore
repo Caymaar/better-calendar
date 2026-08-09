@@ -20,3 +20,6 @@ htmlcov/
 # macOS
 .DS_Store
 dist/
+
+# Claude
+.claude/
