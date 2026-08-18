@@ -241,7 +241,28 @@ calendars:
   XNYS:
     base: XNYS
     extra_holidays: ["2026-11-27"]
+
+  # A desk settling across two centres: `base` takes a list, `base_op` says how to
+  # combine them. Required as soon as there is more than one, and never defaulted —
+  # the two readings are exact opposites (see Calendar algebra).
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open        # good in *both*; closed as soon as either closes
+    tz: Europe/Paris
 ```
+
+| Key | Meaning |
+|---|---|
+| `base` | One identifier, or a list of them. Omit to build from scratch. |
+| `base_op` | `all_open` or `any_open`. **Required** with a list, rejected without one. |
+| `extra_holidays` / `remove_holidays` | Local closures and reopenings, applied on top. |
+| `tz`, `session_start`, `weekmask`, `bounds` | Override what the base provides. |
+
+A composite base follows the algebra rules: bounds are the **intersection** of the
+operands', and `tz` / `session_start` are dropped unless every operand agrees — set them on
+the entry when the desk needs instant semantics. `difference` and `symmetric_difference`
+are not available here, being binary and order-sensitive; compose those in Python, where
+the operand order is visible.
 
 TOML works identically. Reading either format needs the `config` extra on Python < 3.11; on
 3.11+ TOML costs nothing. A configuration file that cannot be read raises rather than being

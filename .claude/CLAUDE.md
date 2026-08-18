@@ -297,6 +297,30 @@ calendars:
     tz: Europe/Paris
 ```
 
+`base` also accepts a **list**, composed with the §6 algebra — the usual shape for a desk
+settling across two financial centres:
+
+```yaml
+calendars:
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open      # good in *both*; closed as soon as either closes
+    tz: Europe/Paris
+```
+
+`base_op` is `all_open` or `any_open`, and is **required whenever `base` lists more than
+one calendar** — never defaulted. The two readings are exact opposites (§6), and guessing
+one would silently pick a settlement convention on the caller's behalf. `difference` and
+`symmetric_difference` are deliberately not exposed here: they are binary and
+order-sensitive, which a mapping gives the reader no cue about. Compose those in Python.
+
+A name in the list may be the entry's own (`XNYS: {base: [XNYS, fin:LNB], ...}`), and
+resolves from beneath the configuration layer, exactly as the scalar form does.
+
+Composite bases follow §6 throughout: bounds are the intersection of the operands', and
+`tz`/`session_start` are dropped unless every operand agrees — set them explicitly in the
+entry when the desk needs instant semantics.
+
 ---
 
 ## 6. Calendar algebra

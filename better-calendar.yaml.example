@@ -28,6 +28,25 @@ calendars:
   #   base: XNYS
   #   extra_holidays: ["2026-11-27"]
 
+  # A desk settling across two financial centres. `base` takes a list, and `base_op`
+  # says how to combine them:
+  #
+  #   all_open  -- good in *every* one; closed as soon as any of them closes. The
+  #                settlement case, and what you almost always want here.
+  #   any_open  -- good in *at least one*.
+  #
+  # `base_op` is required as soon as `base` names more than one calendar, and is never
+  # defaulted: the two readings are exact opposites, and picking one for you would
+  # silently choose a settlement convention on your behalf.
+  #
+  # Bounds become the intersection of the operands', and tz/session_start are dropped
+  # unless every operand agrees — set them here when the desk needs instant semantics.
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open
+    extra_holidays: ["2026-12-24"]
+    tz: Europe/Paris
+
   # A calendar built from scratch rather than from a base.
   desk:gulf:
     weekmask: "Sun Mon Tue Wed Thu"

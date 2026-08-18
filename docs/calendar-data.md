@@ -278,6 +278,23 @@ calendars:
 `bcal.get("desk:paris")` then resolves like any other calendar, inherits everything TARGET2
 closes, and keeps receiving upstream corrections to that base.
 
+When the desk settles across two centres, `base` takes a list and `base_op` says how to
+combine them:
+
+```yaml
+calendars:
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open              # good in *both*; closed as soon as either closes
+    tz: Europe/Paris
+```
+
+`base_op` is required as soon as `base` names more than one calendar, and is never
+defaulted. `all_open` and `any_open` are exact opposites, and which one a desk means is not
+something to guess on its behalf — the same trap the algebra chapter spells out. Both
+operands keep receiving upstream corrections, which is the whole point of not flattening
+their holidays into `extra_holidays` by hand.
+
 Naming an entry after a shipped calendar **shadows** it, so a whole codebase picks up the
 local version without a single call site changing:
 

@@ -227,6 +227,145 @@ calendars:
         bcal.get("desk:broken")
 
 
+# --- several bases at once (§6) ------------------------------------------------
+
+
+MULTI_BASE_CONFIG = """
+calendars:
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open
+    extra_holidays: ["2026-12-24"]
+    tz: Europe/Paris
+  desk:either:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: any_open
+"""
+
+
+def test_all_open_closes_when_either_base_closes(configured):
+    """The settlement case: a day must be good in both centres to be good on the desk."""
+    configured(MULTI_BASE_CONFIG)
+    target2 = bcal.get("fin:TARGET2")
+    london = bcal.get("fin:LNB")
+    desk = bcal.get("desk:eurgbp")
+
+    # 31 August 2026 is the UK summer bank holiday; the euro area works.
+    assert (target2.is_bday("2026-08-31"), london.is_bday("2026-08-31")) == (True, False)
+    assert desk.is_bday("2026-08-31") is False
+    # 1 May 2026 is the other way round.
+    assert (target2.is_bday("2026-05-01"), london.is_bday("2026-05-01")) == (False, True)
+    assert desk.is_bday("2026-05-01") is False
+    # And a day both centres work stays good.
+    assert desk.is_bday("2026-09-01") is True
+
+
+def test_any_open_is_the_opposite_reading(configured):
+    configured(MULTI_BASE_CONFIG)
+    desk = bcal.get("desk:either")
+    assert desk.is_bday("2026-08-31") is True
+    assert desk.is_bday("2026-05-01") is True
+
+
+def test_extra_holidays_still_apply_on_top_of_a_composite(configured):
+    configured(MULTI_BASE_CONFIG)
+    assert bcal.get("desk:eurgbp").is_bday("2026-12-24") is False
+
+
+def test_a_composite_records_both_bases_in_its_provenance(configured):
+    configured(MULTI_BASE_CONFIG)
+    assert bcal.get("desk:eurgbp").provider == "custom"
+    assert bcal.get("desk:eurgbp").provider_version == "fin:TARGET2 & fin:LNB"
+    assert bcal.get("desk:either").provider_version == "fin:TARGET2 | fin:LNB"
+
+
+def test_a_composite_takes_the_intersection_of_the_bounds(configured):
+    configured(
+        """
+calendars:
+  desk:narrow:
+    base: [fin:TARGET2, desk:short]
+    base_op: all_open
+  desk:short:
+    base: fin:LNB
+    bounds: ["2020-01-01", "2035-12-31"]
+"""
+    )
+    assert bcal.get("desk:narrow").bounds == (date(2020, 1, 1), date(2035, 12, 31))
+
+
+def test_a_composite_has_no_timezone_unless_the_entry_gives_one(configured):
+    """§6: a composite spanning zones has no instant semantics — but the config may add one."""
+    configured(MULTI_BASE_CONFIG)
+    assert bcal.get("desk:either").tz is None
+    assert bcal.get("desk:eurgbp").tz == "Europe/Paris"
+
+
+def test_a_base_list_may_mention_the_entry_itself(configured):
+    """`XNYS: {base: [XNYS, ...]}` must resolve beneath the config layer, not recurse."""
+    configured(
+        """
+calendars:
+  XNYS:
+    base: [XNYS, fin:LNB]
+    base_op: all_open
+"""
+    )
+    desk = bcal.get("XNYS")
+    assert desk.provider_version == "XNYS & fin:LNB"
+    # 31 August 2026: NYSE trades, London does not.
+    assert desk.is_bday("2026-08-31") is False
+
+
+def test_a_self_base_with_nothing_shipped_beneath_is_reported(configured):
+    configured(
+        """
+calendars:
+  desk:orphan:
+    base: ["desk:orphan", fin:LNB]
+    base_op: all_open
+"""
+    )
+    with pytest.raises(BetterCalendarError, match="itself as its base"):
+        bcal.get("desk:orphan")
+
+
+def test_several_bases_without_an_operation_are_refused(configured):
+    """The two readings are exact opposites, so silence is not an option (§6)."""
+    configured(
+        """
+calendars:
+  desk:silent:
+    base: [fin:TARGET2, fin:LNB]
+"""
+    )
+    with pytest.raises(BetterCalendarError, match="does not say how"):
+        bcal.get("desk:silent")
+
+
+@pytest.mark.parametrize(
+    ("spec", "message"),
+    [
+        ("base: [fin:TARGET2, fin:LNB]\n    base_op: difference", "not a known operation"),
+        ("base: fin:TARGET2\n    base_op: all_open", "names a single calendar"),
+        ("base_op: all_open", "no 'base' to apply it to"),
+        ("base: [fin:TARGET2]\n    base_op: all_open", "at least two"),
+    ],
+)
+def test_malformed_base_combinations_are_refused(configured, spec, message):
+    configured(f"calendars:\n  desk:broken:\n    {spec}\n")
+    with pytest.raises(BetterCalendarError, match=message):
+        bcal.get("desk:broken")
+
+
+def test_a_single_string_base_is_unchanged(configured):
+    """The pre-existing form keeps its exact behaviour, provenance included."""
+    configured(YAML_CONFIG)
+    desk = bcal.get("desk:paris")
+    assert desk.provider_version == "fin:TARGET2"
+    assert desk.bounds == bcal.get("fin:TARGET2").bounds
+
+
 def test_a_malformed_session_start_is_reported(configured):
     configured(
         """

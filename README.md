@@ -311,6 +311,20 @@ calendars:
 shipped calendar (`XNYS: {base: XNYS, extra_holidays: [...]}`) shadows it, so existing call
 sites pick up the local version with no code change. See `better-calendar.yaml.example`.
 
+A desk settling across two centres gives `base` a list and says how to combine them:
+
+```yaml
+calendars:
+  desk:eurgbp:
+    base: [fin:TARGET2, fin:LNB]
+    base_op: all_open   # good in *both*; closed as soon as either closes
+    tz: Europe/Paris
+```
+
+`base_op` (`all_open` or `any_open`) is required as soon as `base` lists more than one
+calendar. It is never defaulted, because the two readings are opposites — see
+[Calendar algebra](#calendar-algebra).
+
 TOML works identically. Reading either format needs the `config` extra on Python < 3.11;
 on 3.11+ TOML costs nothing.
 
