@@ -23,3 +23,6 @@ dist/
 
 # Claude
 .claude/
+
+# Local development instructions, not part of the distribution
+.claude/
