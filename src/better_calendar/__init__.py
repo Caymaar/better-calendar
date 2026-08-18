@@ -18,6 +18,9 @@ provider (§14). Only ``numpy`` is required.
 
 from __future__ import annotations
 
+from importlib.metadata import PackageNotFoundError as _PackageNotFound
+from importlib.metadata import version as _distribution_version
+
 from better_calendar.calendars.algebra import all_open, any_open
 from better_calendar.calendars.base import Calendar
 from better_calendar.calendars.registry import (
@@ -86,7 +89,13 @@ from better_calendar.sessions.session import at_times, session_bounds, session_o
 #: unshadowed name stays available as ``list_calendars`` for callers who dislike that.
 list = list_calendars
 
-__version__ = "1.0.1"
+# Read from the installed distribution metadata rather than duplicated here. The release
+# workflow bumps pyproject.toml only, so a hardcoded literal would drift on every release —
+# a test caught exactly that after v2.0.0.
+try:
+    __version__ = _distribution_version("better-calendar")
+except _PackageNotFound:  # pragma: no cover - running from a source tree, not installed
+    __version__ = "0.0.0.dev0"
 
 __all__ = [
     "DEFAULT_BOUNDS",
